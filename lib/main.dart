@@ -1,6 +1,6 @@
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/common/cubits/theme/theme_cubit.dart';
-import 'package:ride_options_2/common/cubits/theme/theme_state.dart';
+import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
+import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,9 +21,7 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (_) => ThemeCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
-              listener: (context, state) {
-                // TODO: implement listener
-              },
+              listener: (context, state) {},
               builder: (context, state) {
                 return MaterialApp(
                   title: 'Ride Options',
