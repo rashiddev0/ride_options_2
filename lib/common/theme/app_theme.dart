@@ -4,6 +4,7 @@ const colorPrimary = Colors.deepOrangeAccent;
 const colorAccent = Colors.orange;
 
 ThemeData lightTheme = ThemeData(
+  useMaterial3: true,
   brightness: Brightness.light,
   primaryColor: const Color(0xff6D41A2),
   disabledColor: const Color(0xff9E9FA4),
