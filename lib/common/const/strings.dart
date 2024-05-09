@@ -1,5 +1,6 @@
 class AppStrings {
   static const String rideOptions = 'Ride Options';
+  static const String appLogoPNG = 'assets/imgs/appLogo.png';
   static const String subklaye = 'سب کیلۓ';
   static const String passenger = 'Passenger';
   static const String driver = 'Driver';
