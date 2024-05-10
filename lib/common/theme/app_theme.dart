@@ -3,11 +3,24 @@ import 'package:ride_options_2/common/const/export.dart';
 const colorPrimary = Colors.deepOrangeAccent;
 const colorAccent = Colors.orange;
 
+
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
+  fontFamily: "Nunito",
   brightness: Brightness.light,
   primaryColor: const Color(0xff6D41A2),
+  scaffoldBackgroundColor: const Color(0xffF3F3F3),
   disabledColor: const Color(0xff9E9FA4),
+  textTheme: TextTheme(
+    headlineMedium: TextStyle(
+        fontSize: 24.sp,
+        color: const Color(0xff2A2A2A),
+        fontWeight: FontWeight.w600),
+    headlineSmall: TextStyle(
+        fontSize: 14.sp,
+        color: const Color(0xffA0A0A0),
+        fontWeight: FontWeight.w500),
+  ),
   floatingActionButtonTheme:
       const FloatingActionButtonThemeData(backgroundColor: colorAccent),
   elevatedButtonTheme: ElevatedButtonThemeData(
@@ -29,7 +42,19 @@ ThemeData lightTheme = ThemeData(
 );
 //**************************** This section for dark theme *********************** */
 ThemeData darkTheme = ThemeData(
+  useMaterial3: true,
+  fontFamily: "Nunito",
   brightness: Brightness.dark,
+  textTheme: TextTheme(
+    headlineMedium: TextStyle(
+        fontSize: 24.sp,
+        color: Colors.white,
+        fontWeight: FontWeight.w600),
+    headlineSmall: TextStyle(
+        fontSize: 14.sp,
+        color: const Color(0xffA0A0A0),
+        fontWeight: FontWeight.w500),
+  ),
   switchTheme: SwitchThemeData(
     trackColor: MaterialStateProperty.all<Color>(Colors.grey),
     thumbColor: MaterialStateProperty.all<Color>(Colors.white),
@@ -51,3 +76,5 @@ ThemeData darkTheme = ThemeData(
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
           overlayColor: MaterialStateProperty.all<Color>(Colors.black26))),
 );
+
+ThemeData systemTheme = lightTheme;

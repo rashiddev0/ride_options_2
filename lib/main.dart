@@ -1,4 +1,5 @@
 import 'package:ride_options_2/common/const/export.dart';
+import 'package:ride_options_2/common/screens/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
           return MultiBlocProvider(
             providers: [
               BlocProvider(create: (_) => ThemeCubit()),
+              BlocProvider(create: (_) => OnboardCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},
