@@ -1,8 +1,10 @@
 import 'package:flutter_svg/svg.dart';
 
-import '../../const/colors.dart';
-import '../../const/export.dart';
-import '../../const/strings.dart';
+import '../../../../common/const/colors.dart';
+import '../../../../common/const/export.dart';
+import '../../../../common/const/strings.dart';
+
+
 
 class AccountType extends StatelessWidget {
   const AccountType({super.key});

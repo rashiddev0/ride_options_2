@@ -1,6 +1,6 @@
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
-import 'package:ride_options_2/common/onboarding/cubits/onboard_cubit.dart';
+import 'package:ride_options_2/features/onboarding/presentation/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 

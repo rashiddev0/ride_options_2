@@ -1,7 +1,8 @@
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/common/auth/account_type/account_type.dart';
-import 'package:ride_options_2/common/onboarding/onboard_one.dart';
-import 'package:ride_options_2/common/splash_screen/splash_screen.dart';
+import 'package:ride_options_2/features/auth/account_type/presentation/account_type.dart';
+import 'package:ride_options_2/features/onboarding/presentation/onboard_one.dart';
+import 'package:ride_options_2/features/splash_screen/splash_screen.dart';
+
 
 class AppRoute {
   static const splashScreen = '/splash_screen';
