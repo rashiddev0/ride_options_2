@@ -34,6 +34,10 @@ dependencies:
   flutter_bloc: ^8.1.5
   cupertino_icons: ^1.0.6
   flutter_screenutil: ^5.9.0
+  shared_preferences: ^2.2.3
+  flutter_localizations:
+    sdk: flutter
+  intl: any
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +51,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true # Add this line
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

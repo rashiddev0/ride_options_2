@@ -47,7 +47,7 @@ ThemeData darkTheme = ThemeData(
           shape: MaterialStateProperty.all<OutlinedBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
           backgroundColor: MaterialStateProperty.all<Color>(
-              Color.fromARGB(255, 197, 163, 240)),
+              const Color.fromARGB(255, 197, 163, 240)),
           foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
           overlayColor: MaterialStateProperty.all<Color>(Colors.black26))),
 );
