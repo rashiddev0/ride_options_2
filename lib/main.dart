@@ -1,5 +1,6 @@
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
+import 'package:ride_options_2/common/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
             providers: [
               BlocProvider(create: (_) => ThemeCubit()),
               BlocProvider(create: (_) => LocalizationCubit()),
+              BlocProvider(create: (_) => OnboardCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
                     return MaterialApp(
                       debugShowCheckedModeBanner: true,
                       title: 'Ride Options',
+
                       themeMode: ThemeMode.system,
                       theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
                               true
