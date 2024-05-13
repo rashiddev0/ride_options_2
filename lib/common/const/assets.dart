@@ -4,5 +4,6 @@ class AppAssets {
   static const onboardingTwo = 'assets/imgs/onboardingTwo.svg';
   static const onboardingThree = 'assets/imgs/onboardingThree.svg';
   static const proQuestion = 'assets/imgs/proQuestion.svg';
-  static const passengerIcon = 'assets/icons/icPassengerSelected.svg';
+  static const passengerIcon = 'assets/imgs/passenger.svg';
+  static const driverIcon = 'assets/imgs/driver.svg';
 }
