@@ -1,7 +1,10 @@
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/features/auth/account_type/presentation/account_type.dart';
-import 'package:ride_options_2/features/onboarding/presentation/onboard_one.dart';
-import 'package:ride_options_2/features/splash_screen/splash_screen.dart';
+
+import 'package:ride_options_2/driver_features/onboarding/presentation/onboard_one.dart';
+import 'package:ride_options_2/driver_features/splash_screen/splash_screen.dart';
+
+import 'package:ride_options_2/driver_features/auth/presentation/account_type.dart';
+
 
 
 class AppRoute {
