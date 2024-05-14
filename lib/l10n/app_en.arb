@@ -1,4 +1,26 @@
 {
-   "rideOptions": "Ride Options",
-    "pakistan":"Pakistan"
+  "rideOptions": "Ride Options",
+  "pakistan": "Pakistan",
+  "skip": "Skip",
+  "anywhereYouAre": "Anywhere you are",
+  "sellHouseEasilly": "Sell houses easily with the help of Listenoryx and to make this line bigI am writing more.",
+  "atAnytime": "At anytime",
+  "bookYourCar": "Book your car",
+  "chooseOne": "Choose one",
+  "howDoYouWant":
+  "How do you wanna use this app. Choose the desired the option.",
+  "passenger": "Passenger",
+  "driver": "Driver",
+  "next": "Next",
+  "phoneNumber": "Phone number",
+  "enterYourPhone": "Enter your phone number",
+  "bySigningUp": "By signing up. you agree to the",
+  "termsOfService": "Terms of service",
+  "and": "and",
+  "privacyPolicy": "Privacy policy",
+  "phoneVerification": "Phone verification",
+  "enterYourOtp": "Enter your OTP code",
+  "didtReceiveCode": "Did’t receive code?",
+  "resendAgain": "Resend again"
+
 }

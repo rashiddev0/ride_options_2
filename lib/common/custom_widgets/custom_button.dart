@@ -6,10 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomButton extends StatelessWidget {
   final String title;
   double? titleSize;
-  double? borderRadius;
+  IconData? icon;
+  //double? borderRadius;
   final VoidCallback? onTap;
 
-  Color? bgColor;
+  //Color? bgColor;
   Color? textColor;
   Color? borderColor;
 
@@ -17,8 +18,9 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.title,
     required this.onTap,
-    required this.borderRadius,
-    this.bgColor,
+    this.icon,
+    //required this.borderRadius,
+    //this.bgColor,
     this.textColor,
     this.borderColor,
     this.titleSize,
@@ -26,20 +28,22 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         elevation: 0,
         //minimumSize: Size(337.w, 54.h),
-        backgroundColor: bgColor,
+        //backgroundColor: bgColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(borderRadius!.r),
+          borderRadius: BorderRadius.circular(16.r),
           side: onTap == null
               ? BorderSide.none
               : BorderSide(width: 1.w, color: borderColor!),
         ),
       ),
       onPressed: onTap,
-      child: Text(
+      icon: Icon(icon,color: textColor,size: 18.sp,),
+
+      label: Text(
         title, //size: 16.sp, color: textColor
         style: TextStyle(fontSize: titleSize, color: textColor),
       ),

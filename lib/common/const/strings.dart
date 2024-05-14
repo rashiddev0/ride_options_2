@@ -1,7 +1,5 @@
 class AppStrings {
   static const String rideOptions = 'Ride Options';
-  static const String appLogoPNG = 'assets/imgs/appLogo.png';
-  static const String subklaye = 'سب کیلۓ';
   static const String anywhereYouAre = 'Anywhere you are';
   static const String sellHouseEasilly  = 'Sell houses easily with the help of Listenoryx and to make this line bigI am writing more.';
   static const String atAnytime  = 'At anytime';

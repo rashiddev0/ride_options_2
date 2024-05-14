@@ -4,6 +4,7 @@ import 'onboard_state.dart';
 
 class OnboardCubit extends Cubit<OnboardState> {
   int boardingIndex = 0;
+
   OnboardCubit() : super(OnboardState().init());
 
   getBoardingIndex(){

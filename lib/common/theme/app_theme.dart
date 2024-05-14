@@ -19,6 +19,18 @@ ThemeData lightTheme = ThemeData(
         color: const Color(0xffA0A0A0),
         fontWeight: FontWeight.w500),
   ),
+
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      elevation: 0,
+      minimumSize: Size(337.w, 54.h),
+      backgroundColor: const Color(0xff6D41A2),
+      disabledBackgroundColor: const Color(0x256d41a2),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.r),
+      ),
+    ),
+  ),
   //****************** This section for AppBar********************* */
   appBarTheme:
       const AppBarTheme(backgroundColor: whiteColor, centerTitle: true),
@@ -39,10 +51,21 @@ ThemeData darkTheme = ThemeData(
         color: const Color(0xffA0A0A0),
         fontWeight: FontWeight.w500),
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      elevation: 0,
+      minimumSize: Size(337.w, 54.h),
+      backgroundColor: const Color(0xff6D41A2),
+      disabledBackgroundColor: const Color(0x256d41a2),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16.r),
+      ),
+    ),
+  ),
 );
 
 
-// ThemeData systemTheme = lightTheme;
+ThemeData systemTheme = lightTheme;
 
 
 

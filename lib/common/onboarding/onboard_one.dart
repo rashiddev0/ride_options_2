@@ -34,17 +34,14 @@ class OnBoardOne extends StatelessWidget {
                                   width: 1.w,
                                   color: Theme.of(context).primaryColor)),
                           child: Text(
-                            "Skip",
+                            AppLocalizations.of(context)!.skip,
                             style: TextStyle(
                                 color: Theme.of(context).primaryColor),
                           ),
                         ),
                         onTap: () {
-                          onboardCubit.getBoardingIndex();
-                          if (onboardCubit.boardingIndex == 3) {
-                            Navigator.pushNamedAndRemoveUntil(context,
-                                AppRoute.accountType, (route) => false);
-                          }
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, AppRoute.accountType, (route) => false);
                         }),
                   ),
                   SvgPicture.asset(
@@ -58,17 +55,17 @@ class OnBoardOne extends StatelessWidget {
                   addHeight(34.h),
                   Text(
                       onboardCubit.boardingIndex == 0
-                          ? AppStrings.anywhereYouAre
+                          ? AppLocalizations.of(context)!.anywhereYouAre
                           : onboardCubit.boardingIndex == 1
-                              ? AppStrings.atAnytime
-                              : AppStrings.bookYourCar,
+                              ? AppLocalizations.of(context)!.atAnytime
+                              : AppLocalizations.of(context)!.bookYourCar,
                       style: Theme.of(context).textTheme.headlineMedium,
                       textAlign: TextAlign.center),
                   addHeight(12.h),
                   SizedBox(
                     width: 280.w,
                     child: Text(
-                      AppStrings.sellHouseEasilly,
+                      AppLocalizations.of(context)!.sellHouseEasilly,
                       style: Theme.of(context).textTheme.headlineSmall,
                       textAlign: TextAlign.center,
                     ),

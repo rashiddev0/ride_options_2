@@ -1,12 +1,17 @@
+import 'package:ride_options_2/common/auth/otp/otp.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/auth/account_type/account_type.dart';
 import 'package:ride_options_2/common/onboarding/onboard_one.dart';
 import 'package:ride_options_2/common/splash_screen/splash_screen.dart';
 
+import '../common/auth/number/number_screen.dart';
+
 class AppRoute {
   static const splashScreen = '/splash_screen';
   static const onboardingOne = '/onboard_one';
   static const accountType = '/account_type';
+  static const numberScreen = '/number_screen';
+  static const otpScreen = '/otp';
 
   static Route<Object>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -25,6 +30,18 @@ class AppRoute {
       case accountType:
         return MaterialPageRoute(
           builder: (_) => const AccountType(),
+          settings: settings,
+        );
+
+      case numberScreen:
+        return MaterialPageRoute(
+          builder: (_) => const NumberScreen(),
+          settings: settings,
+        );
+
+      case otpScreen:
+        return MaterialPageRoute(
+          builder: (_) => const OTPScreen(),
           settings: settings,
         );
 
