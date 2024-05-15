@@ -1,4 +1,4 @@
-
+import 'package:flutter_svg/svg.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_state.dart';
