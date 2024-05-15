@@ -1,10 +1,10 @@
-import 'package:ride_options_2/common/auth/otp/otp.dart';
+import 'package:ride_options_2/common_features/auth/presentation/view/otp/otp.dart';
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/common/auth/account_type/account_type.dart';
-import 'package:ride_options_2/common/onboarding/onboard_one.dart';
-import 'package:ride_options_2/common/splash_screen/splash_screen.dart';
+import 'package:ride_options_2/common_features/auth/presentation/view/account_type/account_type.dart';
+import 'package:ride_options_2/common_features/onboarding/onboard_one.dart';
+import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart';
 
-import '../common/auth/number/number_screen.dart';
+import '../common_features/auth/presentation/view/number/number_screen.dart';
 
 class AppRoute {
   static const splashScreen = '/splash_screen';

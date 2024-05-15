@@ -78,16 +78,18 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Nunito
-      fonts:
-        - asset: assets/font/Nunito-Regular.ttf
-          weight: 400
-        - asset: assets/font/Nunito-Medium.ttf
-          weight: 500
-        - asset: assets/font/Nunito-Bold.ttf
-          weight: 700
-        - asset: assets/font/Nunito-Black.ttf
-          weight: 900
+  - family: jameelUrdu
+    fonts:
+      - asset: assets/font/Jameel-Noori-Nastaleeq-Regular.ttf
+  - family: Nunito
+    fonts:
+      - asset: assets/font/Nunito-Regular.ttf
+  - family: notoUrdu
+    fonts:
+      - asset: assets/font/Noto-Nastaliq-Urdu.ttf
+    # Example asset for Jameel Urdu font
+
+       
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

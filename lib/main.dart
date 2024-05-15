@@ -1,7 +1,7 @@
-import 'package:ride_options_2/common/auth/cubit/auth_cubit.dart';
+import 'package:ride_options_2/common_features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
-import 'package:ride_options_2/common/onboarding/cubits/onboard_cubit.dart';
+import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 
@@ -29,19 +29,22 @@ class MyApp extends StatelessWidget {
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},
               builder: (context, state) {
-                if(state is InitState){
-                  if(MediaQuery.of(context).platformBrightness == Brightness.dark){
+                if (state is InitState) {
+                  if (MediaQuery.of(context).platformBrightness ==
+                      Brightness.dark) {
                     BlocProvider.of<ThemeCubit>(context).toggleTheme(true);
-                  }else if(MediaQuery.of(context).platformBrightness == Brightness.light){
+                  } else if (MediaQuery.of(context).platformBrightness ==
+                      Brightness.light) {
                     BlocProvider.of<ThemeCubit>(context).toggleTheme(false);
                   }
                 }
                 return BlocBuilder<LocalizationCubit, Locale>(
                   builder: (context, locale) {
                     return MaterialApp(
-                      debugShowCheckedModeBanner: locale.countryCode == "+92" ? false : false,
+                      debugShowCheckedModeBanner:
+                          locale.countryCode == "+92" ? false : false,
                       title: 'Ride Options',
-                     // themeMode: ThemeMode.system,
+                      // themeMode: ThemeMode.system,
                       theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
                               true
                           ? darkTheme

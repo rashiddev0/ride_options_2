@@ -3,7 +3,7 @@ import 'package:ride_options_2/common/const/export.dart';
 
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
-  fontFamily: "Nunito",
+  // fontFamily: "Nunito",
   brightness: Brightness.light,
   primaryColor: const Color(0xff6D41A2),
   scaffoldBackgroundColor:
@@ -63,7 +63,6 @@ ThemeData darkTheme = ThemeData(
     ),
   ),
 );
-
 
 ThemeData systemTheme = lightTheme;
 
