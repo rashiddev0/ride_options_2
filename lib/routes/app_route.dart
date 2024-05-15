@@ -1,9 +1,9 @@
 import 'package:ride_options_2/common/const/export.dart';
 
-import 'package:ride_options_2/driver_features/onboarding/presentation/onboard_one.dart';
-import 'package:ride_options_2/driver_features/splash_screen/splash_screen.dart';
+import 'package:ride_options_2/common_features/onboarding/presentation/onboard_one.dart';
+import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart';
 
-import 'package:ride_options_2/driver_features/auth/presentation/account_type.dart';
+import 'package:ride_options_2/common_features/auth/presentation/account_type.dart';
 
 
 
