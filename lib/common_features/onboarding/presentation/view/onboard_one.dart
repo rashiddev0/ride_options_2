@@ -1,8 +1,8 @@
 import 'package:flutter_svg/svg.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/const/strings.dart';
-import 'cubits/onboard_cubit.dart';
-import 'cubits/onboard_state.dart';
+import '../cubits/onboard_cubit.dart';
+import '../cubits/onboard_state.dart';
 
 class OnBoardOne extends StatelessWidget {
   const OnBoardOne({super.key});
