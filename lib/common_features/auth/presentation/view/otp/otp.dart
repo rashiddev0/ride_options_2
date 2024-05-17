@@ -3,7 +3,9 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../../common/const/colors.dart';
 import '../../../../../common/const/export.dart';
+import '../../../../../common/custom_widgets/custom_apptext.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';
+import '../../../../../common/theme/cubits/theme_cubit.dart';
 import '../../cubits/auth_cubit.dart';
 import '../../cubits/auth_state.dart';
 
@@ -12,6 +14,7 @@ class OTPScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeCubit = BlocProvider.of<ThemeCubit>(context);
     final authCubit = BlocProvider.of<AuthCubit>(context);
     return Scaffold(
       appBar: AppBar(
@@ -20,9 +23,12 @@ class OTPScreen extends StatelessWidget {
           onTap: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
+        title: AppText(
           AppLocalizations.of(context)!.phoneVerification,
-          style: Theme.of(context).textTheme.headlineMedium,
+          style: Theme.of(context).textTheme.displayLarge!,
+          textAlign: TextAlign.center,
+          fontSize: 26.sp,
+          fontWeight: FontWeight.w700,
         ),
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
@@ -33,23 +39,26 @@ class OTPScreen extends StatelessWidget {
           return SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: 24.h, left: 12.w, right: 12, bottom: 54.h),
+                  top: 27.h, left: 12.w, right: 12, bottom: 54.h),
               child: SingleChildScrollView(
                 child: SizedBox(
                   height: 660.h,
                   child: Column(
                     children: [
-                      Text(
+                      AppText(
                         AppLocalizations.of(context)!.enterYourOtp,
-                        style: Theme.of(context).textTheme.headlineSmall,
+                        style: Theme.of(context).textTheme.displaySmall!,
                         textAlign: TextAlign.center,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
+                        color: AppColors.lightGray,
                       ),
                       addHeight(32.h),
                       SvgPicture.asset(
                         AppAssets.otpSvg,
                       ),
                       addHeight(47.5.h),
-                      Directionality(
+                      /*Directionality(
                         textDirection: TextDirection.ltr,
                         child: Padding(
                           padding: EdgeInsets.only(left: 50.w, right: 50.w),
@@ -89,7 +98,7 @@ class OTPScreen extends StatelessWidget {
 
                               //activeFillColor: hasError ? Colors.red : Colors.white,
                             ),
-                            cursorColor: primaryColor,
+                            cursorColor: AppColors.primary,
                             animationDuration:
                                 const Duration(milliseconds: 400),
                             textStyle: Theme.of(context).textTheme.bodyMedium,
@@ -104,37 +113,41 @@ class OTPScreen extends StatelessWidget {
                               //izhar_comment
                               //loadingAlertDialog(context: context);
 
-                              /* AuthenticateService().verifyOTP(
+                              *//* AuthenticateService().verifyOTP(
                                 context,
                                 CommonFunctions.phoneCodeList[0] +
                                     authProvider.phoneNumberController.text,
                                 otpController.text,
                                 authProvider.roleController.text,
-                              );*/
+                              );*//*
                             },
 
                             onChanged: (value) {
                               authCubit.otpController.text = value;
                               authCubit.getOtp();
-                              /*print(value);
+                              *//*print(value);
                               setState(() {
                                 currentText = value;
-                              });*/
+                              });*//*
                             },
                           ),
                         ),
-                      ),
+                      ),*/
                       Padding(
                         padding:
-                            EdgeInsets.only(top: 32.h, left: 82.w, right: 82.w),
+                            EdgeInsets.only(top: 32.h, left: 70.w, right: 70.w),
                         child: RichText(
                           text: TextSpan(
                             children: [
                               TextSpan(
                                 text:
                                     "${AppLocalizations.of(context)!.didtReceiveCode}\t",
-                                style:
-                                    Theme.of(context).textTheme.headlineSmall,
+                                  style:
+                                  TextStyle(
+                                    fontSize: 14.sp,
+                                    color: AppColors.lightGray,
+                                    fontWeight: FontWeight.w500,
+                                  )
                               ),
                               TextSpan(
                                 text:
@@ -172,8 +185,11 @@ class OTPScreen extends StatelessWidget {
                               TextSpan(
                                 text:
                                     "${AppLocalizations.of(context)!.bySigningUp}\t",
-                                style:
-                                    Theme.of(context).textTheme.headlineSmall,
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: AppColors.lightGray,
+                                  fontWeight: FontWeight.w500,
+                                )
                               ),
                               TextSpan(
                                 text:
@@ -186,8 +202,11 @@ class OTPScreen extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: "${AppLocalizations.of(context)!.and}\t",
-                                style:
-                                    Theme.of(context).textTheme.headlineSmall,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                    color: AppColors.lightGray,
+                                    fontWeight: FontWeight.w500,
+                                  )
                               ),
                               TextSpan(
                                 text:

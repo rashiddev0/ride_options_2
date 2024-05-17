@@ -1,17 +1,7 @@
 import 'package:ride_options_2/common/const/export.dart';
 
-class AppText extends StatefulWidget {
-  const AppText(this.text,
-      {super.key,
-      this.fontSize,
-      this.color,
-      this.fontWeight,
-      this.alignment,
-      this.textAlign,
-      this.height,
-      this.fontStyle,
-      this.textOverflow,
-      this.maxLines});
+class AppText extends StatelessWidget {
+
   final String? text;
   final double? fontSize;
   final Color? color;
@@ -24,44 +14,51 @@ class AppText extends StatefulWidget {
   final int? maxLines;
   final TextOverflow? textOverflow;
 
-  @override
-  State<AppText> createState() => _AppTextState();
-}
-
-class _AppTextState extends State<AppText> {
-  String? language;
+  const AppText(this.text,
+      {super.key,
+        this.fontSize,
+        this.color,
+        this.fontWeight,
+        this.alignment,
+        this.textAlign,
+        this.height,
+        this.fontStyle,
+        this.textOverflow,
+        this.maxLines,
+        required TextStyle style});
 
   @override
   Widget build(BuildContext context) {
-    return widget.alignment != null
+    return alignment != null
         ? Align(
-            alignment: widget.alignment!,
-            child: Text(
-              widget.text ?? "",
-              textAlign: widget.textAlign,
-              overflow: widget.textOverflow ?? TextOverflow.clip,
-              maxLines: widget.maxLines ?? 6,
-              style: TextStyle(
-                  fontFamily: AppLocalizations.of(context)!.appFontFamily,
-                  color: widget.color,
-                  height: widget.height ?? 1.5,
-                  fontSize: widget.fontSize ?? 16,
-                  fontStyle: widget.fontStyle ?? FontStyle.normal,
-                  fontWeight: widget.fontWeight ?? FontWeight.w500),
-            ),
-          )
+      alignment: alignment!,
+      child: Text(
+        text ?? "",
+        textAlign: textAlign,
+        overflow: textOverflow ?? TextOverflow.clip,
+        maxLines: maxLines ?? 6,
+        style: TextStyle(
+            fontFamily: AppLocalizations.of(context)!.appFontFamily,
+            color: color,
+            height: height ?? 1.5,
+            fontSize: fontSize ?? 16,
+            fontStyle: fontStyle ?? FontStyle.normal,
+            fontWeight: fontWeight ?? FontWeight.w500),
+      ),
+    )
         : Text(
-            widget.text ?? "",
-            textAlign: widget.textAlign,
-            overflow: widget.textOverflow ?? TextOverflow.ellipsis,
-            maxLines: widget.maxLines ?? 6,
-            style: TextStyle(
-                fontFamily: AppLocalizations.of(context)!.appFontFamily,
-                color: widget.color,
-                height: widget.height ?? 1.5,
-                fontSize: widget.fontSize ?? 16,
-                fontStyle: widget.fontStyle ?? FontStyle.normal,
-                fontWeight: widget.fontWeight ?? FontWeight.w500),
-          );
+      text ?? "",
+      textAlign: textAlign,
+      overflow: textOverflow ?? TextOverflow.ellipsis,
+      maxLines: maxLines ?? 6,
+      style: TextStyle(
+          fontFamily: AppLocalizations.of(context)!.appFontFamily,
+          color: color,
+          height: height ?? 1.5,
+          fontSize: fontSize ?? 16,
+          fontStyle: fontStyle ?? FontStyle.normal,
+          fontWeight: fontWeight ?? FontWeight.w500),
+    );
   }
-}
+  }
+

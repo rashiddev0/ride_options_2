@@ -1,5 +1,26 @@
 {
     "rideOptions": "رائیڈ آپشین",
     "pakistan":"پاکستان",
-    "appFontFamily":"jameelUrdu"
+    "appFontFamily":"jameelUrdu",
+    "skip": "چھوڑ دو",
+    "anywhereYouAre": "آپ کہیں بھی ہوں۔",
+    "sellHouseEasilly": "Listenoryx کی مدد سے گھر آسانی سے بیچیں اور اس لائن کو بڑا کرنے کے لیے میں مزید لکھ رہا ہوں۔",
+    "atAnytime": "کسی بھی وقت",
+    "bookYourCar": "اپنی گاڑی بک کرو",
+    "chooseOne": "ایک کا انتخاب کریں",
+    "howDoYouWant":
+    "آپ اس ایپ کو کیسے استعمال کرنا چاہتے ہیں۔ مطلوبہ آپشن کا انتخاب کریں",
+    "passenger": "مسافر",
+    "driver": "ڈرائیور",
+    "next": "اگلے",
+    "phoneNumber": "فون نمبر",
+    "enterYourPhone": "اپنا فون نمبر درج کریں۔",
+    "bySigningUp": "سائن اپ کرکے۔ آپ اس سے اتفاق کرتے ہیں",
+    "termsOfService": "سروس کی شرائط",
+    "and": "اور",
+    "privacyPolicy": "رازداری کی پالیسی",
+    "phoneVerification": "فون کی تصدیق",
+    "enterYourOtp": "اپنا OTP کوڈ درج کریں۔",
+    "didtReceiveCode": "کوڈ موصول نہیں ہوا؟",
+    "resendAgain": "دوبارہ بھیجیں۔"
 }

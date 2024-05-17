@@ -5,26 +5,35 @@ ThemeData lightTheme = ThemeData(
   useMaterial3: true,
   // fontFamily: "Nunito",
   brightness: Brightness.light,
-  primaryColor: const Color(0xff6D41A2),
+  primaryColor: AppColors.primary,
   scaffoldBackgroundColor:
-      const Color(0xffF9F9F9), // Adjusted background color for light theme
+      const Color(0xffEBEBEB), // Adjusted background color for light theme
   disabledColor: const Color(0xff9E9FA4),
   textTheme: TextTheme(
-    headlineMedium: TextStyle(
-        fontSize: 24.sp,
-        color: const Color(0xff2A2A2A),
-        fontWeight: FontWeight.w600),
-    headlineSmall: TextStyle(
-        fontSize: 14.sp,
-        color: const Color(0xffA0A0A0),
-        fontWeight: FontWeight.w500),
+    displayLarge: TextStyle(
+      wordSpacing: -0.5.sp,
+      //fontSize: 34.sp,
+      //fontWeight: FontWeight.w500,
+      color: const Color(0xff0F1110),
+    ),
+    displaySmall: TextStyle(
+      wordSpacing: -0.5.sp,
+      //fontSize: 18.sp,
+      //fontWeight: FontWeight.w400,
+      color: const Color(0xffAFAFAF),
+    ),
+    /*displayMedium: TextStyle(
+      wordSpacing: -0.5.sp,
+      fontSize: 26.sp,
+      fontWeight: FontWeight.w700,
+      color: const Color(0xff0F1110),
+    ),*/
   ),
-
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
       minimumSize: Size(337.w, 54.h),
-      backgroundColor: const Color(0xff6D41A2),
+      backgroundColor: AppColors.primary,
       disabledBackgroundColor: const Color(0x256d41a2),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.r),
@@ -33,29 +42,41 @@ ThemeData lightTheme = ThemeData(
   ),
   //****************** This section for AppBar********************* */
   appBarTheme:
-      const AppBarTheme(backgroundColor: whiteColor, centerTitle: true),
+      AppBarTheme(backgroundColor: AppColors.white, centerTitle: true),
 );
 
 ThemeData darkTheme = ThemeData(
   useMaterial3: true,
   fontFamily: "Nunito",
   brightness: Brightness.dark,
-  primaryColor: const Color(0xff875BBD),
+  primaryColor: AppColors.darkPrimary,
   scaffoldBackgroundColor:
       const Color(0xff2D2D2D), // Adjusted background color for dark theme
   textTheme: TextTheme(
-    headlineMedium: TextStyle(
-        fontSize: 24.sp, color: Colors.white, fontWeight: FontWeight.w600),
-    headlineSmall: TextStyle(
-        fontSize: 14.sp,
-        color: const Color(0xffA0A0A0),
-        fontWeight: FontWeight.w500),
+    displayLarge: TextStyle(
+      wordSpacing: -0.5.sp,
+      //fontSize: 34.sp,
+      //fontWeight: FontWeight.w500,
+      color: const Color(0xffF7F7F7),
+    ),
+    displaySmall: TextStyle(
+      wordSpacing: -0.5.sp,
+      //fontSize: 18.sp,
+      //fontWeight: FontWeight.w400,
+      color: const Color(0xffAFAFAF),
+    ),
+    /*displayMedium: TextStyle(
+      wordSpacing: -0.5.sp,
+      fontSize: 26.sp,
+      fontWeight: FontWeight.w700,
+      color: const Color(0xffF7F7F7),
+    ),*/
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
       minimumSize: Size(337.w, 54.h),
-      backgroundColor: const Color(0xff6D41A2),
+      backgroundColor: AppColors.darkPrimary,
       disabledBackgroundColor: const Color(0x256d41a2),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.r),
@@ -64,7 +85,7 @@ ThemeData darkTheme = ThemeData(
   ),
 );
 
-ThemeData systemTheme = lightTheme;
+//ThemeData systemTheme = lightTheme;
 
 
 

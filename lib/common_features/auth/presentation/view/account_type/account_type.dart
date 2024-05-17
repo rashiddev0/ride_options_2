@@ -2,6 +2,8 @@ import 'package:ride_options_2/common/custom_widgets/custom_apptext.dart';
 import 'package:ride_options_2/common/custom_widgets/custom_button.dart';
 import 'package:ride_options_2/common/localization/classes/language.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
+import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
+import 'package:ride_options_2/common_features/auth/presentation/component/role_contaner.dart';
 import 'package:ride_options_2/common_features/auth/presentation/cubits/auth_cubit.dart';
 
 import '../../../../../common/const/colors.dart';
@@ -13,11 +15,11 @@ class AccountType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeCubit = BlocProvider.of<ThemeCubit>(context);
     final authCubit = BlocProvider.of<AuthCubit>(context);
-    final localCubit = BlocProvider.of<LocalizationCubit>(context);
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
+        /*actions: <Widget>[
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 18.w),
             child: DropdownButton<Language>(
@@ -52,10 +54,13 @@ class AccountType extends StatelessWidget {
                   .toList(),
             ),
           ),
-        ],
-        title: Text(
+        ],*/
+        title: AppText(
           AppLocalizations.of(context)!.chooseOne,
-          style: Theme.of(context).textTheme.headlineMedium,
+          style: Theme.of(context).textTheme.displayLarge!,
+          fontSize: 26.sp,
+          fontWeight: FontWeight.w700,
+          textAlign: TextAlign.center,
         ),
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
@@ -64,7 +69,7 @@ class AccountType extends StatelessWidget {
           return SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: 24.h, left: 12.w, right: 12.w, bottom: 54.h),
+                  top: 51.h, left: 12.w, right: 12.w, bottom: 54.h),
               child: Column(
                 children: [
                   SvgPicture.asset(
@@ -72,22 +77,15 @@ class AccountType extends StatelessWidget {
                     width: 124.w,
                     height: 124.h,
                   ),
-                  AppText(
-                    AppLocalizations.of(context)!.pakistan,
-                    fontSize: 30.sp,
-                    fontWeight: FontWeight.w300,
-                  ),
                   SizedBox(
                     width: 262.w,
-                    child: Text(AppLocalizations.of(context)!.howDoYouWant,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .copyWith(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w400,
-                                color: greyColor),
-                        textAlign: TextAlign.center),
+                    child: AppText(
+                        AppLocalizations.of(context)!.howDoYouWant,
+                        style: Theme.of(context).textTheme.displaySmall!,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                        textAlign: TextAlign.center,
+                        ),
                   ),
                   addHeight(67.h),
                   Directionality(
@@ -95,7 +93,8 @@ class AccountType extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        InkWell(
+                        RoleContaner(role: AppLocalizations.of(context)!.passenger , roleIcon: AppAssets.passengerIcon),
+                        /*InkWell(
                           child: Material(
                             elevation: 5,
                             borderRadius: BorderRadius.circular(16.r),
@@ -146,9 +145,9 @@ class AccountType extends StatelessWidget {
                             ),
                           ),
                           onTap: () => authCubit.getRole("Passenger"),
-                        ),
+                        ),*/
                         addWidth(16.w),
-                        InkWell(
+                        /*InkWell(
                           child: Material(
                             elevation: 5,
                             borderRadius: BorderRadius.circular(20.r),
@@ -195,7 +194,8 @@ class AccountType extends StatelessWidget {
                           ),
                           onTap: () => BlocProvider.of<AuthCubit>(context)
                               .getRole("Driver"),
-                        ),
+                        ),*/
+                        RoleContaner(role: AppLocalizations.of(context)!.driver, roleIcon: AppAssets.driverIcon),
                       ],
                     ),
                   ),
@@ -207,19 +207,17 @@ class AccountType extends StatelessWidget {
                       onTap: authCubit.selectedRole == null
                           ? null
                           : () {
-                              if (authCubit.selectedRole == "Passenger") {
-                                // Navigator.pushNamed(
-                                //   context,
-                                //   AppRoute.numberScreen,
-                                // );
-                              } else if (authCubit.selectedRole == "Driver") {
-                                debugPrint("😊😊😊152😊😊😊Under Development");
-                              }
+                              if (authCubit.selectedRole == AppLocalizations.of(context)!.passenger) {
+                                Navigator.pushNamed(
+                                  context,
+                                  AppRoute.numberScreen,
+                                );
+                              } else if (authCubit.selectedRole == AppLocalizations.of(context)!.driver) {}
                             },
                       borderColor: Theme.of(context).primaryColor,
                       icon: Icons.arrow_back_ios,
                       titleSize: 18.sp,
-                      textColor: Colors.white,
+                      textColor: Theme.of(context).scaffoldBackgroundColor,
                     ),
                   )
                 ],

@@ -9,6 +9,8 @@ void main() {
   runApp(const MyApp());
 }
 
+
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -16,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(393, 852),
-        minTextAdapt: true,
-        splitScreenMode: true,
+        // minTextAdapt: true,
+        // splitScreenMode: true,
         builder: (context, child) {
           return MultiBlocProvider(
             providers: [
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 if (state is InitState) {
+                  debugPrint("///35///");
                   if (MediaQuery.of(context).platformBrightness ==
                       Brightness.dark) {
                     BlocProvider.of<ThemeCubit>(context).toggleTheme(true);
