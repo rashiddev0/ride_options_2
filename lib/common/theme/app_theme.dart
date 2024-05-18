@@ -3,13 +3,26 @@ import 'package:ride_options_2/common/const/export.dart';
 
 ThemeData lightTheme = ThemeData(
   useMaterial3: true,
+
   // fontFamily: "Nunito",
-  brightness: Brightness.light,
-  primaryColor: const Color(0xff6D41A2),
-  scaffoldBackgroundColor:
-      const Color(0xffF9F9F9), // Adjusted background color for light theme
+
+  scaffoldBackgroundColor: AppColors.backGround,
+
+  colorScheme: ColorScheme.light(
+    primary: AppColors.primary,
+    onPrimary: AppColors.secondary,
+    primaryContainer: AppColors.white,
+    shadow: AppColors.shadow,
+    error: AppColors.red,
+  ),
+  // Adjusted background color for light theme
   disabledColor: const Color(0xff9E9FA4),
+
   textTheme: TextTheme(
+    headlineLarge: TextStyle(
+        fontSize: 24.sp,
+        color: const Color(0xff2A2A2A),
+        fontWeight: FontWeight.w600),
     headlineMedium: TextStyle(
         fontSize: 24.sp,
         color: const Color(0xff2A2A2A),

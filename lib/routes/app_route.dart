@@ -3,6 +3,7 @@ import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common_features/auth/presentation/view/account_type/account_type.dart';
 import 'package:ride_options_2/common_features/onboarding/onboard_one.dart';
 import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart';
+import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type/vehicle_type.dart';
 
 import '../common_features/auth/presentation/view/number/number_screen.dart';
 
@@ -12,6 +13,7 @@ class AppRoute {
   static const accountType = '/account_type';
   static const numberScreen = '/number_screen';
   static const otpScreen = '/otp';
+  static const vehicleType = '/vehicle_type';
 
   static Route<Object>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -42,6 +44,11 @@ class AppRoute {
       case otpScreen:
         return MaterialPageRoute(
           builder: (_) => const OTPScreen(),
+          settings: settings,
+        );
+      case vehicleType:
+        return MaterialPageRoute(
+          builder: (_) => const VehicleType(),
           settings: settings,
         );
 

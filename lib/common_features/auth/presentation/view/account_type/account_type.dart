@@ -86,7 +86,7 @@ class AccountType extends StatelessWidget {
                             .copyWith(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w400,
-                                color: greyColor),
+                                color: AppColors.lightGray),
                         textAlign: TextAlign.center),
                   ),
                   addHeight(67.h),

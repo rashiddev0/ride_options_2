@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
                       //   useMaterial3: true,
                       // ),
                       onGenerateRoute: AppRoute.generateRoute,
-                      initialRoute: AppRoute.splashScreen,
+                      initialRoute: AppRoute.vehicleType,
 
                       //****************** This section for Localization***********************/
                       localizationsDelegates:

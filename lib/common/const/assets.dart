@@ -9,4 +9,8 @@ class AppAssets {
   static const phoneSecSvg = 'assets/imgs/phoneScreen.svg';
   static const pakistanFlag = 'assets/imgs/pakistanFlag.svg';
   static const otpSvg = 'assets/imgs/otpSvg.svg';
+  static const bike = 'assets/icons/bike.svg';
+  static const auto = 'assets/icons/auto.svg';
+  static const car = 'assets/icons/car.svg';
+  static const info = 'assets/icons/info.svg';
 }

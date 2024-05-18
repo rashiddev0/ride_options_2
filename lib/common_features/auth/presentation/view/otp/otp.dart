@@ -1,4 +1,3 @@
-import 'package:flutter_svg/svg.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../../common/const/colors.dart';
