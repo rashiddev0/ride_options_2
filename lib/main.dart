@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(393, 852),
-        minTextAdapt: true,
-        splitScreenMode: true,
+        // minTextAdapt: true,
+        // splitScreenMode: true,
         builder: (context, child) {
           return MultiBlocProvider(
             providers: [
@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
               listener: (context, state) {},
               builder: (context, state) {
                 if (state is InitState) {
+                  debugPrint("///35///");
                   if (MediaQuery.of(context).platformBrightness ==
                       Brightness.dark) {
                     BlocProvider.of<ThemeCubit>(context).toggleTheme(true);
@@ -59,7 +60,7 @@ class MyApp extends StatelessWidget {
                       //   useMaterial3: true,
                       // ),
                       onGenerateRoute: AppRoute.generateRoute,
-                      initialRoute: AppRoute.vehicleType,
+                      initialRoute: AppRoute.splashScreen,
 
                       //****************** This section for Localization***********************/
                       localizationsDelegates:

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_textfield.dart';
 
+import '../../../../../common/const/colors.dart';
 import '../../../../../common/const/export.dart';
+import '../../../../../common/custom_widgets/custom_apptext.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';
+import '../../../../../common/custom_widgets/custom_textfield.dart';
+import '../../../../../common/theme/cubits/theme_cubit.dart';
 import '../../cubits/auth_cubit.dart';
 import '../../cubits/auth_state.dart';
 
@@ -12,6 +15,7 @@ class NumberScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeCubit = BlocProvider.of<ThemeCubit>(context);
     final authCubit = BlocProvider.of<AuthCubit>(context);
     return Scaffold(
       appBar: AppBar(
@@ -20,9 +24,12 @@ class NumberScreen extends StatelessWidget {
           onTap: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: Text(
+        title: AppText(
           AppLocalizations.of(context)!.phoneNumber,
-          style: Theme.of(context).textTheme.headlineMedium,
+          style: Theme.of(context).textTheme.displayLarge!,
+          textAlign: TextAlign.center,
+          fontSize: 26.sp,
+          fontWeight: FontWeight.w700,
         ),
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
@@ -33,22 +40,26 @@ class NumberScreen extends StatelessWidget {
           return SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
-                  top: 24.h, left: 12.w, right: 12, bottom: 54.h),
+                  top: 27.h, left: 12.w, right: 12, bottom: 54.h),
               child: SingleChildScrollView(
                 child: SizedBox(
                   height: 660.h,
                   child: Column(
                     children: [
-                      Text(
+                      AppText(
                         AppLocalizations.of(context)!.enterYourPhone,
-                        style: Theme.of(context).textTheme.headlineSmall,
+                        style: Theme.of(context).textTheme.displayLarge!,
                         textAlign: TextAlign.center,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
                       ),
                       addHeight(32.h),
                       SvgPicture.asset(
                         AppAssets.phoneSecSvg,
+                        width: 172.w,
+                        height: 172.h,
                       ),
-                      addHeight(47.5.h),
+                      addHeight(55.h),
                       Directionality(
                         textDirection: TextDirection.ltr,
                         child: CustomTextField(
@@ -83,7 +94,7 @@ class NumberScreen extends StatelessWidget {
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
                           titleSize: 18.sp,
-                          textColor: Colors.white,
+                          textColor:  Theme.of(context).scaffoldBackgroundColor,
                         ),
                       ),
                       Padding(
@@ -96,7 +107,11 @@ class NumberScreen extends StatelessWidget {
                                 text:
                                     "${AppLocalizations.of(context)!.bySigningUp}\t",
                                 style:
-                                    Theme.of(context).textTheme.headlineSmall,
+                                TextStyle(
+                                  fontSize: 14.sp,
+                                  color: AppColors.lightGray,
+                                  fontWeight: FontWeight.w500,
+                                )
                               ),
                               TextSpan(
                                 text:
@@ -109,8 +124,11 @@ class NumberScreen extends StatelessWidget {
                               ),
                               TextSpan(
                                 text: "${AppLocalizations.of(context)!.and}\t",
-                                style:
-                                    Theme.of(context).textTheme.headlineSmall,
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  color: AppColors.lightGray,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                               TextSpan(
                                 text:

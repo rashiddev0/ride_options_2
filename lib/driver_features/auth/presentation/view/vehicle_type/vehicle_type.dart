@@ -8,9 +8,9 @@ class VehicleType extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Icon(Icons.arrow_back_ios),
         title: Text(
           "Select On",
-          style: TextStyle(fontSize: 26.sp, fontWeight: FontWeight.w700),
         ),
       ),
       body: Center(
@@ -64,12 +64,17 @@ class VehicleType extends StatelessWidget {
                   ],
                 ),
               ),
-              addHeight(10.h),
-              Container(
-                color: ThemeData().colorScheme.onPrimary,
-                width: 200.w,
-                height: 200,
-              )
+              addHeight(50.h),
+              ElevatedButton(
+                  onPressed: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Next"),
+                      addWidth(12.w),
+                      Icon(Icons.arrow_forward_ios)
+                    ],
+                  ))
             ],
           ),
         ),

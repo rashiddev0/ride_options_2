@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'custom_apptext.dart';
+
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
   final String title;
@@ -46,6 +48,7 @@ class CustomButton extends StatelessWidget {
       label: Text(
         title, //size: 16.sp, color: textColor
         style: TextStyle(fontSize: titleSize, color: textColor),
+
       ),
     );
   }

@@ -8,14 +8,14 @@ import '../const/export.dart';
 class CustomTextField extends StatelessWidget {
   CustomTextField(
       {super.key,
-      required this.controller,
-      this.visible = false,
-      required this.hintText,
-      this.onChange,
-      this.focusNode,
-      this.suffixIcon,
-      this.onTap,
-      this.keyboardType = TextInputType.text});
+        required this.controller,
+        this.visible = false,
+        required this.hintText,
+        this.onChange,
+        this.focusNode,
+        this.suffixIcon,
+        this.onTap,
+        this.keyboardType = TextInputType.text});
 
   TextEditingController controller = TextEditingController();
   bool visible;
@@ -50,33 +50,33 @@ class CustomTextField extends StatelessWidget {
                 left: 15.w, right: 15.w, top: 10.h, bottom: 10.h),
             prefixIcon: visible
                 ? SizedBox(
-                    width: 90.w,
-                    height: 20.h,
-                    child: Row(
-                      children: [
-                        addWidth(5.w),
-                        SvgPicture.asset(
-                          AppAssets.pakistanFlag,
-                          width: 22.5.w,
-                          height: 15.5.h,
-                        ),
-                        addWidth(4.w),
-                        Text(
-                          AppStrings.plus92,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium,
-                        ),
-                        addWidth(6.w),
-                        Container(
-                          width: 1.w, // Width of the vertical line
-                          height:
-                              20.h, // Height should match the height of the row
-                          color: Theme.of(context).primaryColor, // Color of the vertical line
-                        ),
-                      ],
-                    ),
-                  )
+              width: 90.w,
+              height: 20.h,
+              child: Row(
+                children: [
+                  addWidth(5.w),
+                  SvgPicture.asset(
+                    AppAssets.pakistanFlag,
+                    width: 22.5.w,
+                    height: 15.5.h,
+                  ),
+                  addWidth(4.w),
+                  Text(
+                    AppStrings.plus92,
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyMedium,
+                  ),
+                  addWidth(6.w),
+                  Container(
+                    width: 1.w, // Width of the vertical line
+                    height:
+                    20.h, // Height should match the height of the row
+                    color: Theme.of(context).primaryColor, // Color of the vertical line
+                  ),
+                ],
+              ),
+            )
                 : null,
             border: OutlineInputBorder(
               // Add border
