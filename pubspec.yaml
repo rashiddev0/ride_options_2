@@ -30,16 +30,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   flutter_bloc: ^8.1.5
   cupertino_icons: ^1.0.8
-  flutter_screenutil: ^5.9.0
+  flutter_screenutil: ^5.9.1
   shared_preferences: ^2.2.3
   flutter_localizations:
     sdk: flutter
   intl: any
   lottie: ^3.1.0
   flutter_svg: ^2.0.10+1
+  pin_code_fields: ^8.0.1
 
 dev_dependencies:
   flutter_test:
@@ -53,7 +53,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-  generate: true # Add this line
+  generate: true
+  # Add this line
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -77,16 +78,18 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
+    - family: jameelUrdu
+      fonts:
+        - asset: assets/font/Jameel-Noori-Nastaleeq-Regular.ttf
     - family: Nunito
       fonts:
         - asset: assets/font/Nunito-Regular.ttf
-          weight: 400
-        - asset: assets/font/Nunito-Medium.ttf
-          weight: 500
-        - asset: assets/font/Nunito-Bold.ttf
-          weight: 700
-        - asset: assets/font/Nunito-Black.ttf
-          weight: 900
+    - family: notoUrdu
+      fonts:
+        - asset: assets/font/Noto-Nastaliq-Urdu.ttf
+        # Example asset for Jameel Urdu font
+
+
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
