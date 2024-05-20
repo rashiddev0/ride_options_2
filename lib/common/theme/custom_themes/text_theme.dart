@@ -1,4 +1,3 @@
-import 'package:ride_options_2/common/const/colors.dart';
 import 'package:ride_options_2/common/const/export.dart';
 
 class TTextTheme {
@@ -29,6 +28,11 @@ class TTextTheme {
         wordSpacing: -0.5.sp,
         fontSize: 20.sp,
         color: AppColors.darkGray,
+        fontWeight: FontWeight.w500),
+    titleSmall: TextStyle(
+        wordSpacing: -0.5.sp,
+        fontSize: 18.sp,
+        color: const Color(0xff525357),
         fontWeight: FontWeight.w300),
   );
 //Customized Dark mode

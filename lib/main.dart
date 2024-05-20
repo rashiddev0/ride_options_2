@@ -48,19 +48,16 @@ class MyApp extends StatelessWidget {
                       // themeMode: ThemeMode.system,
                       theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
                               true
-                          ? darkTheme
-                          : lightTheme,
+                          ? AppTheme.darkTheme(context)
+                          : AppTheme.lightTheme(context),
                       darkTheme:
                           BlocProvider.of<ThemeCubit>(context).isDarkMode ==
                                   false
-                              ? lightTheme
-                              : darkTheme,
-                      // theme: ThemeData(
-                      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                      //   useMaterial3: true,
-                      // ),
+                              ? AppTheme.lightTheme(context)
+                              : AppTheme.darkTheme(context),
+
                       onGenerateRoute: AppRoute.generateRoute,
-                      initialRoute: AppRoute.splashScreen,
+                      initialRoute: AppRoute.vehicleType,
 
                       //****************** This section for Localization***********************/
                       localizationsDelegates:
