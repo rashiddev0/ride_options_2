@@ -1,5 +1,6 @@
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/theme/custom_themes/app_bar_theme.dart';
+import 'package:ride_options_2/common/theme/custom_themes/color_scheme_theme.dart';
 import 'package:ride_options_2/common/theme/custom_themes/elevated_button_theme.dart';
 import 'package:ride_options_2/common/theme/custom_themes/text_theme.dart';
 
@@ -10,13 +11,7 @@ ThemeData lightTheme = ThemeData(
 
   scaffoldBackgroundColor: AppColors.backGround,
 
-  colorScheme: ColorScheme.light(
-    primary: AppColors.primary,
-    onPrimary: AppColors.secondary,
-    primaryContainer: AppColors.white,
-    shadow: AppColors.shadow,
-    error: AppColors.red,
-  ),
+  colorScheme: TColorSchemeTheme.lightColorScheme,
 
   disabledColor: AppColors.disable,
 
@@ -37,6 +32,7 @@ ThemeData darkTheme = ThemeData(
   textTheme: TTextTheme.darkTextTheme,
   appBarTheme: TAppBarTheme.darkAppBarTheme,
   elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
+  colorScheme: TColorSchemeTheme.darkColorScheme,
 );
 
 //ThemeData systemTheme = lightTheme;
