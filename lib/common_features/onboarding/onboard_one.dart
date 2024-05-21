@@ -11,7 +11,7 @@ class OnBoardOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeCubit = BlocProvider.of<ThemeCubit>(context);
+    //final themeCubit = BlocProvider.of<ThemeCubit>(context);
     final onboardCubit = BlocProvider.of<OnboardCubit>(context);
     return Scaffold(
       appBar: AppBar(
@@ -65,7 +65,7 @@ class OnBoardOne extends StatelessWidget {
                   height: 208.h,
                 ),
                 addHeight(24.h),
-                AppText(
+                Text(
                   onboardCubit.boardingIndex == 0
                       ? AppLocalizations.of(context)!.anywhereYouAre
                       : onboardCubit.boardingIndex == 1
@@ -75,7 +75,7 @@ class OnBoardOne extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 addHeight(12.h),
-                AppText(
+                Text(
                   AppLocalizations.of(context)!.sellHouseEasilly,
                   style: Theme.of(context).textTheme.bodyMedium!,
                   textAlign: TextAlign.center,

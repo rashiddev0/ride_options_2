@@ -26,17 +26,20 @@ class RoleContaner extends StatelessWidget {
         return InkWell(
           child: Container(
             decoration: BoxDecoration(
-              color: authCubit.selectedRole == null || authCubit.selectedRole != role
+              /*color: authCubit.selectedRole == null || authCubit.selectedRole != role
                   ? themeCubit.isDarkMode == true
                   ? AppColors.darkDisable
                   : AppColors.disable
                   : themeCubit.isDarkMode == true
                   ? AppColors.darkWhite
-                  : AppColors.white,
+                  : AppColors.white,*/
+              color: authCubit.selectedRole == null || authCubit.selectedRole != role
+                  ? Theme.of(context).colorScheme.primaryContainer
+                  : Theme.of(context).colorScheme.onPrimaryContainer,
               borderRadius: BorderRadius.circular(16.r),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0x4C000000),
+                  color: Theme.of(context).colorScheme.shadow,
                   spreadRadius: authCubit.selectedRole == null || authCubit.selectedRole != role ? 0.r : -12.r,
                   blurRadius: authCubit.selectedRole == null || authCubit.selectedRole != role ? 0.r : 10.r,
                   offset: authCubit.selectedRole == null || authCubit.selectedRole != role ? Offset(0, 0.r) : Offset(0, 10.r), // changes position of shadow
@@ -66,9 +69,9 @@ class RoleContaner extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 16.h),
-                  child: AppText(
+                  child: Text(
                     role,
-                    style: authCubit.selectedRole == null || authCubit.selectedRole != role ? Theme.of(context).textTheme.bodyMedium! : Theme.of(context).textTheme.displayMedium!,
+                    style: authCubit.selectedRole == null || authCubit.selectedRole != role ? Theme.of(context).textTheme.bodyMedium! : Theme.of(context).textTheme.titleLarge!,
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -2,17 +2,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
   final String title;
-  double? titleSize;
+  //double? titleSize;
   IconData? icon;
+
   //double? borderRadius;
   final VoidCallback? onTap;
 
   //Color? bgColor;
-  Color? textColor;
+  //Color? textColor;
   Color? borderColor;
 
   CustomButton({
@@ -22,9 +22,9 @@ class CustomButton extends StatelessWidget {
     this.icon,
     //required this.borderRadius,
     //this.bgColor,
-    this.textColor,
+    //this.textColor,
     this.borderColor,
-    this.titleSize,
+    //this.titleSize,
   });
 
   @override
@@ -42,12 +42,17 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       onPressed: onTap,
-      icon: Icon(icon,color: textColor,size: 18.sp,),
-
+      icon: Icon(
+        icon,
+        color: Theme.of(context).scaffoldBackgroundColor,
+        size: 18.sp,
+      ),
       label: Text(
         title, //size: 16.sp, color: textColor
-        style: TextStyle(fontSize: titleSize, color: textColor),
-
+        style: TextStyle(
+            fontSize: 22.sp,
+            color: Theme.of(context).scaffoldBackgroundColor,
+            fontWeight: FontWeight.w700),
       ),
     );
   }

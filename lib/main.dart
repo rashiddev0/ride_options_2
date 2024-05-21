@@ -4,8 +4,11 @@ import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
+import 'package:ride_options_2/passenger_features/new_feature/presentation/cubit/home/home_cubit.dart';
 
 void main() {
+
+
   runApp(const MyApp());
 }
 
@@ -25,6 +28,7 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (_) => LocalizationCubit()),
               BlocProvider(create: (_) => OnboardCubit()),
               BlocProvider(create: (_) => AuthCubit()),
+              BlocProvider(create: (_) => HomeCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},
@@ -40,33 +44,32 @@ class MyApp extends StatelessWidget {
                   }
                 }
                 return BlocBuilder<LocalizationCubit, Locale>(
-                  builder: (context, locale) {
-                    return MaterialApp(
-                      debugShowCheckedModeBanner:
-                          locale.countryCode == "+92" ? false : false,
-                      title: 'Ride Options',
-                      // themeMode: ThemeMode.system,
-                      theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
-                              true
-                          ? darkTheme
-                          : lightTheme,
-                      darkTheme:
-                          BlocProvider.of<ThemeCubit>(context).isDarkMode ==
-                                  false
-                              ? lightTheme
-                              : darkTheme,
-                      // theme: ThemeData(
-                      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                      //   useMaterial3: true,
-                      // ),
-                      onGenerateRoute: AppRoute.generateRoute,
-                      initialRoute: AppRoute.splashScreen,
 
-                      //****************** This section for Localization***********************/
+                  builder: (context, locale) {
+
+                    return MaterialApp(
                       localizationsDelegates:
-                          AppLocalizations.localizationsDelegates,
+                      AppLocalizations.localizationsDelegates,
                       supportedLocales: AppLocalizations.supportedLocales,
                       locale: locale,
+                      debugShowCheckedModeBanner:
+                      locale.countryCode == "+92" ? false : false,
+                      title: 'Ride Options',
+                      // themeMode: ThemeMode.system,
+
+                      onGenerateRoute: AppRoute.generateRoute,
+                      initialRoute: AppRoute.splashScreen,
+                      theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
+                          true
+                          ? AppTheme.darkTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" )
+                          : AppTheme.lightTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" ),
+                      darkTheme:
+                      BlocProvider.of<ThemeCubit>(context).isDarkMode ==
+                          false
+                          ? AppTheme.lightTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" )
+                          : AppTheme.darkTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" ),
+                      //****************** This section for Localization***********************/
+
                     );
                   },
                 );
