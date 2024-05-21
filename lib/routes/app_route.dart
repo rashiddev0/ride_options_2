@@ -1,4 +1,4 @@
-import 'package:ride_options_2/common_features/auth/presentation/view/otp/otp.dart';
+import 'package:ride_options_2/common_features/auth/presentation/view/otp/otp_screen.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common_features/auth/presentation/view/account_type/account_type.dart';
 import 'package:ride_options_2/common_features/onboarding/onboard_one.dart';

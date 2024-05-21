@@ -19,9 +19,9 @@ class AppColors {
   static Color border = const Color(0xff000000).withOpacity(0.5);
   static Color secondary = const Color(0xff6D41A2).withOpacity(0.10);
   static Color black = const Color(0xff0F1110);
-  static Color darkGray = const Color(0xff525357);
+  static Color darkGray = const Color(0xff5E5F64);
   static Color lightGray = const Color(0xff9E9FA4);
-  static Color buttonText = const Color(0xffF7F7F7);
+
   static Color backGround = const Color(0xffEBEBEB);
   static Color white = const Color(0xffFFFFFF);
   static Color textFieldBg = const Color(0xffF9F9F9);
@@ -54,6 +54,7 @@ class AppColors {
   static Color darkBorder = const Color(0xff000000).withOpacity(10.0);
   static Color darkSecondary = const Color(0xff949494);
   static Color darkBlack = const Color(0xffF7F7F7);
+  static Color textWhite = const Color(0xffF7F7F7);
   static Color darkDarkGray = const Color(0xffAFAFAF);
   static Color darkLightGray = const Color(0xff7B7B7B);
   static Color darkButtonText = const Color(0xff0F1110);
