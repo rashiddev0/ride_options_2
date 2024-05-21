@@ -4,36 +4,41 @@ import 'package:ride_options_2/common/theme/custom_themes/color_scheme_theme.dar
 import 'package:ride_options_2/common/theme/custom_themes/elevated_button_theme.dart';
 import 'package:ride_options_2/common/theme/custom_themes/text_theme.dart';
 
-ThemeData lightTheme = ThemeData(
-  useMaterial3: true,
+class AppTheme {
+  static ThemeData lightTheme(BuildContext context, String appFontFamily) {
+    return ThemeData(
+      useMaterial3: true,
+      fontFamily: appFontFamily,
 
-  // fontFamily: "Nunito",
+      scaffoldBackgroundColor: AppColors.backGround,
 
-  scaffoldBackgroundColor: AppColors.backGround,
+      colorScheme: TColorSchemeTheme.lightColorScheme,
 
-  colorScheme: TColorSchemeTheme.lightColorScheme,
+      disabledColor: AppColors.disable,
 
-  disabledColor: AppColors.disable,
+      textTheme: TTextTheme.lightTextTheme,
+      elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
+      //****************** This section for AppBar********************* */
+      appBarTheme: TAppBarTheme.lightAppBarTheme,
+    );
+  }
 
-  textTheme: TTextTheme.lightTextTheme,
-  elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
-  //****************** This section for AppBar********************* */
-  appBarTheme: TAppBarTheme.lightAppBarTheme,
-);
+  static ThemeData darkTheme(BuildContext context, String appFontFamily) {
+    return ThemeData(
+      useMaterial3: true,
+      fontFamily: appFontFamily,
+      brightness: Brightness.dark,
+      primaryColor: AppColors.darkPrimary,
+      scaffoldBackgroundColor:
+          AppColors.darkBackGround, // Adjusted background color for dark theme
 
-ThemeData darkTheme = ThemeData(
-  useMaterial3: true,
-  // fontFamily: "Nunito",
-  brightness: Brightness.dark,
-  primaryColor: AppColors.darkPrimary,
-  scaffoldBackgroundColor:
-      AppColors.darkBackGround, // Adjusted background color for dark theme
-
-  textTheme: TTextTheme.darkTextTheme,
-  appBarTheme: TAppBarTheme.darkAppBarTheme,
-  elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
-  colorScheme: TColorSchemeTheme.darkColorScheme,
-);
+      textTheme: TTextTheme.darkTextTheme,
+      appBarTheme: TAppBarTheme.darkAppBarTheme,
+      elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
+      colorScheme: TColorSchemeTheme.darkColorScheme,
+    );
+  }
+}
 
 //ThemeData systemTheme = lightTheme;
 
