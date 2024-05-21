@@ -23,5 +23,75 @@
     "phoneVerification": "فون کی تصدیق",
     "enterYourOtp": "اپنا OTP کوڈ درج کریں۔",
     "didtReceiveCode": "کوڈ موصول نہیں ہوا؟",
-    "resendAgain": "دوبارہ بھیجیں۔"
+    "resendAgain": "دوبارہ بھیجیں۔",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     "type":"قسم",
+     "freight": "مال برداری",
+     "rides": "سواری",
+     "ridesFreightDescription": "شہر کے اندر یا شہر سے شہر تک کی ترسیل کے لئے سواری، لوڈر ٹرک اور رکشہ پیش کیے جائیں گے۔",
+     "bikeRikshawCarTextDescription":"اس زمرے میں موٹر سائیکل، رکشہ، کار سواری، شہر سے شہر اور کورئیر کی پیشکش کی جائے گی۔",
+
+
+     "bike": "بائیک",
+     "bikeDescription": "شہر میں گھومنے کا سب سے تیز اور آسان طریقہ ہو۔",
+     "auto": "آٹو",
+     "autoDescription": "2 افراد کے لئے موصول اور تیز خدمت کی مشورہ گار اور معاشی بجٹ کے مطابق مناسب طریقہ ہو۔",
+     "car": "کار",
+     "carDescription": "4 افراد تک کے لئے بہترین کم بجٹ سفر کا اپشن ہو۔",
+
+       "loaderRikshaw": "لوڈر رکشہ",
+       "@loaderRikshaw": {
+         "description": "لوڈر رکشہ کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "loaderRikshawDescription": "700 کلوگرام تک کی لوڈنگ کی صلاحیت۔ سائز 6x4 فٹ۔ مثال کے طور پر نیو ایشیا، سازگار لوڈر",
+       "@loaderRikshawDescription": {
+         "description": "لوڈر رکشہ کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+       "truckSmall": "چھوٹا ٹرک",
+       "@truckSmall": {
+         "description": "چھوٹا ٹرک کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "truckSmallDescription": "1 ٹن تک کی لوڈنگ کی صلاحیت۔ سائز 6x5 فٹ۔ مثال کے طور پر سوزوکی راوی، فا کیریئر",
+       "@truckSmallDescription": {
+         "description": "چھوٹا ٹرک کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+       "truckMedium": "درمیانہ ٹرک",
+       "@truckMedium": {
+         "description": "درمیانہ ٹرک کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "truckMediumDescription": "1.5 ٹن تک کی لوڈنگ کی صلاحیت۔ سائز 10x6.5 فٹ۔ مثال کے طور پر ہنڈائی شہزور، فوٹن",
+       "@truckMediumDescription": {
+         "description": "درمیانہ ٹرک کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+       "truckLarge": "بڑا ٹرک",
+       "@truckLarge": {
+         "description": "بڑا ٹرک کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "truckLargeDescription": "5 ٹن تک کی لوڈنگ کی صلاحیت۔ سائز 18x8 فٹ۔ مثال کے طور پر ہنڈائی مائٹی، مزدا، فورلینڈ",
+       "@truckLargeDescription": {
+         "description": "بڑا ٹرک کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+
 }
+

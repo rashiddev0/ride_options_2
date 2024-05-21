@@ -13,4 +13,9 @@ class AppAssets {
   static const auto = 'assets/icons/auto.svg';
   static const car = 'assets/icons/car.svg';
   static const info = 'assets/icons/info.svg';
+  static const rides = 'assets/icons/rides.svg';
+  static const freight = 'assets/icons/freight.svg';
+
+  static const loaderRickshaw = 'assets/icons/loaderRickshaw.svg';
+
 }

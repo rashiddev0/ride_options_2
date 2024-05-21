@@ -3,9 +3,11 @@ import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common_features/auth/presentation/view/account_type/account_type.dart';
 import 'package:ride_options_2/common_features/onboarding/onboard_one.dart';
 import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart';
-import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type/vehicle_type.dart';
+import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type_screen.dart';
 
 import '../common_features/auth/presentation/view/number/number_screen.dart';
+import '../driver_features/auth/presentation/view/vehicle_fright_type_screen.dart';
+import '../driver_features/auth/presentation/view/vehicle_ride_type_screen.dart';
 
 class AppRoute {
   static const splashScreen = '/splash_screen';
@@ -13,7 +15,16 @@ class AppRoute {
   static const accountType = '/account_type';
   static const numberScreen = '/number_screen';
   static const otpScreen = '/otp';
-  static const vehicleType = '/vehicle_type';
+
+
+
+
+  ///*********** Driver Routes
+  static const vehicleTypeScreen = '/vehicleTypeScreen';
+  static const vehicleRideTypeScreen = '/vehicleRideTypeScreen';
+  static const vehicleFrightTypeScreen = '/vehicleFrightTypeScreen';
+
+
 
   static Route<Object>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -46,11 +57,26 @@ class AppRoute {
           builder: (_) => const OTPScreen(),
           settings: settings,
         );
-      case vehicleType:
+
+      case vehicleTypeScreen:
         return MaterialPageRoute(
-          builder: (_) => const VehicleType(),
+          builder: (_) => VehicleTypeScreen(),
           settings: settings,
         );
+
+      case vehicleRideTypeScreen:
+        return MaterialPageRoute(
+          builder: (_) => VehicleRideTypeScreen(),
+          settings: settings,
+        );
+
+      case vehicleFrightTypeScreen:
+        return MaterialPageRoute(
+          builder: (_) => VehicleFreightTypeScreen(),
+          settings: settings,
+        );
+
+
 
       default:
         return null;

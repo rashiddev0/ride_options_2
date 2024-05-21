@@ -46,8 +46,10 @@ class VehicleTypeContainer extends StatelessWidget {
                 addWidth(12.w),
                 Text(
                   title,
+
                   style:
-                      TextStyle(fontSize: 26.sp, fontWeight: FontWeight.w400),
+                    Theme.of(context).textTheme.headlineMedium,
+
                 ),
                 addWidth(8.w),
                 SvgPicture.asset(AppAssets.info),
