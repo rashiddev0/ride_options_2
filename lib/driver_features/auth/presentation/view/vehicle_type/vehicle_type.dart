@@ -9,7 +9,7 @@ class VehicleType extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppLocalizations.of(context)!.selectOne,
+          AppLocalizations.of(context)!.chooseOne,
         ),
       ),
       body: Center(

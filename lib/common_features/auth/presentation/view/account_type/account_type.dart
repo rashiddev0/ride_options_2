@@ -54,9 +54,7 @@ class AccountType extends StatelessWidget {
         ],*/
         title: AppText(
           AppLocalizations.of(context)!.chooseOne,
-          style: Theme.of(context).textTheme.displayLarge!,
-          fontSize: 26.sp,
-          fontWeight: FontWeight.w700,
+          style: Theme.of(context).textTheme.headlineLarge!,
           textAlign: TextAlign.center,
         ),
       ),
@@ -79,8 +77,6 @@ class AccountType extends StatelessWidget {
                     child: AppText(
                       AppLocalizations.of(context)!.howDoYouWant,
                       style: Theme.of(context).textTheme.displaySmall!,
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
                       textAlign: TextAlign.center,
                     ),
                   ),

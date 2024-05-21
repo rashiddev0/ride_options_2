@@ -20,8 +20,10 @@ class SplashScreen extends StatelessWidget {
 
   navigate(BuildContext context) {
     Future.delayed(const Duration(seconds: 4), () {
+      /*Navigator.pushNamedAndRemoveUntil(
+          context, AppRoute.onboardingOne, (route) => false);*/
       Navigator.pushNamedAndRemoveUntil(
-          context, AppRoute.onboardingOne, (route) => false);
+          context, AppRoute.passengerHome, (route) => false);
     });
   }
 }

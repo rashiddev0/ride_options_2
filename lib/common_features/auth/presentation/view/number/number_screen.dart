@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../../../common/const/colors.dart';
 import '../../../../../common/const/export.dart';
 import '../../../../../common/custom_widgets/custom_apptext.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';
@@ -26,10 +23,8 @@ class NumberScreen extends StatelessWidget {
         centerTitle: true,
         title: AppText(
           AppLocalizations.of(context)!.phoneNumber,
-          style: Theme.of(context).textTheme.displayLarge!,
+          style: Theme.of(context).textTheme.headlineLarge!,
           textAlign: TextAlign.center,
-          fontSize: 26.sp,
-          fontWeight: FontWeight.w700,
         ),
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
@@ -48,10 +43,8 @@ class NumberScreen extends StatelessWidget {
                     children: [
                       AppText(
                         AppLocalizations.of(context)!.enterYourPhone,
-                        style: Theme.of(context).textTheme.displayLarge!,
+                        style: Theme.of(context).textTheme.displaySmall!,
                         textAlign: TextAlign.center,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
                       ),
                       addHeight(32.h),
                       SvgPicture.asset(

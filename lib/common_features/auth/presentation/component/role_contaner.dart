@@ -68,9 +68,7 @@ class RoleContaner extends StatelessWidget {
                   padding: EdgeInsets.only(top: 16.h),
                   child: AppText(
                     role,
-                    style: authCubit.selectedRole == null || authCubit.selectedRole != role ? Theme.of(context).textTheme.displaySmall! : Theme.of(context).textTheme.displayLarge!,
-                    fontSize: 18.sp,
-                    fontWeight: authCubit.selectedRole == null || authCubit.selectedRole != role ? FontWeight.w400 : FontWeight.w700,
+                    style: authCubit.selectedRole == null || authCubit.selectedRole != role ? Theme.of(context).textTheme.bodyMedium! : Theme.of(context).textTheme.displayMedium!,
                     textAlign: TextAlign.center,
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:ride_options_2/common/const/colors.dart';
+
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/custom_widgets/custom_apptext.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
@@ -25,16 +26,18 @@ class OnBoardOne extends StatelessWidget {
                     width: 75.w,
                     height: 31.h,
                     decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
+                        color: Theme.of(context).appBarTheme.backgroundColor,
                         borderRadius: BorderRadius.circular(100.r),
                         border: Border.all(
-                            width: 1.w, color: Theme.of(context).primaryColor)),
-                    child: AppText(
+                            width: 1.w,
+                            color: Theme.of(context).primaryColor)),
+                    child: Text(
                       AppLocalizations.of(context)!.skip,
-                      style: const TextStyle(),
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Theme.of(context).primaryColor,
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                   onTap: () {
@@ -68,17 +71,13 @@ class OnBoardOne extends StatelessWidget {
                       : onboardCubit.boardingIndex == 1
                           ? AppLocalizations.of(context)!.atAnytime
                           : AppLocalizations.of(context)!.bookYourCar,
-                  style: Theme.of(context).textTheme.displayLarge!,
-                  fontSize: 34.sp,
-                  fontWeight: FontWeight.w500,
+                  style: Theme.of(context).textTheme.headlineLarge!,
                   textAlign: TextAlign.center,
                 ),
                 addHeight(12.h),
                 AppText(
                   AppLocalizations.of(context)!.sellHouseEasilly,
-                  style: Theme.of(context).textTheme.displaySmall!,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w400,
+                  style: Theme.of(context).textTheme.bodyMedium!,
                   textAlign: TextAlign.center,
                 ),
                 const Spacer(),
@@ -91,7 +90,8 @@ class OnBoardOne extends StatelessWidget {
                         color: Theme.of(context).primaryColor,
                         borderRadius: BorderRadius.circular(100.r),
                         border: Border.all(
-                            width: 1.w, color: Theme.of(context).primaryColor)),
+                            width: 1.w,
+                            color: Theme.of(context).primaryColor)),
                     child: Icon(
                       Icons.arrow_forward_rounded,
                       color: Theme.of(context).scaffoldBackgroundColor,
