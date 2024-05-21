@@ -3,8 +3,6 @@ import 'package:ride_options_2/common/const/export.dart';
 class TTextTheme {
   TTextTheme._();
 
-
-
   static TextTheme lightTextTheme = TextTheme(
     headlineLarge: TextStyle(
         wordSpacing: -0.5.sp,

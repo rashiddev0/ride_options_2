@@ -118,4 +118,6 @@ class AppStrings {
   static const String internetConnection = "Internet Connection!";
   static const String pleaseCheckYourInternetConnection =
       "Please check your internet connection and then click on Try again.";
+
+
 }
