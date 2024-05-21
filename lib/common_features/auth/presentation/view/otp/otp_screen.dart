@@ -1,6 +1,5 @@
 import 'package:pin_code_fields/pin_code_fields.dart';
 
-import '../../../../../common/const/colors.dart';
 import '../../../../../common/const/export.dart';
 import '../../../../../common/custom_widgets/custom_apptext.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';

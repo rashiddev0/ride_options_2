@@ -6,8 +6,6 @@ import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 
 void main() {
-
-
   runApp(const MyApp());
 }
 
@@ -42,12 +40,10 @@ class MyApp extends StatelessWidget {
                   }
                 }
                 return BlocBuilder<LocalizationCubit, Locale>(
-
                   builder: (context, locale) {
-
                     return MaterialApp(
                       localizationsDelegates:
-                      AppLocalizations.localizationsDelegates,
+                          AppLocalizations.localizationsDelegates,
                       supportedLocales: AppLocalizations.supportedLocales,
                       locale: locale,
                       debugShowCheckedModeBanner:
@@ -55,20 +51,34 @@ class MyApp extends StatelessWidget {
                       title: 'Ride Options',
                       // themeMode: ThemeMode.system,
 
-
                       onGenerateRoute: AppRoute.generateRoute,
                       initialRoute: AppRoute.splashScreen,
                       theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
-                          true
-                          ? AppTheme.darkTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" )
-                          : AppTheme.lightTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" ),
+                              true
+                          ? AppTheme.darkTheme(
+                              context,
+                              locale.toString() == "ur"
+                                  ? "jameelUrdu"
+                                  : "Nunito")
+                          : AppTheme.lightTheme(
+                              context,
+                              locale.toString() == "ur"
+                                  ? "jameelUrdu"
+                                  : "Nunito"),
                       darkTheme:
-                      BlocProvider.of<ThemeCubit>(context).isDarkMode ==
-                          false
-                          ? AppTheme.lightTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" )
-                          : AppTheme.darkTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" ),
+                          BlocProvider.of<ThemeCubit>(context).isDarkMode ==
+                                  false
+                              ? AppTheme.lightTheme(
+                                  context,
+                                  locale.toString() == "ur"
+                                      ? "jameelUrdu"
+                                      : "Nunito")
+                              : AppTheme.darkTheme(
+                                  context,
+                                  locale.toString() == "ur"
+                                      ? "jameelUrdu"
+                                      : "Nunito"),
                       //****************** This section for Localization***********************/
-
                     );
                   },
                 );
