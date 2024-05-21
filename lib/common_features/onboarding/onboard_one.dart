@@ -1,4 +1,3 @@
-import 'package:ride_options_2/common/const/colors.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/custom_widgets/custom_apptext.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
