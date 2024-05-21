@@ -38,10 +38,6 @@ class VehicleRideTypeScreen extends StatelessWidget {
     List<VehicleModel> vehicle = _getVehicleList(context);
     return Scaffold(
       appBar: AppBar(
-        leading: InkWell(
-          child: const Icon(Icons.arrow_back_ios),
-          onTap: () => Navigator.pop(context),
-        ),
         title: Text(
           AppLocalizations.of(context)!.selectOne,
         ),
