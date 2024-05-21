@@ -12,7 +12,7 @@ class NumberScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeCubit = BlocProvider.of<ThemeCubit>(context);
+    //final themeCubit = BlocProvider.of<ThemeCubit>(context);
     final authCubit = BlocProvider.of<AuthCubit>(context);
     return Scaffold(
       appBar: AppBar(
@@ -21,7 +21,7 @@ class NumberScreen extends StatelessWidget {
           onTap: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: AppText(
+        title: Text(
           AppLocalizations.of(context)!.phoneNumber,
           style: Theme.of(context).textTheme.headlineLarge!,
           textAlign: TextAlign.center,
@@ -41,9 +41,9 @@ class NumberScreen extends StatelessWidget {
                   height: 660.h,
                   child: Column(
                     children: [
-                      AppText(
+                      Text(
                         AppLocalizations.of(context)!.enterYourPhone,
-                        style: Theme.of(context).textTheme.displaySmall!,
+                        style: Theme.of(context).textTheme.bodyMedium!,
                         textAlign: TextAlign.center,
                       ),
                       addHeight(32.h),
@@ -86,8 +86,8 @@ class NumberScreen extends StatelessWidget {
                                 },
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
-                          titleSize: 18.sp,
-                          textColor:  Theme.of(context).scaffoldBackgroundColor,
+                          /*titleSize: 18.sp,
+                          textColor:  Theme.of(context).scaffoldBackgroundColor,*/
                         ),
                       ),
                       Padding(

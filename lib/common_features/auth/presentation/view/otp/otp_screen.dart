@@ -19,12 +19,9 @@ class OTPScreen extends StatelessWidget {
           onTap: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: AppText(
+        title: Text(
           AppLocalizations.of(context)!.phoneVerification,
-          style: Theme.of(context).textTheme.displayLarge!,
-          textAlign: TextAlign.center,
-          fontSize: 26.sp,
-          fontWeight: FontWeight.w700,
+          style: Theme.of(context).textTheme.headlineLarge!,
         ),
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
@@ -39,13 +36,10 @@ class OTPScreen extends StatelessWidget {
                   height: 660.h,
                   child: Column(
                     children: [
-                      AppText(
+                      Text(
                         AppLocalizations.of(context)!.enterYourOtp,
-                        style: Theme.of(context).textTheme.displaySmall!,
+                        style: Theme.of(context).textTheme.bodyMedium!,
                         textAlign: TextAlign.center,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.lightGray,
                       ),
                       addHeight(32.h),
                       SvgPicture.asset(
@@ -144,8 +138,8 @@ class OTPScreen extends StatelessWidget {
                               : () {},
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
-                          titleSize: 18.sp,
-                          textColor: Colors.white,
+                          /*titleSize: 18.sp,
+                          textColor: Colors.white,*/
                         ),
                       ),
                       Padding(

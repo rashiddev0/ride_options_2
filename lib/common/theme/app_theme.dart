@@ -17,7 +17,9 @@ class AppTheme {
       disabledColor: AppColors.disable,
 
       textTheme: TTextTheme.lightTextTheme,
+
       elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
+
       //****************** This section for AppBar********************* */
       appBarTheme: TAppBarTheme.lightAppBarTheme,
     );
