@@ -14,14 +14,15 @@ class TAppBarTheme {
 //Customized Dark mode
   static AppBarTheme darkAppBarTheme = AppBarTheme(
     elevation: 0,
-    iconTheme: const IconThemeData(
-      color: Color(0xffF7F7F7),
+    iconTheme: IconThemeData(
+      color: AppColors.textWhite,
     ),
     backgroundColor: AppColors.black,
     centerTitle: true,
     titleTextStyle: TextStyle(
-        fontSize: 26.sp,
-        fontWeight: FontWeight.w700,
-        color: const Color(0xffF7F7F7)),
+      fontSize: 26.sp,
+      fontWeight: FontWeight.w700,
+      color: AppColors.textWhite,
+    ),
   );
 }

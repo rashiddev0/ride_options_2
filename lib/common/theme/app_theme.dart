@@ -5,11 +5,8 @@ import 'package:ride_options_2/common/theme/custom_themes/elevated_button_theme.
 import 'package:ride_options_2/common/theme/custom_themes/text_theme.dart';
 
 class AppTheme {
-  static ThemeData lightTheme(BuildContext context,String appFontFamily) {
-
-    print("==========>*********${appFontFamily}");
+  static ThemeData lightTheme(BuildContext context, String appFontFamily) {
     return ThemeData(
-
       useMaterial3: true,
       fontFamily: appFontFamily,
 
@@ -27,7 +24,6 @@ class AppTheme {
   }
 
   static ThemeData darkTheme(BuildContext context, String appFontFamily) {
-    print("==========>*********${appFontFamily}");
     return ThemeData(
       useMaterial3: true,
       fontFamily: appFontFamily,
