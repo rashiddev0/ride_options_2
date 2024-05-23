@@ -53,6 +53,7 @@ class VehicleRideTypeScreen extends StatelessWidget {
                 desc: vehicle[index].description,
                 onTap: () {
 
+                  Navigator.pushNamed(context, AppRoute.driversDetailScreen,);
 
                 },
               );

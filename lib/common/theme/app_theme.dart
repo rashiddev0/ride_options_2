@@ -4,6 +4,8 @@ import 'package:ride_options_2/common/theme/custom_themes/color_scheme_theme.dar
 import 'package:ride_options_2/common/theme/custom_themes/elevated_button_theme.dart';
 import 'package:ride_options_2/common/theme/custom_themes/text_theme.dart';
 
+import 'custom_themes/textfiled_theme.dart';
+
 class AppTheme {
   static ThemeData lightTheme(BuildContext context, String appFontFamily) {
     return ThemeData(
@@ -15,6 +17,8 @@ class AppTheme {
       colorScheme: TColorSchemeTheme.lightColorScheme,
 
       disabledColor: AppColors.disable,
+
+      inputDecorationTheme: TTextFieldTheme.inputDecorationThemeLight,
 
       textTheme: TTextTheme.lightTextTheme,
       elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
@@ -31,7 +35,7 @@ class AppTheme {
       primaryColor: AppColors.darkPrimary,
       scaffoldBackgroundColor:
           AppColors.darkBackGround, // Adjusted background color for dark theme
-
+      inputDecorationTheme: TTextFieldTheme.inputDecorationThemeDark,
       textTheme: TTextTheme.darkTextTheme,
       appBarTheme: TAppBarTheme.darkAppBarTheme,
       elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,

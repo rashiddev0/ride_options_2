@@ -17,5 +17,10 @@ class AppAssets {
   static const freight = 'assets/icons/freight.svg';
 
   static const loaderRickshaw = 'assets/icons/loaderRickshaw.svg';
+  static const arrowForward = 'assets/icons/arrowForward.svg';
 
+  static const cancle = 'assets/icons/cancle.svg';
+
+  static const camera  = 'assets/icons/camera.svg';
+  static const gallery  = 'assets/icons/gallery.svg';
 }

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../const/colors.dart';
 import 'custom_apptext.dart';
 
 // ignore: must_be_immutable
@@ -12,9 +13,11 @@ class CustomButton extends StatelessWidget {
   //double? borderRadius;
   final VoidCallback? onTap;
 
-  //Color? bgColor;
+  Color? bgColor;
   Color? textColor;
   Color? borderColor;
+  double? width;
+  double? height;
 
   CustomButton({
     super.key,
@@ -22,10 +25,12 @@ class CustomButton extends StatelessWidget {
     required this.onTap,
     this.icon,
     //required this.borderRadius,
-    //this.bgColor,
+    this.bgColor,
     this.textColor,
     this.borderColor,
     this.titleSize,
+    this.height,
+    this.width
   });
 
   @override
@@ -33,13 +38,14 @@ class CustomButton extends StatelessWidget {
     return ElevatedButton.icon(
       style: ElevatedButton.styleFrom(
         elevation: 0,
-        //minimumSize: Size(337.w, 54.h),
-        //backgroundColor: bgColor,
+        minimumSize:width!=null && height !=null? Size(width??337.w, height??54.h):null,
+        backgroundColor: bgColor,
+
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
           side: onTap == null
               ? BorderSide.none
-              : BorderSide(width: 1.w, color: borderColor!),
+              : BorderSide(width: 1.w, color: borderColor??AppColors.primary),
         ),
       ),
       onPressed: onTap,

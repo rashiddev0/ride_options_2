@@ -80,7 +80,7 @@ class CustomTextField extends StatelessWidget {
                 : null,
             border: OutlineInputBorder(
               // Add border
-              borderSide: BorderSide(width: 0.5.w, color: controller.text.isNotEmpty ? Theme.of(context).primaryColor : Theme.of(context).scaffoldBackgroundColor),
+              // borderSide: BorderSide(width: 0.5.w, color: controller.text.isNotEmpty ? Theme.of(context).primaryColor : Theme.of(context).scaffoldBackgroundColor),
               borderRadius: BorderRadius.circular(12.r), // Add border radius
             ),
             focusedBorder: OutlineInputBorder(

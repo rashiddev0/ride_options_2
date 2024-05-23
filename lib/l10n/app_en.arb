@@ -83,6 +83,17 @@
     "description": "Description for large truck transportation option"
   },
 
+    "driver_details": "Driver Details",
+    "basic_info": "Basic Info",
+    "cnic": "CNIC",
+    "driving_license": "Driving License",
+    "vehicle_info": "Vehicle Info",
+    "save": "Save",
+    "agree_terms": "By signing up, you agree to the Terms of Service and Privacy Policy.",
+    "referral_id": "Referral Id",
+    "add_photo": "Add a photo",
+    "full_name":"Full Name"
+
 
 
 

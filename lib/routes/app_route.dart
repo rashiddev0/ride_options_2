@@ -6,6 +6,8 @@ import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart'
 import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type_screen.dart';
 
 import '../common_features/auth/presentation/view/number/number_screen.dart';
+import '../driver_features/auth/presentation/view/basic_info_screen.dart';
+import '../driver_features/auth/presentation/view/drivers_detail_screen.dart';
 import '../driver_features/auth/presentation/view/vehicle_fright_type_screen.dart';
 import '../driver_features/auth/presentation/view/vehicle_ride_type_screen.dart';
 
@@ -24,6 +26,9 @@ class AppRoute {
   static const vehicleRideTypeScreen = '/vehicleRideTypeScreen';
   static const vehicleFrightTypeScreen = '/vehicleFrightTypeScreen';
 
+  static const driversDetailScreen = '/driversDetailScreen';
+
+  static const basicInfoScreen = '/basicInfoScreen';
 
 
   static Route<Object>? generateRoute(RouteSettings settings) {
@@ -73,6 +78,19 @@ class AppRoute {
       case vehicleFrightTypeScreen:
         return MaterialPageRoute(
           builder: (_) => VehicleFreightTypeScreen(),
+          settings: settings,
+        );
+
+
+      case driversDetailScreen:
+        return MaterialPageRoute(
+          builder: (_) => DriversDetailScreen(),
+          settings: settings,
+        );
+
+      case basicInfoScreen:
+        return MaterialPageRoute(
+          builder: (_) => BasicInfoScreen(),
           settings: settings,
         );
 
