@@ -1,0 +1,101 @@
+{
+  "rideOptions": "Ride Options",
+  "pakistan": "Pakistan",
+  "appFontFamily":"Nunito",
+  "skip": "Skip",
+  "anywhereYouAre": "Anywhere you are",
+  "sellHouseEasilly": "Sell houses easily with the help of Listenoryx and to make this line bigI am writing more.",
+  "atAnytime": "At anytime",
+  "bookYourCar": "Book your car",
+  "chooseOne": "Choose one",
+  "howDoYouWant":
+  "How do you wanna use this app. Choose the desired the option.",
+  "passenger": "Passenger",
+  "driver": "Driver",
+  "selectOne": "Select one",
+  "next": "Next",
+  "phoneNumber": "Phone number",
+  "enterYourPhone": "Enter your phone number",
+  "bySigningUp": "By signing up. you agree to the",
+  "termsOfService": "Terms of service",
+  "and": "and",
+  "privacyPolicy": "Privacy policy",
+  "phoneVerification": "Phone verification",
+  "enterYourOtp": "Enter your OTP code",
+  "didtReceiveCode": "Did’t receive code?",
+  "resendAgain": "Resend again",
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "type":"Type",
+  "freight": "Freight",
+  "rides": "Rides",
+  "ridesFreightDescription": "Rides, Loader trucks & rikshaw will be offered for in city or city to city Freight delivery.",
+  "bikeRikshawCarTextDescription":"Bike, Rikshaw, Car rides, City to City & Courier will be offered in this category.",
+
+   "bike": "Bike",
+   "bikeDescription": "Economy fast and easiest way to move around the city.",
+   "auto": "Auto",
+   "autoDescription": "Convenient economy and fast service recommended for 2 persons.",
+   "car": "Car",
+   "carDescription": "Best low budget travel option for up to 4 persons.",
+
+"loaderRikshaw": "Loader Rikshaw",
+  "@loaderRikshaw": {
+    "description": "Label for loader rikshaw transportation option"
+  },
+  "loaderRikshawDescription": "Loading capacity up to 700kg. Size 6x4 feet. i.e New Asia, Sazgar loader",
+  "@loaderRikshawDescription": {
+    "description": "Description for loader rikshaw transportation option"
+  },
+  "truckSmall": "Truck Small",
+  "@truckSmall": {
+    "description": "Label for small truck transportation option"
+  },
+  "truckSmallDescription": "Loading capacity up to 1 ton. Size 6x5 feet. i.e Suzuki Ravi, Faw carrier",
+  "@truckSmallDescription": {
+    "description": "Description for small truck transportation option"
+  },
+  "truckMedium": "Truck Medium",
+  "@truckMedium": {
+    "description": "Label for medium truck transportation option"
+  },
+  "truckMediumDescription": "Loading capacity up to 1.5 tons. Size 10x6.5 feet. i.e Hyundai Shehzore, Foton",
+  "@truckMediumDescription": {
+    "description": "Description for medium truck transportation option"
+  },
+  "truckLarge": "Truck Large",
+  "@truckLarge": {
+    "description": "Label for large truck transportation option"
+  },
+  "truckLargeDescription": "Loading capacity up to 5 tons. Size 18x8 feet. i.e Hyundai Mighty, Mazda, Forland",
+  "@truckLargeDescription": {
+    "description": "Description for large truck transportation option"
+  },
+
+    "driver_details": "Driver Details",
+    "basic_info": "Basic Info",
+    "cnic": "CNIC",
+    "driving_license": "Driving License",
+    "vehicle_info": "Vehicle Info",
+    "save": "Save",
+    "agree_terms": "By signing up, you agree to the Terms of Service and Privacy Policy.",
+    "referral_id": "Referral Id",
+    "add_photo": "Add a photo",
+    "full_name":"Full Name"
+
+
+
+
+
+}

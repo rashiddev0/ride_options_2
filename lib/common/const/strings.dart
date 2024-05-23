@@ -1,6 +1,9 @@
 class AppStrings {
   static const String rideOptions = 'Ride Options';
-  static const String subklaye = 'سب کیلۓ';
+  static const String anywhereYouAre = 'Anywhere you are';
+  static const String sellHouseEasilly  = 'Sell houses easily with the help of Listenoryx and to make this line bigI am writing more.';
+  static const String atAnytime  = 'At anytime';
+  static const String bookYourCar  = 'Book your car';
   static const String passenger = 'Passenger';
   static const String driver = 'Driver';
   static const String chooseOne = 'Choose one';
@@ -115,4 +118,6 @@ class AppStrings {
   static const String internetConnection = "Internet Connection!";
   static const String pleaseCheckYourInternetConnection =
       "Please check your internet connection and then click on Try again.";
+
+
 }

@@ -1,0 +1,109 @@
+{
+    "rideOptions": "رائیڈ آپشین",
+    "pakistan":"پاکستان",
+    "appFontFamily":"jameelUrdu",
+    "skip": "چھوڑ دو",
+    "anywhereYouAre": "آپ کہیں بھی ہوں۔",
+    "sellHouseEasilly": "Listenoryx کی مدد سے گھر آسانی سے بیچیں اور اس لائن کو بڑا کرنے کے لیے میں مزید لکھ رہا ہوں۔",
+    "atAnytime": "کسی بھی وقت",
+    "bookYourCar": "اپنی گاڑی بک کرو",
+    "chooseOne": "ایک کا انتخاب کریں",
+    "selectOne": "ایک کا انتخاب کریں",
+    "howDoYouWant":
+    "آپ اس ایپ کو کیسے استعمال کرنا چاہتے ہیں۔ مطلوبہ آپشن کا انتخاب کریں",
+    "passenger": "مسافر",
+    "driver": "ڈرائیور",
+    "next": "اگلے",
+    "phoneNumber": "فون نمبر",
+    "enterYourPhone": "اپنا فون نمبر درج کریں۔",
+    "bySigningUp": "سائن اپ کرکے۔ آپ اس سے اتفاق کرتے ہیں",
+    "termsOfService": "سروس کی شرائط",
+    "and": "اور",
+    "privacyPolicy": "رازداری کی پالیسی",
+    "phoneVerification": "فون کی تصدیق",
+    "enterYourOtp": "اپنا OTP کوڈ درج کریں۔",
+    "didtReceiveCode": "کوڈ موصول نہیں ہوا؟",
+    "resendAgain": "دوبارہ بھیجیں۔",
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     "type":"قسم",
+     "freight": "مال برداری",
+     "rides": "سواری",
+     "ridesFreightDescription": "شہر کے اندر یا شہر سے شہر تک کی ترسیل کے لئے سواری، لوڈر ٹرک اور رکشہ پیش کیے جائیں گے۔",
+     "bikeRikshawCarTextDescription":"اس زمرے میں موٹر سائیکل، رکشہ، کار سواری، شہر سے شہر اور کورئیر کی پیشکش کی جائے گی۔",
+
+
+     "bike": "بائیک",
+     "bikeDescription": "شہر میں گھومنے کا سب سے تیز اور آسان طریقہ ہو۔",
+     "auto": "آٹو",
+     "autoDescription": "2 افراد کے لئے موصول اور تیز خدمت کی مشورہ گار اور معاشی بجٹ کے مطابق مناسب طریقہ ہو۔",
+     "car": "کار",
+     "carDescription": "4 افراد تک کے لئے بہترین کم بجٹ سفر کا اپشن ہو۔",
+
+       "loaderRikshaw": "لوڈر رکشہ",
+       "@loaderRikshaw": {
+         "description": "لوڈر رکشہ کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "loaderRikshawDescription": "700 کلوگرام تک کی لوڈنگ کی صلاحیت۔ سائز 6x4 فٹ۔ مثال کے طور پر نیو ایشیا، سازگار لوڈر",
+       "@loaderRikshawDescription": {
+         "description": "لوڈر رکشہ کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+       "truckSmall": "چھوٹا ٹرک",
+       "@truckSmall": {
+         "description": "چھوٹا ٹرک کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "truckSmallDescription": "1 ٹن تک کی لوڈنگ کی صلاحیت۔ سائز 6x5 فٹ۔ مثال کے طور پر سوزوکی راوی، فا کیریئر",
+       "@truckSmallDescription": {
+         "description": "چھوٹا ٹرک کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+       "truckMedium": "درمیانہ ٹرک",
+       "@truckMedium": {
+         "description": "درمیانہ ٹرک کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "truckMediumDescription": "1.5 ٹن تک کی لوڈنگ کی صلاحیت۔ سائز 10x6.5 فٹ۔ مثال کے طور پر ہنڈائی شہزور، فوٹن",
+       "@truckMediumDescription": {
+         "description": "درمیانہ ٹرک کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+       "truckLarge": "بڑا ٹرک",
+       "@truckLarge": {
+         "description": "بڑا ٹرک کے ٹرانسپورٹ آپشن کے لئے لیبل"
+       },
+       "truckLargeDescription": "5 ٹن تک کی لوڈنگ کی صلاحیت۔ سائز 18x8 فٹ۔ مثال کے طور پر ہنڈائی مائٹی، مزدا، فورلینڈ",
+       "@truckLargeDescription": {
+         "description": "بڑا ٹرک کے ٹرانسپورٹ آپشن کے لئے تفصیل"
+       },
+
+
+         "driver_details": "ڈرائیور کی تفصیلات",
+         "basic_info": "بنیادی معلومات",
+         "cnic": "شناختی کارڈ",
+         "driving_license": "ڈرائیونگ لائسنس",
+         "vehicle_info": "گاڑی کی معلومات",
+         "save": "محفوظ کریں",
+         "agree_terms": "سائن اپ کرنے سے، آپ سروس کی شرائط اور رازداری کی پالیسی سے اتفاق کرتے ہیں۔",
+         "referral_id": "ریفرل آئی ڈی",
+         "add_photo": "تصویر شامل کریں",
+         "full_name": "پورا نام"
+
+}
+
