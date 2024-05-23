@@ -98,8 +98,8 @@ class DriverImagePicker extends StatelessWidget {
               ElevatedButton(
                   onPressed: onTap,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.white,
-                    surfaceTintColor:  AppColors.white,
+                    backgroundColor:Theme.of(context).colorScheme.onPrimaryContainer,
+                    surfaceTintColor:  Theme.of(context).colorScheme.onPrimaryContainer,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),
@@ -111,7 +111,7 @@ class DriverImagePicker extends StatelessWidget {
                     children: [
                       Text(
                         AppLocalizations.of(context)!.add_photo,
-                        style: TextStyle(color: AppColors.primary),
+                        style: TextStyle(color: AppColors.primary,fontSize: 14),
                       ),
                       Icon(Icons.add, color: AppColors.primary),
                     ],
@@ -120,8 +120,8 @@ class DriverImagePicker extends StatelessWidget {
               ElevatedButton(
                   onPressed: onTap,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.white,
-                    surfaceTintColor:  AppColors.white,
+                    backgroundColor: Theme.of(context).colorScheme.onPrimaryContainer,
+                    surfaceTintColor: Theme.of(context).colorScheme.onPrimaryContainer,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),

@@ -25,7 +25,7 @@ class DriverDetailTile extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16.r),
-            color: AppColors.white,
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
             boxShadow: [
               BoxShadow(
                 color: AppColors.shadow,
@@ -62,4 +62,9 @@ class DriverDetailTile extends StatelessWidget {
       ),
     );
   }
+
+
+
+
+
 }

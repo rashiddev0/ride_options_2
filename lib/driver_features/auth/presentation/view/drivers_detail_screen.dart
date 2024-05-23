@@ -30,9 +30,20 @@ class DriversDetailScreen extends StatelessWidget {
               Navigator.pushNamed(context, AppRoute.basicInfoScreen,);
 
             }, title: AppLocalizations.of(context)!.basic_info, icon2: "", icon: AppAssets.arrowForward,),
-            DriverDetailTile(onTap: () {  }, title: AppLocalizations.of(context)!.cnic, icon2: "", icon: AppAssets.arrowForward,),
-            DriverDetailTile(onTap: () {  }, title: AppLocalizations.of(context)!.driving_license, icon2: "", icon: AppAssets.arrowForward,),
-            DriverDetailTile(onTap: () {  }, title: AppLocalizations.of(context)!.vehicle_info, icon2: "", icon: AppAssets.arrowForward,),
+            DriverDetailTile(onTap: () {
+
+
+              Navigator.pushNamed(context, AppRoute.cNICScreen,);
+
+            }, title: AppLocalizations.of(context)!.cnic, icon2: "", icon: AppAssets.arrowForward,),
+            DriverDetailTile(onTap: () {
+              Navigator.pushNamed(context, AppRoute.licenseScreen,);
+
+            }, title: AppLocalizations.of(context)!.driving_license, icon2: "", icon: AppAssets.arrowForward,),
+            DriverDetailTile(onTap: () {
+
+
+            }, title: AppLocalizations.of(context)!.vehicle_info, icon2: "", icon: AppAssets.arrowForward,),
 
             const Spacer(),
             CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },bgColor: AppColors.primary.withOpacity(.1),

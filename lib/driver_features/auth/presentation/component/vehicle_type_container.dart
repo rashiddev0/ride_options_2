@@ -23,7 +23,7 @@ class VehicleTypeContainer extends StatelessWidget {
         padding: EdgeInsets.only(top: 12.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.r),
-          color: AppColors.white,
+          color: Theme.of(context).colorScheme.onPrimaryContainer,
           boxShadow: [
             BoxShadow(
               color: AppColors.shadow,
