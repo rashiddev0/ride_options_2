@@ -1,6 +1,7 @@
 import 'package:ride_options_2/common_features/auth/presentation/cubits/auth_cubit.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
+import 'package:ride_options_2/common_features/internet_check/cubit/internet_cubit.dart';
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(393, 852),
-        // minTextAdapt: true,
-        // splitScreenMode: true,
+        minTextAdapt: true,
+        splitScreenMode: true,
         builder: (context, child) {
           return MultiBlocProvider(
             providers: [
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (_) => LocalizationCubit()),
               BlocProvider(create: (_) => OnboardCubit()),
               BlocProvider(create: (_) => AuthCubit()),
+              BlocProvider(create: (_) => InternetCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},
@@ -52,7 +54,7 @@ class MyApp extends StatelessWidget {
                       // themeMode: ThemeMode.system,
 
                       onGenerateRoute: AppRoute.generateRoute,
-                      initialRoute: AppRoute.splashScreen,
+                      initialRoute: AppRoute.vehicleType,
                       theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
                               true
                           ? AppTheme.darkTheme(

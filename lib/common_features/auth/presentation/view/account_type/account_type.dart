@@ -203,9 +203,11 @@ class AccountType extends StatelessWidget {
                   const Spacer(),
                   Directionality(
                     textDirection: TextDirection.rtl,
-                    child: CustomButton(
-                      title: AppLocalizations.of(context)!.next,
-                      onTap: authCubit.selectedRole == null
+                    child: ElevatedButton(
+                      child: Text(
+                        AppLocalizations.of(context)!.next,
+                      ),
+                      onPressed: authCubit.selectedRole == null
                           ? null
                           : () {
                               if (authCubit.selectedRole ==
@@ -217,10 +219,6 @@ class AccountType extends StatelessWidget {
                               } else if (authCubit.selectedRole ==
                                   AppLocalizations.of(context)!.driver) {}
                             },
-                      borderColor: Theme.of(context).primaryColor,
-                      icon: Icons.arrow_back_ios,
-                      titleSize: 18.sp,
-                      textColor: Theme.of(context).scaffoldBackgroundColor,
                     ),
                   )
                 ],

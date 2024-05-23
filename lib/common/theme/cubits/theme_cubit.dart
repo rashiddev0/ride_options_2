@@ -1,5 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../const/export.dart';
 import 'theme_state.dart';
 
