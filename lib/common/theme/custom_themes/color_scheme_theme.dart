@@ -15,7 +15,7 @@ class TColorSchemeTheme {
   static ColorScheme darkColorScheme = ColorScheme.dark(
     primary: AppColors.darkPrimary,
     onPrimary: AppColors.darkSecondary,
-    primaryContainer: AppColors.darkWhite.withOpacity(0.80),
+    primaryContainer: AppColors.darkWhite,
     onPrimaryContainer: AppColors.darkWhite,
     shadow: AppColors.darkShadow,
     error: AppColors.red,

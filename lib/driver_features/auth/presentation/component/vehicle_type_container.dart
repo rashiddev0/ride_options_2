@@ -8,11 +8,15 @@ class VehicleTypeContainer extends StatelessWidget {
     required this.title,
     required this.desc,
     required this.icon,
+    required this.width,
+    required this.height,
   });
   VoidCallback onTap;
   final String title;
   final String desc;
   final String icon;
+  final double width;
+  final double height;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -23,10 +27,10 @@ class VehicleTypeContainer extends StatelessWidget {
         padding: EdgeInsets.only(top: 12.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.r),
-          color: AppColors.white,
+          color: Theme.of(context).colorScheme.onPrimaryContainer,
           boxShadow: [
             BoxShadow(
-              color: AppColors.shadow,
+              color: Theme.of(context).colorScheme.shadow,
               blurRadius: 20.r,
               offset: Offset(0, 20.h),
               spreadRadius: -25.r,
@@ -40,14 +44,13 @@ class VehicleTypeContainer extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   icon,
-                  width: 88.w,
-                  height: 52.31.h,
+                  width: width,
+                  height: height,
                 ),
                 addWidth(12.w),
                 Text(
                   title,
-                  style:
-                      TextStyle(fontSize: 26.sp, fontWeight: FontWeight.w400),
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 addWidth(8.w),
                 SvgPicture.asset(AppAssets.info),

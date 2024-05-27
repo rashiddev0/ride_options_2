@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
                       // themeMode: ThemeMode.system,
 
                       onGenerateRoute: AppRoute.generateRoute,
-                      initialRoute: AppRoute.vehicleType,
+                      initialRoute: AppRoute.vehicleTypeScreen,
                       theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
                               true
                           ? AppTheme.darkTheme(

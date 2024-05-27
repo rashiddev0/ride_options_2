@@ -217,7 +217,14 @@ class AccountType extends StatelessWidget {
                                   AppRoute.numberScreen,
                                 );
                               } else if (authCubit.selectedRole ==
-                                  AppLocalizations.of(context)!.driver) {}
+                                  AppLocalizations.of(context)!.driver) {
+                                Navigator.pushNamed(
+                                  context,
+                                  AppRoute.vehicleTypeScreen,
+                                );
+
+
+                              }
                             },
                     ),
                   )
