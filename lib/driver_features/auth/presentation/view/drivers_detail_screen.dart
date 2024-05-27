@@ -42,7 +42,7 @@ class DriversDetailScreen extends StatelessWidget {
             }, title: AppLocalizations.of(context)!.driving_license, icon2: "", icon: AppAssets.arrowForward,),
             DriverDetailTile(onTap: () {
 
-
+              Navigator.pushNamed(context, AppRoute.vehicleInfoScreen,);
             }, title: AppLocalizations.of(context)!.vehicle_info, icon2: "", icon: AppAssets.arrowForward,),
 
             const Spacer(),
@@ -61,4 +61,7 @@ class DriversDetailScreen extends StatelessWidget {
       ),
     );
   }
+
+
+
 }

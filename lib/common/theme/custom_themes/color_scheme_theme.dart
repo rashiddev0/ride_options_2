@@ -10,6 +10,7 @@ class TColorSchemeTheme {
     onPrimaryContainer: AppColors.white,
     shadow: AppColors.shadow,
     error: AppColors.red,
+    inverseSurface: AppColors.black
   );
 //Customized Dark mode
   static ColorScheme darkColorScheme = ColorScheme.dark(
@@ -19,5 +20,6 @@ class TColorSchemeTheme {
     onPrimaryContainer: AppColors.darkWhite,
     shadow: AppColors.darkShadow,
     error: AppColors.red,
+      inverseSurface: AppColors.white
   );
 }

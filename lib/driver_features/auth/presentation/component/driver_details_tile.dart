@@ -24,7 +24,7 @@ class DriverDetailTile extends StatelessWidget {
           width: 361.w,
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.r),
+            borderRadius: BorderRadius.circular(12.r),
             color: Theme.of(context).colorScheme.onPrimaryContainer,
             boxShadow: [
               BoxShadow(
@@ -51,7 +51,9 @@ class DriverDetailTile extends StatelessWidget {
                  ):const SizedBox(),
 
                  addWidth(8.w),
-                 SvgPicture.asset(icon),
+                 SvgPicture.asset(icon,
+                     color: Theme.of(context).colorScheme.inverseSurface
+                 ),
                ],
              )
 

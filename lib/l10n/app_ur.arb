@@ -104,7 +104,27 @@
          "referral_id": "ریفرل آئی ڈی",
          "add_photo": "تصویر شامل کریں",
          "full_name": "پورا نام",
-         "expiry_date":"خاتمے کی تاریخ"
+         "expiry_date":"خاتمے کی تاریخ",
+
+ "selectVehicle": "گاڑی منتخب کریں",
+  "search": "تلاش کریں",
+  "selectModel": "ماڈل منتخب کریں",
+  "vehicle_info": "گاڑی کی معلومات",
+  "honda": "ہونڈا",
+  "suzuki": "سوزوکی",
+  "united": "یونائیٹڈ",
+  "yamaha": "یاماہا",
+  "roadPrince": "روڈ پرنس",
+  "unique": "یونیک",
+  "crown": "کراؤن",
+  "city": "سٹی",
+  "civic": "سِوک",
+  "none": "این-ون",
+  "nWeg": "این-ویگ",
+  "hrv": "ایچ آر-وی",
+  "vezel": "ویزل",
+  "insight": "انسائٹ"
+
 
 }
 

@@ -5,6 +5,7 @@ import 'package:ride_options_2/common/const/export.dart';
 import '../../../../common/custom_widgets/choose_photo_sheet.dart';
 import '../../../../common/custom_widgets/custom_button.dart';
 import '../../../../common/custom_widgets/custom_textfield.dart';
+import '../../../../common/utils/utility_function.dart';
 import '../component/driver_details_tile.dart';
 import '../component/file_picker.dart';
 
@@ -22,7 +23,8 @@ class _LicenseScreenState extends State<LicenseScreen> {
   XFile? imageFile;
 
   XFile? imageFile2;
-
+  UtilityFunction utilityFunction=UtilityFunction();
+  DateTime dateTime=DateTime.now();
   @override
   Widget build(BuildContext context) {
 
@@ -93,10 +95,10 @@ class _LicenseScreenState extends State<LicenseScreen> {
 
             addHeight(24.h),
 
-            DriverDetailTile(onTap: () {
-              _selectDate(context);
+            DriverDetailTile(onTap: () async {
+             dateTime= await utilityFunction.selectDate(context);
 
-            }, title:selectedDate.toString()?? AppLocalizations.of(context)!.expiry_date, icon2: "", icon: AppAssets.arrowForward,),
+            }, title:dateTime.toString()?? AppLocalizations.of(context)!.expiry_date, icon2: "", icon: AppAssets.arrowForward,),
 
 
 
@@ -113,48 +115,5 @@ class _LicenseScreenState extends State<LicenseScreen> {
     );
   }
 
-  DateTime selectedDate = DateTime.now();
 
-  Future<void> _selectDate(BuildContext context) async {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Dialog(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              CalendarDatePicker(
-                initialDate: selectedDate,
-                firstDate: DateTime(2000),
-                lastDate: DateTime(2100),
-                onDateChanged: (DateTime newDate) {
-                  setState(() {
-                    selectedDate = newDate;
-                  });
-                },
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Text('Cancel'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                      setState(() {});
-                    },
-                    child: Text('Done'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
 }

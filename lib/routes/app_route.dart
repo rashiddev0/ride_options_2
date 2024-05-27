@@ -11,6 +11,7 @@ import '../driver_features/auth/presentation/view/cnic_screen.dart';
 import '../driver_features/auth/presentation/view/drivers_detail_screen.dart';
 import '../driver_features/auth/presentation/view/license_screen.dart';
 import '../driver_features/auth/presentation/view/vehicle_fright_type_screen.dart';
+import '../driver_features/auth/presentation/view/vehicle_info_screen.dart';
 import '../driver_features/auth/presentation/view/vehicle_ride_type_screen.dart';
 
 class AppRoute {
@@ -34,7 +35,7 @@ class AppRoute {
 
   static const cNICScreen = '/CNICScreen';
   static const licenseScreen = '/LicenseScreen';
-
+  static const vehicleInfoScreen = '/VehicleInfoScreen';
 
 
   static Route<Object>? generateRoute(RouteSettings settings) {
@@ -111,6 +112,11 @@ class AppRoute {
           settings: settings,
         );
 
+      case vehicleInfoScreen:
+        return MaterialPageRoute(
+          builder: (_) => VehicleInfoScreen(),
+          settings: settings,
+        );
 
 
       default:

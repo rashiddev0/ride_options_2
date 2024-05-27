@@ -93,7 +93,25 @@
     "referral_id": "Referral Id",
     "add_photo": "Add a photo",
     "full_name":"Full Name",
-    "expiry_date":"Expiry Date"
+    "expiry_date":"Expiry Date",
+      "selectVehicle": "Select Vehicle",
+      "search": "Search",
+      "selectModel": "Select Model",
+      "vehicle_info": "Vehicle Info",
+      "honda": "Honda",
+      "suzuki": "Suzuki",
+      "united": "United",
+      "yamaha": "Yamaha",
+      "roadPrince": "Road Prince",
+      "unique": "Unique",
+      "crown": "Crown",
+      "city": "City",
+      "civic": "Civic",
+      "none": "N-One",
+      "nWeg": "N-WEG",
+      "hrv": "HR-V",
+      "vezel": "Vezel",
+      "insight": "Insight"
 
 
 
