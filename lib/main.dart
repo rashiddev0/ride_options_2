@@ -4,7 +4,7 @@ import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/cubit/home/home_cubit.dart';
+import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_bloc.dart';
 
 void main() {
 
@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (_) => LocalizationCubit()),
               BlocProvider(create: (_) => OnboardCubit()),
               BlocProvider(create: (_) => AuthCubit()),
-              BlocProvider(create: (_) => HomeCubit()),
+              BlocProvider(create: (_) => HomeBloc()),
+              //BlocProvider(create: (_) => HomeCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},

@@ -18,4 +18,8 @@ class AppAssets {
   static const cityToCity = 'assets/icons/cityToCity.svg';
   static const logoAppBar = 'assets/icons/logoAppBar.svg';
   static const icFilter = 'assets/icons/filter.svg';
+  static const icLocationA = 'assets/imgs/locationA.svg';
+  static const icLocationB = 'assets/imgs/locationB.svg';
+  static const icLocationPin = 'assets/imgs/icLocationPin.svg';
+  static const icPin = 'assets/imgs/icDropofMarker.png';
 }

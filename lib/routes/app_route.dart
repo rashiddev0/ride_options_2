@@ -4,8 +4,10 @@ import 'package:ride_options_2/common_features/auth/presentation/view/account_ty
 import 'package:ride_options_2/common_features/onboarding/onboard_one.dart';
 import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart';
 import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type/vehicle_type.dart';
+import 'package:ride_options_2/passenger_features/new_feature/presentation/view/drag_drop/drag_screen.dart';
 import '../common_features/auth/presentation/view/number/number_screen.dart';
 import '../passenger_features/new_feature/presentation/view/home/home_screen.dart';
+import '../passenger_features/new_feature/presentation/view/location_map/location_map_screen.dart';
 
 class AppRoute {
   static const splashScreen = '/splash_screen';
@@ -15,6 +17,8 @@ class AppRoute {
   static const otpScreen = '/otp';
   static const vehicleType = '/vehicle_type';
   static const passengerHome = '/home_screen';
+  static const dragMarkerScreen = '/drag_screen';
+  static const locationMapScreen = '/location_map_screen';
 
   static Route<Object>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -56,6 +60,18 @@ class AppRoute {
       case passengerHome:
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
+          settings: settings,
+        );
+
+      case dragMarkerScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DragScreen(),
+          settings: settings,
+        );
+
+      case locationMapScreen:
+        return MaterialPageRoute(
+          builder: (_) => const LocationMapScreen(),
           settings: settings,
         );
 

@@ -23,6 +23,16 @@
   "phoneVerification": "Phone verification",
   "enterYourOtp": "Enter your OTP code",
   "didtReceiveCode": "Did’t receive code?",
-  "resendAgain": "Resend again"
-
+  "resendAgain": "Resend again",
+  "ourServices":"Our services",
+  "topOffers":"Top offers",
+  "comingSoon":"Coming soon",
+  "to":"To",
+  "cityRides":"City Rides",
+  "courier":"Courier",
+  "cityToCity":"City To City",
+  "chooseLocation":"Choose Location",
+  "resultsFor": "Results for",
+  "found": "found",
+  "done": "Done"
 }

@@ -20,6 +20,8 @@ class AppTheme {
 
       elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
 
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: AppColors.backGround),
+
       //****************** This section for AppBar********************* */
       appBarTheme: TAppBarTheme.lightAppBarTheme,
     );
@@ -38,6 +40,7 @@ class AppTheme {
       appBarTheme: TAppBarTheme.darkAppBarTheme,
       elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
       colorScheme: TColorSchemeTheme.darkColorScheme,
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: AppColors.darkBackGround),
     );
   }
 }

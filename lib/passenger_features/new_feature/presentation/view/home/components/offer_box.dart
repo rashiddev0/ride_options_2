@@ -17,8 +17,9 @@ class OfferBox extends StatelessWidget {
       child: Container(
         height: 170.h,
         width: 170.w,
+        clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
-          color: whiteColor,
+          color: Theme.of(context).colorScheme.primaryContainer,
           border:
           Border.all(width: .50.w, color: greyColor.withOpacity(.3)),
           borderRadius: BorderRadius.all(Radius.circular(16.r)),

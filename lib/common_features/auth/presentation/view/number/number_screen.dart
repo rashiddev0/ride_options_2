@@ -1,9 +1,7 @@
 
 import '../../../../../common/const/export.dart';
-import '../../../../../common/custom_widgets/custom_apptext.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';
 import '../../../../../common/custom_widgets/custom_textfield.dart';
-import '../../../../../common/theme/cubits/theme_cubit.dart';
 import '../../cubits/auth_cubit.dart';
 import '../../cubits/auth_state.dart';
 

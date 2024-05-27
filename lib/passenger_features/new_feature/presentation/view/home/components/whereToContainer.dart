@@ -1,7 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+
+
+import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_bloc.dart';
 
 import '../../../../../../common/const/export.dart';
+import '../../../bloc/homeBloc/home_state.dart';
 import 'locationHisotoryTile.dart';
 
 class WhereToContainer extends StatelessWidget {
@@ -11,7 +13,10 @@ class WhereToContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    final homeBloc = BlocProvider.of<HomeBloc>(context);
+    return BlocBuilder<HomeBloc, HomeState>(
+  builder: (context, state) {
+    return InkWell(
       onTap: onTap,
       child: Container(
           margin: EdgeInsets.symmetric(horizontal: 28.w),
@@ -28,7 +33,7 @@ class WhereToContainer extends StatelessWidget {
                 spreadRadius: 0,
               )
             ],*/
-            color: whiteColor,
+            color: Theme.of(context).colorScheme.primaryContainer,
           ),
           child: Row(
             children: [
@@ -38,7 +43,8 @@ class WhereToContainer extends StatelessWidget {
               ),
               addWidth(12.w),
               Text(
-                "To?",
+                "${AppLocalizations.of(context)!.to}?",
+                //"${homeBloc.pickLocationController.text??""}?",
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const Spacer(),
@@ -53,7 +59,7 @@ class WhereToContainer extends StatelessWidget {
                     return LocationHistoryTile(address: locationHistory[index],);
                   },
                   separatorBuilder: (BuildContext context, int index) {
-                    return SizedBox(width: 10.h);
+                    return SizedBox(width: 10.w);
                   },
                 ),
               ),
@@ -61,6 +67,8 @@ class WhereToContainer extends StatelessWidget {
             ],
           )),
     );
+  },
+);
   }
 }
 

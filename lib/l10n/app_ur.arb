@@ -23,5 +23,15 @@
     "phoneVerification": "فون کی تصدیق",
     "enterYourOtp": "اپنا OTP کوڈ درج کریں۔",
     "didtReceiveCode": "کوڈ موصول نہیں ہوا؟",
-    "resendAgain": "دوبارہ بھیجیں۔"
+    "resendAgain": "دوبارہ بھیجیں۔",
+    "ourServices":"ہماری خدمات",
+    "topOffers":"ٹاپ آفرز",
+    "comingSoon":"جلد آرہا ہے",
+    "to":"کہان",
+    "cityRides":"شہر کی سواریاں",
+    "courier":"کورئیر",
+    "cityToCity":"شہر سے شہر",
+    "chooseLocation":"مقام کا انتخاب کریں",
+    "resultsFor": "کے لیے نتائج",
+    "done": "ہو گیا"
 }

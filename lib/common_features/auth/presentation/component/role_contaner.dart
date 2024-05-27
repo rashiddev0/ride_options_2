@@ -1,10 +1,9 @@
-import 'package:ride_options_2/common/custom_widgets/custom_apptext.dart';
-import 'package:ride_options_2/common_features/auth/presentation/cubits/auth_state.dart';
 
-import '../../../../common/const/colors.dart';
+
 import '../../../../common/const/export.dart';
 import '../../../../common/theme/cubits/theme_cubit.dart';
 import '../cubits/auth_cubit.dart';
+import '../cubits/auth_state.dart';
 
 class RoleContaner extends StatelessWidget {
   String role;
