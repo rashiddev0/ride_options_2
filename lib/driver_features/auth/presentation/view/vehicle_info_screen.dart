@@ -4,6 +4,7 @@ import 'package:multi_dropdown/multiselect_dropdown.dart';
 import 'package:ride_options_2/common/utils/utility_function.dart';
 
 import '../../../../common/const/export.dart';
+import '../../../../common/custom_widgets/custom_button.dart';
 import '../component/driver_details_tile.dart';
 import '../component/dropdown_selection.dart';
 
@@ -73,8 +74,15 @@ class VehicleInfoScreen extends StatelessWidget {
 
             }, title: AppLocalizations.of(context)!.vehicle_info, icon2: "", icon: AppAssets.down,),
 
+            DriverDetailTile(onTap: () {
+              Navigator.pushNamed(context, AppRoute.vehiclePhotoScreen,);
 
+              }, title: "Vehicle Photo", icon2: "", icon: AppAssets.down,),
 
+            const Spacer(),
+
+            CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },width: 360.w,height: 54.h,bgColor: AppColors.primary.withOpacity(.1),
+              borderColor:AppColors.primary.withOpacity(.1),textColor: AppColors.lightGray,),
           ],
         ),
       ),

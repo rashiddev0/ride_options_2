@@ -123,8 +123,16 @@
   "nWeg": "این-ویگ",
   "hrv": "ایچ آر-وی",
   "vezel": "ویزل",
-  "insight": "انسائٹ"
+  "insight": "انسائٹ",
 
-
+ "vehicle_photo": "گاڑی کی تصویر",
+  "referral_id": "حوالہ نمبر",
+  "select_color": "رنگ منتخب کریں",
+  "white": "سفید",
+  "silver": "سلور",
+  "black": "کالا",
+  "grey": "گرے",
+  "blue": "نیلا",
+  "registration_number":"رجسٹریشن نمبر"
 }
 

@@ -111,7 +111,17 @@
       "nWeg": "N-WEG",
       "hrv": "HR-V",
       "vezel": "Vezel",
-      "insight": "Insight"
+      "insight": "Insight",
+
+       "vehicle_photo": "Vehicle Photo",
+        "referral_id": "Referral ID",
+        "select_color": "Select color",
+        "white": "White",
+        "silver": "Silver",
+        "black": "Black",
+        "grey": "Grey",
+        "blue": "Blue",
+        "registration_number":"Reg. Number"
 
 
 

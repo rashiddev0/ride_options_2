@@ -29,7 +29,7 @@ class FilePicker extends StatelessWidget {
       children: [
         SizedBox(
           height: 204.h ,
-          width: 352.h,
+          width: 361.w,
           child: DottedBorder(
             borderType: BorderType.RRect,
             radius: Radius.circular(12.r),
@@ -89,7 +89,7 @@ class FilePicker extends StatelessWidget {
 
         Positioned(
           bottom: 6.h,
-          left:img == null? 60.w:180.w,
+          left:img == null? 90.w:200.w,
 
           child: SizedBox(
               width:img == null? 163.w:80.w,

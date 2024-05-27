@@ -46,6 +46,7 @@ class ChoosePhotoSheet extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           AppAssets.camera,
+                          color:  Theme.of(context).colorScheme.inverseSurface,
                           width: 24.w,
                           height: 24.h,
                         ),
@@ -80,6 +81,7 @@ class ChoosePhotoSheet extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           AppAssets.gallery,
+                          color:  Theme.of(context).colorScheme.inverseSurface,
                           width: 24.w,
                           height: 24.h,
                         ),

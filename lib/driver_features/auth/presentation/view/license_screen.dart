@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:intl/intl.dart';
 import 'package:ride_options_2/common/const/export.dart';
 
 import '../../../../common/custom_widgets/choose_photo_sheet.dart';
@@ -98,7 +99,7 @@ class _LicenseScreenState extends State<LicenseScreen> {
             DriverDetailTile(onTap: () async {
              dateTime= await utilityFunction.selectDate(context);
 
-            }, title:dateTime.toString()?? AppLocalizations.of(context)!.expiry_date, icon2: "", icon: AppAssets.arrowForward,),
+            }, title:DateFormat("MM/dd/yyyy").format(DateTime.parse(dateTime.toString())).toString()?? AppLocalizations.of(context)!.expiry_date, icon2: "", icon: AppAssets.arrowForward,),
 
 
 
