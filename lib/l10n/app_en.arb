@@ -92,7 +92,39 @@
     "agree_terms": "By signing up, you agree to the Terms of Service and Privacy Policy.",
     "referral_id": "Referral Id",
     "add_photo": "Add a photo",
-    "full_name":"Full Name"
+    "full_name":"Full Name",
+    "expiry_date":"Expiry Date",
+      "selectVehicle": "Select Vehicle",
+      "search": "Search",
+      "selectModel": "Select Model",
+      "vehicle_info": "Vehicle Info",
+      "honda": "Honda",
+      "suzuki": "Suzuki",
+      "united": "United",
+      "yamaha": "Yamaha",
+      "roadPrince": "Road Prince",
+      "unique": "Unique",
+      "crown": "Crown",
+      "city": "City",
+      "civic": "Civic",
+      "none": "N-One",
+      "nWeg": "N-WEG",
+      "hrv": "HR-V",
+      "vezel": "Vezel",
+      "insight": "Insight",
+
+       "vehicle_photo": "Vehicle Photo",
+        "referral_id": "Referral ID",
+        "select_color": "Select color",
+        "white": "White",
+        "silver": "Silver",
+        "black": "Black",
+        "grey": "Grey",
+        "blue": "Blue",
+        "registration_number":"Reg. Number",
+
+        "vehicle_photo":"Vehicle Photo",
+        "model_year":"Model Year"
 
 
 

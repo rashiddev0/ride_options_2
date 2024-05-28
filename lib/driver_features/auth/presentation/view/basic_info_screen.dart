@@ -1,13 +1,11 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:ride_options_2/common/const/export.dart';
-
 import '../../../../common/custom_widgets/choose_photo_sheet.dart';
 import '../../../../common/custom_widgets/custom_button.dart';
 import '../../../../common/custom_widgets/custom_textfield.dart';
-import '../component/driver_details_tile.dart';
 import '../component/driver_image_picker.dart';
-import 'dart:io';
+
 
 class BasicInfoScreen extends StatefulWidget {
   BasicInfoScreen({super.key});
@@ -64,47 +62,61 @@ class _BasicInfoScreenState extends State<BasicInfoScreen> {
             },),
 
             addHeight(30.h),
-            CustomTextField(
+            TextField(
               controller: fullName,
-              hintText: AppLocalizations.of(context)!.full_name,
-              onChange: (value){
-                  setState(() {});
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.full_name,
+                suffixIcon: fullName.text.isNotEmpty
+                    ? GestureDetector(
+                  onTap: () {
+                    fullName.clear();
+                    setState(() {});
+                  },
+                  child: SvgPicture.asset(
+                    AppAssets.cancle,
+                    fit: BoxFit.scaleDown,
+                  ),
+                )
+                    : const SizedBox(),
+              ),
+              onChanged: (value) {
+                setState(() {});
               },
-              suffixIcon:fullName.text.isNotEmpty? GestureDetector(
-                onTap: (){
-                  fullName.clear();
-                  setState(() {});
-                },
-                child: SvgPicture.asset(
-                  AppAssets.cancle,
-                  fit: BoxFit.scaleDown,
-                ),
-              ):const SizedBox(),
             ),
+
             addHeight(12.h),
-            CustomTextField(
-                controller: referralId,
+            TextField(
+              controller: referralId,
+              decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.referral_id,
-               onChange: (value){
-                 setState(() {});
-               },
-               suffixIcon:referralId.text.isNotEmpty? GestureDetector(
-                onTap: (){
-                  referralId.clear();
-                  setState(() {});
-                },
-                 child: SvgPicture.asset(
-                   AppAssets.cancle,
-                   fit: BoxFit.scaleDown,
-                 ),
-              ):const SizedBox(),
-
-
+                suffixIcon: referralId.text.isNotEmpty
+                    ? GestureDetector(
+                  onTap: () {
+                    referralId.clear();
+                    setState(() {});
+                  },
+                  child: SvgPicture.asset(
+                    AppAssets.cancle, // Correct the typo from 'cancle' to 'cancel'
+                    fit: BoxFit.scaleDown,
+                  ),
+                )
+                    : const SizedBox(),
+              ),
+              onChanged: (value) {
+                setState(() {});
+              },
             ),
+
 
             addHeight(150.h),
-            CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },width: 360.w,height: 54.h,bgColor: AppColors.primary.withOpacity(.1),
-              borderColor:AppColors.primary.withOpacity(.1),textColor: AppColors.lightGray,),
+
+
+
+         
+            ElevatedButton(onPressed:null, child: Text(AppLocalizations.of(context)!.save,
+              style:  Theme.of(context).textTheme.headlineMedium,
+            )),
+
             addHeight(59.h),
 
 

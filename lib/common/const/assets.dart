@@ -23,4 +23,6 @@ class AppAssets {
 
   static const camera  = 'assets/icons/camera.svg';
   static const gallery  = 'assets/icons/gallery.svg';
+
+  static const down  = 'assets/icons/down.svg';
 }

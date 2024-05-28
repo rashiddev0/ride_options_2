@@ -17,15 +17,16 @@ class DriverDetailTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:  EdgeInsets.symmetric(vertical: 6.h),
-      child: GestureDetector(
+      child: InkWell(
         onTap: onTap,
-        child: Container(
+        borderRadius: BorderRadius.circular(12.r),
+        child: Ink(
           height: 70.h,
           width: 361.w,
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16.r),
-            color: AppColors.white,
+            borderRadius: BorderRadius.circular(12.r),
+            color: Theme.of(context).colorScheme.onPrimaryContainer,
             boxShadow: [
               BoxShadow(
                 color: AppColors.shadow,
@@ -51,7 +52,9 @@ class DriverDetailTile extends StatelessWidget {
                  ):const SizedBox(),
 
                  addWidth(8.w),
-                 SvgPicture.asset(icon),
+                 SvgPicture.asset(icon,
+                     color: Theme.of(context).colorScheme.inverseSurface
+                 ),
                ],
              )
 
@@ -62,4 +65,9 @@ class DriverDetailTile extends StatelessWidget {
       ),
     );
   }
+
+
+
+
+
 }

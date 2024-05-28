@@ -75,7 +75,7 @@ class TTextTheme {
     bodyLarge: TextStyle(
         wordSpacing: -0.5.sp,
         fontSize: 18.sp,
-        color: AppColors.black,
+        color: AppColors.textWhite,
         fontWeight: FontWeight.w500),
     bodyMedium: TextStyle(
         wordSpacing: -0.5.sp,
@@ -85,7 +85,7 @@ class TTextTheme {
     labelLarge: TextStyle(
         wordSpacing: -0.5.sp,
         fontSize: 16.sp,
-        color: AppColors.black,
+        color: AppColors.textWhite,
         fontWeight: FontWeight.w500),
     labelMedium: TextStyle(
         wordSpacing: -0.5.sp,

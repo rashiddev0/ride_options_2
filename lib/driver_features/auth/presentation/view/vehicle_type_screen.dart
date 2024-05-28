@@ -45,7 +45,7 @@ class VehicleTypeScreen extends StatelessWidget {
                 desc: vehicle[index].description,
                 onTap: () {
 
-                  if(vehicle[index].name=="Rides"){
+                  if(vehicle[index].name==AppLocalizations.of(context)!.rides){
                     Navigator.pushNamed(context, AppRoute.vehicleRideTypeScreen,);
                   }else{
                     Navigator.pushNamed(context, AppRoute.vehicleFrightTypeScreen,);

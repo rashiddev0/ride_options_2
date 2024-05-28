@@ -15,15 +15,16 @@ class VehicleTypeContainer extends StatelessWidget {
   final String icon;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
-      child: Container(
+      borderRadius: BorderRadius.circular(24.r),
+      child: Ink(
         height: 134.h,
         width: 361.w,
         padding: EdgeInsets.only(top: 12.h),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.r),
-          color: AppColors.white,
+          color: Theme.of(context).colorScheme.onPrimaryContainer,
           boxShadow: [
             BoxShadow(
               color: AppColors.shadow,

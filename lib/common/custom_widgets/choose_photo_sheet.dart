@@ -18,7 +18,7 @@ class ChoosePhotoSheet extends StatelessWidget {
           padding:
               EdgeInsets.only(top: 16.h, bottom: 32.h, left: 28.w, right: 28.w),
           decoration: BoxDecoration(
-              color: whiteColor, borderRadius: BorderRadius.circular(12.r)),
+              color: Theme.of(context).colorScheme.background, borderRadius: BorderRadius.circular(12.r)),
           child: Center(
             child: Column(
               children: <Widget>[
@@ -30,7 +30,7 @@ class ChoosePhotoSheet extends StatelessWidget {
                   child: Container(
                     height: 60.h,
                     decoration: BoxDecoration(
-                      color: whiteColor,
+                      color:Theme.of(context).colorScheme.onPrimaryContainer,
                       borderRadius: BorderRadius.circular(12.r),
                       boxShadow: const [
                         BoxShadow(
@@ -46,6 +46,7 @@ class ChoosePhotoSheet extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           AppAssets.camera,
+                          color:  Theme.of(context).colorScheme.inverseSurface,
                           width: 24.w,
                           height: 24.h,
                         ),
@@ -64,7 +65,7 @@ class ChoosePhotoSheet extends StatelessWidget {
                   child: Container(
                     height: 60.h,
                     decoration: BoxDecoration(
-                      color: whiteColor,
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
                       borderRadius: BorderRadius.circular(12.r),
                       boxShadow: const [
                         BoxShadow(
@@ -80,6 +81,7 @@ class ChoosePhotoSheet extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           AppAssets.gallery,
+                          color:  Theme.of(context).colorScheme.inverseSurface,
                           width: 24.w,
                           height: 24.h,
                         ),
