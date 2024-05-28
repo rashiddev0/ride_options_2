@@ -83,27 +83,36 @@ class CNICScreen extends StatelessWidget {
 
 
             addHeight(24.h),
-            CustomTextField(
+            TextField(
               controller: CNICNumber,
-              hintText: AppLocalizations.of(context)!.cnic,
-              onChange: (value){
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.cnic,
+                suffixIcon: CNICNumber.text.isNotEmpty
+                    ? GestureDetector(
+                  onTap: () {
+                    CNICNumber.clear();
+                  },
+                  child: SvgPicture.asset(
+                    AppAssets.cancle,
+                    fit: BoxFit.scaleDown,
+                  ),
+                )
+                    : const SizedBox(),
+              ),
+              onChanged: (value) {
+                // Handle onChanged logic here if needed
               },
-              suffixIcon:CNICNumber.text.isNotEmpty? GestureDetector(
-                onTap: (){
-                  CNICNumber.clear();
-                },
-                child: SvgPicture.asset(
-                  AppAssets.cancle,
-                  fit: BoxFit.scaleDown,
-                ),
-              ):const SizedBox(),
             ),
 
 
 
             addHeight(32.h),
-            CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },width: 360.w,height: 54.h,bgColor: AppColors.primary.withOpacity(.1),
-              borderColor:AppColors.primary.withOpacity(.1),textColor: AppColors.lightGray,),
+
+            ElevatedButton(onPressed:null, child: Text(AppLocalizations.of(context)!.save,
+              style:  Theme.of(context).textTheme.headlineMedium,
+            )),
+
+
 
 
 

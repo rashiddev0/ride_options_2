@@ -17,9 +17,10 @@ class DriverDetailTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:  EdgeInsets.symmetric(vertical: 6.h),
-      child: GestureDetector(
+      child: InkWell(
         onTap: onTap,
-        child: Container(
+        borderRadius: BorderRadius.circular(12.r),
+        child: Ink(
           height: 70.h,
           width: 361.w,
           padding: EdgeInsets.symmetric(horizontal: 16.w),

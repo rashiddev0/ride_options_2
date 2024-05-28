@@ -72,17 +72,19 @@ class VehicleInfoScreen extends StatelessWidget {
             DriverDetailTile(onTap: () {
               utilityFunction.selectYear(context);
 
-            }, title: AppLocalizations.of(context)!.vehicle_info, icon2: "", icon: AppAssets.down,),
+            }, title: AppLocalizations.of(context)!.model_year, icon2: "", icon: AppAssets.down,),
 
             DriverDetailTile(onTap: () {
               Navigator.pushNamed(context, AppRoute.vehiclePhotoScreen,);
 
-              }, title: "Vehicle Photo", icon2: "", icon: AppAssets.down,),
+              }, title: AppLocalizations.of(context)!.vehicle_photo, icon2: "", icon: AppAssets.down,),
 
             const Spacer(),
 
-            CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },width: 360.w,height: 54.h,bgColor: AppColors.primary.withOpacity(.1),
-              borderColor:AppColors.primary.withOpacity(.1),textColor: AppColors.lightGray,),
+            ElevatedButton(onPressed:null, child: Text(AppLocalizations.of(context)!.save,
+              style:  Theme.of(context).textTheme.headlineMedium,
+            )),
+
           ],
         ),
       ),

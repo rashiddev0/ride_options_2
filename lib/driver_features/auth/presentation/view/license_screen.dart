@@ -104,9 +104,10 @@ class _LicenseScreenState extends State<LicenseScreen> {
 
 
             addHeight(32.h),
-            CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },width: 360.w,height: 54.h,bgColor: AppColors.primary.withOpacity(.1),
-              borderColor:AppColors.primary.withOpacity(.1),textColor: AppColors.lightGray,),
 
+            ElevatedButton(onPressed:null, child: Text(AppLocalizations.of(context)!.save,
+              style:  Theme.of(context).textTheme.headlineMedium,
+            )),
 
 
 

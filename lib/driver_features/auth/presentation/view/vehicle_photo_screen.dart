@@ -60,21 +60,27 @@ class VehiclePhotoScreen extends StatelessWidget {
         
                 },),
               addHeight(12.h),
-          CustomTextField(
-            controller: regNumber,
-            hintText: AppLocalizations.of(context)!.registration_number,
-            onChange: (value){
-        
-            },
-            suffixIcon:regNumber.text.isNotEmpty? GestureDetector(
-              onTap: (){
-                regNumber.clear();
-              },
-              child: SvgPicture.asset(
-                AppAssets.cancle,
-                fit: BoxFit.scaleDown,
+              TextField(
+                controller: regNumber,
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context)!.registration_number,
+                  suffixIcon: regNumber.text.isNotEmpty
+                      ? GestureDetector(
+                    onTap: () {
+                      regNumber.clear();
+                    },
+                    child: SvgPicture.asset(
+                      AppAssets.cancle,
+                      fit: BoxFit.scaleDown,
+                    ),
+                  )
+                      : const SizedBox(),
+                ),
+                onChanged: (value) {
+                  // Handle onChanged logic here if needed
+                },
               ),
-            ):const SizedBox(),),
+
               addHeight(12.h),
         
         
@@ -150,10 +156,9 @@ class VehiclePhotoScreen extends StatelessWidget {
         
         
               addHeight(24.h),
-              CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },width: 360.w,height: 54.h,bgColor: AppColors.primary.withOpacity(.1),
-                borderColor:AppColors.primary.withOpacity(.1),textColor: AppColors.lightGray,),
-        
-        
+              ElevatedButton(onPressed:null, child: Text(AppLocalizations.of(context)!.save,
+                style:  Theme.of(context).textTheme.headlineMedium,
+              )),
         
         
             ],

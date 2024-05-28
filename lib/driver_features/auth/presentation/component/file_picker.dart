@@ -89,7 +89,7 @@ class FilePicker extends StatelessWidget {
 
         Positioned(
           bottom: 6.h,
-          left:img == null? 90.w:200.w,
+          left:img == null? 96.w:200.w,
 
           child: SizedBox(
               width:img == null? 163.w:80.w,

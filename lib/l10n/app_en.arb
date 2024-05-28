@@ -121,7 +121,10 @@
         "black": "Black",
         "grey": "Grey",
         "blue": "Blue",
-        "registration_number":"Reg. Number"
+        "registration_number":"Reg. Number",
+
+        "vehicle_photo":"Vehicle Photo",
+        "model_year":"Model Year"
 
 
 

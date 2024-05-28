@@ -133,6 +133,10 @@
   "black": "کالا",
   "grey": "گرے",
   "blue": "نیلا",
-  "registration_number":"رجسٹریشن نمبر"
+  "registration_number":"رجسٹریشن نمبر",
+  "vehicle_photo":"گاڑی کی تصویر",
+  "model_year":"ماڈل کا سال"
+
+
 }
 

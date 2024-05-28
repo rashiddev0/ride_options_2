@@ -46,8 +46,12 @@ class DriversDetailScreen extends StatelessWidget {
             }, title: AppLocalizations.of(context)!.vehicle_info, icon2: "", icon: AppAssets.arrowForward,),
 
             const Spacer(),
-            CustomButton(title: AppLocalizations.of(context)!.save, onTap: () {  },bgColor: AppColors.primary.withOpacity(.1),
-              borderColor:AppColors.primary.withOpacity(.1),textColor: AppColors.lightGray,),
+
+            ElevatedButton(onPressed:null, child: Text(AppLocalizations.of(context)!.save,
+            style:  Theme.of(context).textTheme.headlineMedium,
+            )),
+
+
             addHeight(59.h),
             Text(AppLocalizations.of(context)!.agree_terms,
               style:    Theme.of(context).textTheme.labelMedium,
