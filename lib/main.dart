@@ -54,9 +54,9 @@ class MyApp extends StatelessWidget {
                       // themeMode: ThemeMode.system,
 
                       onGenerateRoute: AppRoute.generateRoute,
-                      initialRoute: AppRoute.vehicleTypeScreen,
+                      initialRoute: AppRoute.vehicleRideTypeScreen,
                       theme: BlocProvider.of<ThemeCubit>(context).isDarkMode ==
-                              true
+                              false
                           ? AppTheme.darkTheme(
                               context,
                               locale.toString() == "ur"

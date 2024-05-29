@@ -1,4 +1,5 @@
 import 'package:ride_options_2/common/const/export.dart';
+import 'package:ride_options_2/common/custom_widgets/custom_appbar.dart';
 import '../../data/models/vehicle_models.dart';
 import '../component/vehicle_type_container.dart';
 
@@ -46,7 +47,7 @@ class VehicleFreightTypeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<VehicleModel> vehicle = _getVehicleList(context);
     return Scaffold(
-      appBar: AppBar(
+      appBar: CustomAppBar(
         leading: InkWell(
           child: const Icon(Icons.arrow_back_ios),
           onTap: () => Navigator.pop(context),

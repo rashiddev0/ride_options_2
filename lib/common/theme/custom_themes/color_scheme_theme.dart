@@ -11,6 +11,7 @@ class TColorSchemeTheme {
     secondary: AppColors.black,
     shadow: AppColors.shadow,
     error: AppColors.red,
+    inverseSurface: AppColors.black
   );
 //Customized Dark mode
   static ColorScheme darkColorScheme = ColorScheme.dark(
@@ -21,5 +22,6 @@ class TColorSchemeTheme {
     secondary: AppColors.white,
     shadow: AppColors.darkShadow,
     error: AppColors.red,
+      inverseSurface: AppColors.white
   );
 }

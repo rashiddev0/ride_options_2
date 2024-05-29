@@ -25,6 +25,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return AppBar(
+          titleTextStyle: Theme.of(context).textTheme.headlineLarge,
           backgroundColor: state == InternetState.Gained ? bgColor : Colors.red,
           toolbarHeight: height,
           actions: action,

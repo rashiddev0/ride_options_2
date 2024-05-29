@@ -1,8 +1,7 @@
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/custom_widgets/custom_appbar.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_toggle_button.dart';
-import 'package:ride_options_2/common_features/drawer/presentation/view/drawer.dart';
 import 'package:ride_options_2/common_features/internet_check/cubit/internet_cubit.dart';
+
 import '../../data/models/vehicle_models.dart';
 import '../component/vehicle_type_container.dart';
 
@@ -33,7 +32,7 @@ class VehicleTypeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final internetCubit = BlocProvider.of<InternetCubit>(context);
+    // final internetCubit = BlocProvider.of<InternetCubit>(context);
     List<VehicleModel> vehicle = _getVehicleList(context);
 
     return Scaffold(
@@ -87,20 +86,17 @@ class VehicleTypeScreen extends StatelessWidget {
                 width: vehicle[index].width,
                 height: vehicle[index].height,
                 onTap: () {
-                  if (vehicle[index].name == "Rides") {
+                  if (vehicle[index].name ==
+                      AppLocalizations.of(context)!.rides) {
                     Navigator.pushNamed(
                       context,
                       AppRoute.vehicleRideTypeScreen,
                     );
                   } else {
-                    if (internetCubit.state == InternetState.Gained) {
-                      Navigator.pushNamed(
-                        context,
-                        AppRoute.vehicleFrightTypeScreen,
-                      );
-                    } else {
-                      print("Please Check you internet");
-                    }
+                    Navigator.pushNamed(
+                      context,
+                      AppRoute.vehicleFrightTypeScreen,
+                    );
                   }
                 },
               );

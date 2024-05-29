@@ -6,13 +6,13 @@ import 'package:image_picker/image_picker.dart';
 import '../../../../common/const/export.dart';
 
 // ignore: must_be_immutable
-class DriverImagePicker extends StatelessWidget {
+class FilePicker extends StatelessWidget {
   final XFile? img;
   final bool size;
   final String title;
   VoidCallback onTap;
   final String hintImg;
-  DriverImagePicker(
+  FilePicker(
       {super.key,
       this.img,
       this.size = false,
@@ -25,8 +25,8 @@ class DriverImagePicker extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          height: 234.h,
-          width: 234.h,
+          height: 220.h,
+          width: 361.w,
           child: DottedBorder(
             borderType: BorderType.RRect,
             radius: Radius.circular(12.r),
@@ -37,14 +37,14 @@ class DriverImagePicker extends StatelessWidget {
                 ? Center(
                     child: img == null
                         ? SizedBox(
-                            width: 185.w,
-                            height: 190.h,
+                            width: 352.w,
+                            height: 204.h,
                             child: SvgPicture.asset(
                               AppAssets.driverIcon,
                             ))
                         : SizedBox(
-                            height: 235.h,
-                            width: 235.w,
+                            height: 204.h,
+                            width: 352.w,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(12.r),
                               child: Image.file(
@@ -83,9 +83,9 @@ class DriverImagePicker extends StatelessWidget {
         ),
         Positioned(
           bottom: 6.h,
-          left: img == null ? 18.w : 120.w,
+          left: img == null ? 96.w : 200.w,
           child: SizedBox(
-              width: img == null ? 163.w : 60.w,
+              width: img == null ? 163.w : 80.w,
               height: img == null ? 60.h : 65.h,
               child: img == null
                   ? ElevatedButton(
@@ -96,9 +96,9 @@ class DriverImagePicker extends StatelessWidget {
                         surfaceTintColor:
                             Theme.of(context).colorScheme.onPrimaryContainer,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
+                          borderRadius: BorderRadius.circular(30.r),
                         ),
-                        shadowColor: Colors.black,
+                        shadowColor: Theme.of(context).colorScheme.shadow,
                         elevation: 5.0, // Shadow effect
                       ),
                       child: Row(
@@ -107,9 +107,11 @@ class DriverImagePicker extends StatelessWidget {
                           Text(
                             AppLocalizations.of(context)!.add_photo,
                             style: TextStyle(
-                                color: AppColors.primary, fontSize: 14),
+                                color: Theme.of(context).colorScheme.primary,
+                                fontSize: 14.sp),
                           ),
-                          Icon(Icons.add, color: AppColors.primary),
+                          Icon(Icons.add,
+                              color: Theme.of(context).colorScheme.primary),
                         ],
                       ))
                   : ElevatedButton(
@@ -120,12 +122,13 @@ class DriverImagePicker extends StatelessWidget {
                         surfaceTintColor:
                             Theme.of(context).colorScheme.onPrimaryContainer,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
+                          borderRadius: BorderRadius.circular(30.r),
                         ),
-                        shadowColor: Colors.black,
+                        shadowColor: Theme.of(context).colorScheme.shadow,
                         elevation: 5.0, // Shadow effect
                       ),
-                      child: Icon(Icons.edit, color: AppColors.primary),
+                      child: Icon(Icons.edit,
+                          color: Theme.of(context).colorScheme.primary),
                     )),
         )
       ],

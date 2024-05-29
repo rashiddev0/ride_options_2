@@ -31,4 +31,8 @@ class AppAssets {
   static const locationPin = 'assets/icons/locationPin.svg';
   static const appbarSetting = 'assets/icons/appbarSetting.svg';
   static const drawerIcon = 'assets/icons/drowerIcon.svg';
+  // static const camera  = 'assets/icons/camera.svg';
+  // static const gallery  = 'assets/icons/gallery.svg';
+
+  static const down = 'assets/icons/down.svg';
 }
