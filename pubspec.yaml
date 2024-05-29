@@ -49,6 +49,7 @@ dependencies:
   http: ^1.2.1
   uuid: ^4.4.0
   interactive_bottom_sheet: ^1.0.0
+  flutter_datetime_picker_plus: ^2.2.0
 
   bloc: ^8.1.4
 dev_dependencies:

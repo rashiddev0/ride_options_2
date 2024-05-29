@@ -21,4 +21,6 @@ class GetLocationPrediction extends HomeState {}
 
 class PredictionError extends HomeState {}
 
-class OpenFullSheet extends HomeState {}
+class RideIndex extends HomeState {}
+
+class PickLocationController extends HomeState {}

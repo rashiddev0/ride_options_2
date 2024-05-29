@@ -8,6 +8,7 @@ class TColorSchemeTheme {
     onPrimary: AppColors.secondary,
     primaryContainer: AppColors.white.withOpacity(0.80),
     onPrimaryContainer: AppColors.white,
+    background: AppColors.backGround,
     shadow: AppColors.shadow,
     error: AppColors.red,
   );
@@ -17,6 +18,7 @@ class TColorSchemeTheme {
     onPrimary: AppColors.darkSecondary,
     primaryContainer: AppColors.darkWhite.withOpacity(0.80),
     onPrimaryContainer:  AppColors.darkWhite,
+    background: AppColors.darkBackGround,
     shadow: AppColors.darkShadow,
     error: AppColors.red,
   );

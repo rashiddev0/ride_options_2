@@ -34,5 +34,13 @@
   "chooseLocation":"Choose Location",
   "resultsFor": "Results for",
   "found": "found",
-  "done": "Done"
+  "done": "Done",
+  "selectARide": "Select a ride",
+  "now": "Now",
+  "bike": "Bike",
+  "auto": "Auto",
+  "ride": "Ride",
+  "rideAC": "Ride AC",
+  "otherServices": "Other services",
+  "savedAddresses": "Saved addresses"
 }

@@ -3,6 +3,7 @@ import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/
 import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_state.dart';
 
 import '../../../../../../common/const/export.dart';
+import '../../../../../../common/dialogue/acitivity_indicator_dialogue.dart';
 
 class PlaceSearchSheet extends StatelessWidget {
   const PlaceSearchSheet({super.key});
@@ -30,10 +31,18 @@ class PlaceSearchSheet extends StatelessWidget {
               addHeight(12.h),
               CustomLocationField(
                 image: AppAssets.icLocationA,
+                readOnly: false,
+                focusNode: FocusNode(canRequestFocus: false),
                 controller: homeBloc.pickLocationController,
                 hintText: homeBloc.pickLocationController.text.isNotEmpty
                     ? homeBloc.pickLocationController.text
                     : "Current Location",
+                onChange: (value){
+                  homeBloc.checkLocationTextController(true);
+                  homeBloc.getLocPrediction(value);
+                },
+                icon: Icons.location_on_outlined,
+                colorIcon: Theme.of(context).primaryColor,
                 iconTap: () {
                   Navigator.pushNamed(context, AppRoute.dragMarkerScreen);
                 },
@@ -43,11 +52,16 @@ class PlaceSearchSheet extends StatelessWidget {
               ),
               CustomLocationField(
                 image: AppAssets.icLocationB,
+                readOnly: false,
+                focusNode: FocusNode(canRequestFocus: false),
                 controller: homeBloc.dropLocationController,
                 hintText: homeBloc.dropLocationController.text.isNotEmpty
                     ? homeBloc.dropLocationController.text
                     : AppLocalizations.of(context)!.to,
+                icon: Icons.location_on_outlined,
+                colorIcon: Theme.of(context).primaryColor,
                 onChange: (value) {
+                  homeBloc.checkLocationTextController(false);
                   homeBloc.getLocPrediction(value);
                   if (homeBloc.dropLocationController.text.isEmpty) {
                     homeBloc.dropLocationController.clear();
@@ -74,6 +88,7 @@ class PlaceSearchSheet extends StatelessWidget {
                             fontSize: 18.sp,
                             color: AppColors.black,
                             fontWeight: FontWeight.w400,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                         TextSpan(
@@ -123,6 +138,25 @@ class PlaceSearchSheet extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
                         ),
+                        onTap: () async {
+                          loadingAlertDialog(context: context);
+                          if(homeBloc.pickLocationTextController == true){
+                            await homeBloc.getLatLngFromAddress(homeBloc.placeList, index,homeBloc.pickLocationMap);
+                            if(context.mounted){
+                              homeBloc.pickLocationController.text = homeBloc.placeList[index]["description"];
+                              Navigator.pop(context);
+                              Navigator.pushNamed(context, AppRoute.locationMapScreen);
+                            }
+                          }
+                          else{
+                            await homeBloc.getLatLngFromAddress(homeBloc.placeList, index,homeBloc.dropLocationMap);
+                            if(context.mounted){
+                              homeBloc.dropLocationController.text = homeBloc.placeList[index]["description"];
+                              Navigator.pop(context);
+                              Navigator.pushNamed(context, AppRoute.locationMapScreen);
+                            }
+                          }
+                        },
                       );
                     },
                   ),

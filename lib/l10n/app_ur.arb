@@ -33,5 +33,13 @@
     "cityToCity":"شہر سے شہر",
     "chooseLocation":"مقام کا انتخاب کریں",
     "resultsFor": "کے لیے نتائج",
-    "done": "ہو گیا"
+    "done": "ہو گیا",
+    "selectARide": "سواری کا انتخاب کریں۔",
+    "now": "ابھی",
+    "bike": "موٹر سائیکل",
+    "auto": "آٹو",
+    "ride": "سواری",
+    "rideAC": "AC کی سواری کریں",
+    "otherServices": "دیگر خدمات",
+    "savedAddresses": "محفوظ کردہ پتے"
 }

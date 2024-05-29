@@ -12,26 +12,20 @@ class LocationMapScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    /*int? a = 0;
-    if(a == 0){
-      openBottomSheet(context);
-      a = a+1;
-    }*/
     final homeBloc = BlocProvider.of<HomeBloc>(context);
     LocationModel pickLocation =
     LocationModel.fromMap(homeBloc.pickLocationMap);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       //bottomSheet: const RideSelectionSheet(),
-      bottomSheet: DraggableScrollableSheet(
-        initialChildSize: 0.5,
-
-        minChildSize: 0.5,
+      /*bottomSheet: DraggableScrollableSheet(
+        initialChildSize: 0.130,
+        minChildSize: 0.130,
         maxChildSize: 0.5,
         builder: (BuildContext context, scrollSheetController) {
           return const RideSelectionSheet();
         },
-      ),
+      ),*/
       body: pickLocation.lat != null
           ? BlocConsumer<HomeBloc, HomeState>(
         listener: (context, state) {
@@ -70,6 +64,15 @@ class LocationMapScreen extends StatelessWidget {
                   //onTap: _handleTap,
                 ),
               ),
+              DraggableScrollableSheet(
+                initialChildSize: 0.12,
+                minChildSize: 0.12,
+                maxChildSize: 0.5,
+
+                builder: (BuildContext context, scrollSheetController) {
+                  return RideSelectionSheet(scrollController: scrollSheetController,);
+                },
+              ),
             ],
           );
         },
@@ -78,17 +81,5 @@ class LocationMapScreen extends StatelessWidget {
         child: Text("Loading"),
       ),
     );
-  }
-  openBottomSheet(BuildContext context){
-    Future.delayed(const Duration(milliseconds: 500),(){
-      showModalBottomSheet(
-          context: context,
-          isScrollControlled: true,
-          enableDrag: false,
-          isDismissible: false,
-          builder: (BuildContext context) {
-            return const RideSelectionSheet();
-          });
-    });
   }
 }

@@ -10,12 +10,18 @@ class CustomLocationField extends StatelessWidget {
         this.focusNode,
         this.onTap,
         this.iconTap,
+        this.icon,
+        required this.readOnly,
+        this.colorIcon,
         this.keyboardType = TextInputType.text});
 
   TextEditingController controller = TextEditingController();
   String hintText,image;
   void Function(String)? onChange;
   FocusNode? focusNode;
+  IconData? icon;
+  Color? colorIcon;
+  bool readOnly;
   TextInputType keyboardType;
   void Function()? onTap;
   void Function()? iconTap;
@@ -23,11 +29,12 @@ class CustomLocationField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 337.w,
+      width: 315.w,
       height: 60.h,
       child: TextFormField(
         focusNode: focusNode,
         onChanged: onChange,
+        readOnly: readOnly,
         textAlignVertical: TextAlignVertical.center,
         cursorColor: Theme.of(context).primaryColor,
         controller: controller,
@@ -44,8 +51,8 @@ class CustomLocationField extends StatelessWidget {
               child: InkWell(
                 onTap: iconTap,
                 child: Icon(
-                  Icons.location_on_outlined,
-                  color: Theme.of(context).primaryColor,
+                  icon,
+                  color: colorIcon,
                   size: 26,
                 ),
               ),

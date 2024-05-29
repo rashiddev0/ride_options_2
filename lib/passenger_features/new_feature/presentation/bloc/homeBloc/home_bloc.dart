@@ -31,6 +31,30 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     "assets/imgs/temp/e.jpg",
     "assets/imgs/temp/f.jpg"
   ];
+  List<String> rideCategoryName = [
+    "Bike",
+    "Auto",
+    "Ride",
+    "Ride AC",
+  ];
+  List<String> rideCategoryDisc = [
+    "This is Bike",
+    "This is Auto",
+    "This is Ride",
+    "This is Ride AC",
+  ];
+  List<String> rideCategoryImg = [
+    AppAssets.bike,
+    AppAssets.auto,
+    AppAssets.car,
+    AppAssets.car,
+  ];
+  List<int> rideCategoryRate = [
+    200,
+    300,
+    400,
+    500,
+  ];
 
   TextEditingController pickLocationController = TextEditingController();
   TextEditingController dropLocationController = TextEditingController();
@@ -40,9 +64,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Set<Marker> markers = {};
   bool selectedLocation = false;
+  int? selectedRideIndex;
   bool fullSheet = false;
+  bool pickLocationTextController = false;
 
   Map pickLocationMap = {};
+  Map dropLocationMap = {};
 
   List<dynamic> placeList = [];
   String? sessionToken;
@@ -196,115 +223,39 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     // setState(() {});
   }
 
-  showFullSheet(){
-    fullSheet = !fullSheet;
-    emit(OpenFullSheet());
+  getSelectedIndex(int index){
+    selectedRideIndex = index;
+    emit(RideIndex());
   }
 
-/*Future<void> getLatLngSearch(String address) async {
-    var result = await locationFromAddress(address);
-    if (Get.find<TemRideDetailController>().itDestination.value == true) {
-      if (Get.find<TemRideDetailController>().pickLocIndex.value == 0 || Get.find<TemRideDetailController>().pickLocIndex.value == 1) {
-        Get.find<TemRideDetailController>().pickLocIndex.value = 1;
-        Get.find<TemRideDetailController>().destinationDetails["dropLat"] =
-            result.first.latitude;
-        Get.find<TemRideDetailController>().destinationDetails["dropLng"] =
-            result.first.longitude;
-        Get.find<TemRideDetailController>().itDestination.value = false;
-        Get.find<TemRideDetailController>().getTravelTime(
-            userDetailsControl.pickLat.value,
-            userDetailsControl.pickLng.value,
-            Get.find<TemRideDetailController>().destinationDetails["dropLat"],
-            Get.find<TemRideDetailController>().destinationDetails["dropLng"]);
-        Get.find<TemRideDetailController>().getRideFear(
-          userDetailsControl.pickLat.value,
-          userDetailsControl.pickLng.value,
-          Get.find<TemRideDetailController>().destinationDetails["dropLat"],
-          Get.find<TemRideDetailController>().destinationDetails["dropLng"],
-          userDetailsControl.selectedIndex.value == 786 ? 0 : userDetailsControl.selectedIndex.value,
-        );
-        Get.off(() => const Home());
-      }
-      else if (Get.find<TemRideDetailController>().pickLocIndex.value == 2) {
-        Get.find<TemRideDetailController>().destinationDetails["dropLatTow"] =
-            result.first.latitude;
-        Get.find<TemRideDetailController>().destinationDetails["dropLngTow"] =
-            result.first.longitude;
-        Get.find<TemRideDetailController>().itDestination.value = false;
-        Get.find<TemRideDetailController>().getTravelTime(
-            Get.find<TemRideDetailController>().destinationDetails["dropLat"],
-            Get.find<TemRideDetailController>().destinationDetails["dropLng"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLatTow"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLngTow"]);
-        Get.find<TemRideDetailController>().getRideFear(
-          Get.find<TemRideDetailController>().destinationDetails["dropLat"],
-          Get.find<TemRideDetailController>().destinationDetails["dropLng"],
-          Get.find<TemRideDetailController>().destinationDetails["dropLatTow"],
-          Get.find<TemRideDetailController>().destinationDetails["dropLngTow"],
-          userDetailsControl.selectedIndex.value == 786 ? 0 : userDetailsControl.selectedIndex.value,
-        );
-        Get.off(() => const Home());
-      }
-      else if (Get.find<TemRideDetailController>().pickLocIndex.value == 3) {
-        Get.find<TemRideDetailController>().destinationDetails["dropLatThree"] =
-            result.first.latitude;
-        Get.find<TemRideDetailController>().destinationDetails["dropLngThree"] =
-            result.first.longitude;
-        Get.find<TemRideDetailController>().itDestination.value = false;
-        Get.find<TemRideDetailController>().getTravelTime(
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLatTow"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLngTow"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLatThree"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLngThree"]);
-        Get.find<TemRideDetailController>().getRideFear(
-          Get.find<TemRideDetailController>().destinationDetails["dropLatTow"],
-          Get.find<TemRideDetailController>().destinationDetails["dropLngTow"],
-          Get.find<TemRideDetailController>()
-              .destinationDetails["dropLatThree"],
-          Get.find<TemRideDetailController>()
-              .destinationDetails["dropLngThree"],
-          userDetailsControl.selectedIndex.value == 786 ? 0 : userDetailsControl.selectedIndex.value,
-        );
-        Get.off(() => const Home());
-      }
-      else if (Get.find<TemRideDetailController>().pickLocIndex.value == 4) {
-        Get.find<TemRideDetailController>().destinationDetails["dropLatFour"] =
-            result.first.latitude;
-        Get.find<TemRideDetailController>().destinationDetails["dropLngFour"] =
-            result.first.longitude;
-        Get.find<TemRideDetailController>().itDestination.value = false;
-        Get.find<TemRideDetailController>().getTravelTime(
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLatThree"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLngThree"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLatFour"],
-            Get.find<TemRideDetailController>()
-                .destinationDetails["dropLngFour"]);
-        Get.find<TemRideDetailController>().getRideFear(
-          Get.find<TemRideDetailController>()
-              .destinationDetails["dropLatThree"],
-          Get.find<TemRideDetailController>()
-              .destinationDetails["dropLngThree"],
-          Get.find<TemRideDetailController>().destinationDetails["dropLatFour"],
-          Get.find<TemRideDetailController>().destinationDetails["dropLngFour"],
-          userDetailsControl.selectedIndex.value == 786 ? 0 : userDetailsControl.selectedIndex.value,
-        );
-        Get.off(() => const Home());
-      }
-    }
-    else {
-      userDetailsControl.pickLat.value = result.first.latitude;
-      userDetailsControl.pickLng.value = result.first.longitude;
-      Get.find<TemRideDetailController>().itDestination.value = false;
-      Get.off(() => const Home());
-    }
-  }*/
+  checkLocationTextController(bool isActive){
+    pickLocationTextController = isActive;
+    emit(PickLocationController());
+  }
+
+  getLatLngFromAddress(List<dynamic> placeList,int index,Map<dynamic, dynamic> dropLocationMap) async {
+    var result = await locationFromAddress(placeList[index]["description"]);
+    LocationModel model = LocationModel(
+      title: placeList[index]["structured_formatting"]["main_text"],
+      address: placeList[index]["description"],
+      city: "",
+      country: "",
+      lat: result.first.latitude,
+      lng: result.first.longitude,
+    );
+    debugPrint("///245///${model.title}");
+    debugPrint("///246///${model.address}");
+    debugPrint("///247///${model.city}");
+    debugPrint("///248///${model.country}");
+    debugPrint("///249///${model.lat}");
+    debugPrint("///250///${model.lng}");
+    dropLocationMap  = model.toMap();
+    debugPrint("///245///${dropLocationMap["title"]}");
+    debugPrint("///246///${dropLocationMap["address"]}");
+    debugPrint("///247///${dropLocationMap["city"]}");
+    debugPrint("///248///${dropLocationMap["country"]}");
+    debugPrint("///249///${dropLocationMap["lat"]}");
+    debugPrint("///250///${dropLocationMap["lng"]}");
+  }
+
 }
