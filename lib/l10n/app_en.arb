@@ -28,6 +28,11 @@
 
 
 
+"favorites":"Favorites",
+"history":"History",
+"wallet":"Wallet",
+"settings":"Settings",
+"aboutUs":"About us",
 
 
 
@@ -93,6 +98,8 @@
     "referral_id": "Referral Id",
     "add_photo": "Add a photo",
     "full_name":"Full Name"
+
+
 
 
 

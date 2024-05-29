@@ -48,6 +48,14 @@ class DriversDetailScreen extends StatelessWidget {
               icon2: "",
               icon: AppAssets.arrowForward,
             ),
+            // addHeight(50.h),
+            // CustomToggle(icons: [
+            //   Icons.light_mode,
+            //   Icons.dark_mode_outlined
+            // ], values: [
+            //   'Light',
+            //   "Dark",
+            // ], onToggleCallback: (value) {}),
             const Spacer(),
             CustomButton(
               title: AppLocalizations.of(context)!.save,

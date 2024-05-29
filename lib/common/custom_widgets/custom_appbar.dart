@@ -1,9 +1,23 @@
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common_features/internet_check/cubit/internet_cubit.dart';
 
+// ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final String title;
-  const CustomAppBar({super.key, required this.title});
+  final Widget? title;
+  final Color? bgColor;
+  double height;
+  IconThemeData? iconThemeData;
+  final Widget? leading;
+  List<Widget>? action;
+  CustomAppBar({
+    super.key,
+    this.title,
+    this.bgColor,
+    this.height = 60,
+    this.iconThemeData,
+    this.action,
+    this.leading,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -11,11 +25,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       listener: (context, state) {},
       builder: (context, state) {
         return AppBar(
-          backgroundColor: state == InternetState.Gained ? null : Colors.red,
-          toolbarHeight: 60.h,
-          // leadingWidth: double.maxFinite,
+          backgroundColor: state == InternetState.Gained ? bgColor : Colors.red,
+          toolbarHeight: height,
+          actions: action,
+          leading: leading,
+          iconTheme: iconThemeData,
           title: state == InternetState.Gained
-              ? Text(title)
+              ? title
               : Column(
                   children: [
                     Row(
@@ -50,5 +66,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(height);
 }

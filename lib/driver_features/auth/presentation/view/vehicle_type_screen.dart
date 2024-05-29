@@ -1,5 +1,7 @@
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/custom_widgets/custom_appbar.dart';
+import 'package:ride_options_2/common/custom_widgets/custom_toggle_button.dart';
+import 'package:ride_options_2/common_features/drawer/presentation/view/drawer.dart';
 import 'package:ride_options_2/common_features/internet_check/cubit/internet_cubit.dart';
 import '../../data/models/vehicle_models.dart';
 import '../component/vehicle_type_container.dart';
@@ -36,8 +38,43 @@ class VehicleTypeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        title: AppLocalizations.of(context)!.type,
+        title: Text(AppLocalizations.of(context)!.type),
       ),
+
+      // this appbar for driver
+      // CustomAppBar(
+      //   height: 70.h,
+      //   leading: Builder(
+      //     builder: (BuildContext context) {
+      //       return IconButton(
+      //         icon: SvgPicture.asset(
+      //           AppAssets.drawerIcon,
+      //           width: 28.w,
+      //           height: 28.h,
+      //           colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+      //         ),
+      //         onPressed: () {
+      //           Scaffold.of(context).openDrawer();
+      //         },
+      //         tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+      //       );
+      //     },
+      //   ),
+      //   action: [
+      //     SvgPicture.asset(
+      //       AppAssets.appbarSetting,
+      //       width: 28.w,
+      //       height: 28.h,
+      //       colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+      //     ),
+      //     addWidth(16.w),
+      //   ],
+      //   bgColor: AppColors.primary,
+      //   title: CustomToggle(
+      //       showOnline: true,
+      //       values: const ['Offline', 'Online'],
+      //       onToggleCallback: (value) {}),
+      // ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 16.w),

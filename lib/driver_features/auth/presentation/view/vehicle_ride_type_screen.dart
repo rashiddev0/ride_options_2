@@ -39,7 +39,8 @@ class VehicleRideTypeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<VehicleModel> vehicle = _getVehicleList(context);
     return Scaffold(
-      appBar: CustomAppBar(title: AppLocalizations.of(context)!.selectOne),
+      appBar:
+          CustomAppBar(title: Text(AppLocalizations.of(context)!.selectOne)),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 16.w),
