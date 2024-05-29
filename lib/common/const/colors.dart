@@ -59,7 +59,7 @@ class AppColors {
   static Color darkLightGray = const Color(0xff7B7B7B);
   static Color darkButtonText = const Color(0xff0F1110);
   static Color darkBackGround = const Color(0xff2D2D2D);
-  static Color darkWhite = const Color(0xff71697C);
+  static Color darkWhite = const Color(0xff4A4A4A);
   static Color darkTextFieldBg = const Color(0xff242424);
   static Color darkPrimary = const Color(0xffA280CC);
   static Color darkFocus = const Color(0xff875BBD);

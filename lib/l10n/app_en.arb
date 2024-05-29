@@ -28,6 +28,11 @@
 
 
 
+"favorites":"Favorites",
+"history":"History",
+"wallet":"Wallet",
+"settings":"Settings",
+"aboutUs":"About us",
 
 
 
@@ -125,6 +130,8 @@
 
         "vehicle_photo":"Vehicle Photo",
         "model_year":"Model Year"
+
+
 
 
 

@@ -21,8 +21,18 @@ class AppAssets {
 
   static const cancle = 'assets/icons/cancle.svg';
 
-  static const camera  = 'assets/icons/camera.svg';
-  static const gallery  = 'assets/icons/gallery.svg';
+  static const camera = 'assets/icons/camera.svg';
+  static const gallery = 'assets/icons/gallery.svg';
+  static const iconMale = 'assets/icons/iconMale.svg';
+  static const about = 'assets/icons/about.svg';
+  static const setting = 'assets/icons/setting.svg';
+  static const wallet = 'assets/icons/wallet.svg';
+  static const history = 'assets/icons/history.svg';
+  static const locationPin = 'assets/icons/locationPin.svg';
+  static const appbarSetting = 'assets/icons/appbarSetting.svg';
+  static const drawerIcon = 'assets/icons/drowerIcon.svg';
+  // static const camera  = 'assets/icons/camera.svg';
+  // static const gallery  = 'assets/icons/gallery.svg';
 
-  static const down  = 'assets/icons/down.svg';
+  static const down = 'assets/icons/down.svg';
 }
