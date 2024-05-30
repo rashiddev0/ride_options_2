@@ -45,7 +45,7 @@ class CustomButton extends StatelessWidget {
       icon: Icon(
         icon,
         color: Theme.of(context).scaffoldBackgroundColor,
-        size: 18.sp,
+        size: 22.h,
       ),
       label: Text(
         title, //size: 16.sp, color: textColor

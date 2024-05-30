@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: Center(
-        child: Lottie.asset('assets/lottie/splash.json',
+        child: Lottie.asset(AppAssets.splashLotti,
             fit: BoxFit.fill, repeat: false, onLoaded: navigate(context)),
       ),
     );

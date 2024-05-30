@@ -44,6 +44,7 @@ class PlaceSearchSheet extends StatelessWidget {
                 icon: Icons.location_on_outlined,
                 colorIcon: Theme.of(context).primaryColor,
                 iconTap: () {
+                  homeBloc.checkLocationTextController(true);
                   Navigator.pushNamed(context, AppRoute.dragMarkerScreen);
                 },
               ),
@@ -69,7 +70,8 @@ class PlaceSearchSheet extends StatelessWidget {
                   print("////55////${homeBloc.dropLocationController.text}");
                 },
                 iconTap: () {
-                  Navigator.pushNamed(context, AppRoute.dragMarkerScreen);
+                  homeBloc.checkLocationTextController(false);
+                  Navigator.pushNamedAndRemoveUntil(context, AppRoute.dragMarkerScreen,(route) => false,);
                 },
               ),
               addHeight(8.h),
@@ -92,7 +94,7 @@ class PlaceSearchSheet extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: '"${homeBloc.dropLocationController.text}"',
+                          text: '"${homeBloc.dropLocationController.text.length <= 10 ? homeBloc.dropLocationController.text : homeBloc.dropLocationController.text.substring(0,8)}..."',
                           style: TextStyle(
                             fontSize: 18.sp,
                             color: Theme.of(context).primaryColor,

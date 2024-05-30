@@ -4,6 +4,7 @@ import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/
 
 import '../../../../../common/const/export.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';
+import '../../../data/models/dropLocation.dart';
 import '../../bloc/homeBloc/home_state.dart';
 
 class DragScreen extends StatelessWidget {
@@ -35,7 +36,7 @@ class DragScreen extends StatelessWidget {
                           homeBloc.controllerCompleter.complete(controller);
                           homeBloc.controller = controller;
                         },
-                        markers: homeBloc.markers,
+                        //markers: homeBloc.markers,
                         buildingsEnabled: false,
                         myLocationEnabled: true,
                         zoomControlsEnabled: false,
@@ -48,13 +49,18 @@ class DragScreen extends StatelessWidget {
                         onCameraMove: (CameraPosition position) {
                           homeBloc.selectedLocation = false;
                           //pick current location
-                          /*setState(() {
-                  _centerLocation = position.target;
-                });*/
+                            homeBloc.centerLocation = position.target;
                         },
                         onCameraIdle: () {
                           homeBloc.selectedLocation = true;
-                          // _handleTap(_centerLocation);
+                          if(homeBloc.pickLocationTextController == true){
+                            LocationModel pickLocationModel = LocationModel();
+                            homeBloc.getCurrentAddress(homeBloc.centerLocation.latitude, homeBloc.centerLocation.longitude, pickLocationModel);
+                          }
+                          else if(homeBloc.pickLocationTextController == false){
+                            DropLocationModel dropLocationModel = DropLocationModel();
+                            homeBloc.getDropAddress(homeBloc.centerLocation.latitude, homeBloc.centerLocation.longitude, dropLocationModel);
+                          }
                         },
                         //onTap: _handleTap,
                       ),
@@ -85,8 +91,11 @@ class DragScreen extends StatelessWidget {
                             title: AppLocalizations.of(context)!.done,
                             onTap: () {
                               //_returnSelectedLocation();
+                              /*if(homeBloc.pickLocationTextController == false){
+                                homeBloc.markerSetDrop();
+                              }*/
                               Navigator.pushNamedAndRemoveUntil(context,
-                                  AppRoute.passengerHome, (route) => false);
+                                  AppRoute.locationMapScreen, (route) => false);
                             },
                             borderColor: Theme.of(context).primaryColor,
                           ),

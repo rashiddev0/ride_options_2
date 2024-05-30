@@ -22,4 +22,8 @@ class AppAssets {
   static const icLocationB = 'assets/imgs/locationB.svg';
   static const icLocationPin = 'assets/imgs/icLocationPin.svg';
   static const icPin = 'assets/imgs/icDropofMarker.png';
+  static const pickPin = 'assets/imgs/pickPin.png';
+  static const dropPin = 'assets/imgs/dropPin.png';
+  static const splashLotti = 'assets/lottie/splash.json';
+  static const userWaiting = 'assets/lottie/location_and_search_bubble.json';
 }

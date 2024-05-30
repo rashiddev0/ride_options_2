@@ -5,6 +5,7 @@ import 'dart:developer';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ride_options_2/passenger_features/new_feature/data/models/dropLocation.dart';
 import 'package:uuid/uuid.dart';
 import 'package:http/http.dart' as http;
 import 'package:ride_options_2/passenger_features/new_feature/data/models/location.dart';
@@ -15,6 +16,7 @@ import 'home_event.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   List<String> locationHistory = ["Ghazi Road", "Model Town", "Punjab Socitey"];
+  List<String> commentList = ["I'm on pickup location", "Hurry up", "Call me when you reach", "No calls text only","Wait 5 mints "];
   List<String> offersList = [
     "assets/imgs/temp/a.png",
     "assets/imgs/temp/b.png",
@@ -58,10 +60,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   TextEditingController pickLocationController = TextEditingController();
   TextEditingController dropLocationController = TextEditingController();
+  TextEditingController userCommentController = TextEditingController();
 
   GoogleMapController? controller;
   final Completer<GoogleMapController> controllerCompleter = Completer();
 
+  LatLng centerLocation = const LatLng(41.4219057, -102.0840772);
   Set<Marker> markers = {};
   bool selectedLocation = false;
   int? selectedRideIndex;
@@ -157,6 +161,38 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
+  getDropAddress(double dropLat, double dropLng, DropLocationModel model) async {
+    http.Response response = await http.get(Uri.parse(
+        "https://maps.googleapis.com/maps/api/geocode/json?latlng=$dropLat,$dropLng&key=$apiKey"));
+    if (response.statusCode == 200) {
+      String jSonData = response.body;
+      List<Placemark> placeMarks = await placemarkFromCoordinates(
+        dropLat,
+        dropLng,
+      );
+      Placemark address = placeMarks[0];
+      var decodeData = jsonDecode(jSonData);
+      List list = decodeData["results"][0]["formatted_address"].split(",");
+      model.title = list.first;
+      model.address = decodeData["results"][0]["formatted_address"];
+      /*userDetailsControl.pickAddress.value =
+        decodeData["results"][0]["formatted_address"];*/
+      model.city = address.locality;
+      model.country = address.country;
+      model.lat = dropLat;
+      model.lng = dropLng;
+      debugPrint("////92////:${model.toMap().toString()}");
+      //var data = model;
+      dropLocationMap = model.toMap();
+      debugPrint("////184////:${dropLocationMap.toString()}");
+      //lat: 31.4686679, lng: 74.3180427
+      dropLocationController.text = model.address!;
+      emit(DropLocationLoaded(model));
+    } else {
+      debugPrint("///451///: Some thing happen : ${response.body}");
+    }
+  }
+
   getLocPrediction(String value) async {
     if (sessionToken == null) {
       sessionToken = uuid.v4();
@@ -199,30 +235,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     );
   }
 
-  void handleTap(LatLng tappedPoint) async {
-    markers.clear();
-    /*Marker marker = Marker(
-      markerId: const MarkerId('1'),
-      position: LatLng(tappedPoint.latitude, tappedPoint.longitude),
-    );
-
-    setState(() {
-      markers.add(marker);
-    });*/
-    final addresses = await placemarkFromCoordinates(
-        tappedPoint.latitude, tappedPoint.longitude);
-
-    final Placemark firstPlacemark = addresses.first;
-    final String fullAddress =
-        "${firstPlacemark.subThoroughfare} ${firstPlacemark.thoroughfare}, "
-        "${firstPlacemark.subLocality}, ${firstPlacemark.locality}, "
-        "${firstPlacemark.administrativeArea} ${firstPlacemark.postalCode}, "
-        "${firstPlacemark.country}";
-    //_selectedLocation = tappedPoint;
-    //_selectedAddress = fullAddress ?? 'Unknown address';
-    // setState(() {});
-  }
-
   getSelectedIndex(int index){
     selectedRideIndex = index;
     emit(RideIndex());
@@ -230,7 +242,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   checkLocationTextController(bool isActive){
     pickLocationTextController = isActive;
-    emit(PickLocationController());
+    emit(PickLocationController(isActive));
   }
 
   getLatLngFromAddress(List<dynamic> placeList,int index,Map<dynamic, dynamic> dropLocationMap) async {
