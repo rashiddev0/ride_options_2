@@ -16,7 +16,13 @@ import 'home_event.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   List<String> locationHistory = ["Ghazi Road", "Model Town", "Punjab Socitey"];
-  List<String> commentList = ["I'm on pickup location", "Hurry up", "Call me when you reach", "No calls text only","Wait 5 mints "];
+  List<String> commentList = [
+    "I'm on pickup location",
+    "Hurry up",
+    "Call me when you reach",
+    "No calls text only",
+    "Wait 5 mints "
+  ];
   List<String> offersList = [
     "assets/imgs/temp/a.png",
     "assets/imgs/temp/b.png",
@@ -161,7 +167,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  getDropAddress(double dropLat, double dropLng, DropLocationModel model) async {
+  getDropAddress(
+      double dropLat, double dropLng, DropLocationModel model) async {
     http.Response response = await http.get(Uri.parse(
         "https://maps.googleapis.com/maps/api/geocode/json?latlng=$dropLat,$dropLng&key=$apiKey"));
     if (response.statusCode == 200) {
@@ -235,17 +242,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     );
   }
 
-  getSelectedIndex(int index){
+  getSelectedIndex(int index) {
     selectedRideIndex = index;
     emit(RideIndex());
   }
 
-  checkLocationTextController(bool isActive){
+  checkLocationTextController(bool isActive) {
     pickLocationTextController = isActive;
     emit(PickLocationController(isActive));
   }
 
-  getLatLngFromAddress(List<dynamic> placeList,int index,Map<dynamic, dynamic> dropLocationMap) async {
+  getLatLngFromAddress(List<dynamic> placeList, int index) async {
     var result = await locationFromAddress(placeList[index]["description"]);
     LocationModel model = LocationModel(
       title: placeList[index]["structured_formatting"]["main_text"],
@@ -261,7 +268,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     debugPrint("///248///${model.country}");
     debugPrint("///249///${model.lat}");
     debugPrint("///250///${model.lng}");
-    dropLocationMap  = model.toMap();
+    pickLocationMap = model.toMap();
     debugPrint("///245///${dropLocationMap["title"]}");
     debugPrint("///246///${dropLocationMap["address"]}");
     debugPrint("///247///${dropLocationMap["city"]}");
@@ -270,4 +277,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     debugPrint("///250///${dropLocationMap["lng"]}");
   }
 
+  getLatLngFromAddressDrop(
+    List<dynamic> placeList,
+    int index,
+  ) async {
+    var result = await locationFromAddress(placeList[index]["description"]);
+    DropLocationModel model = DropLocationModel(
+      title: placeList[index]["structured_formatting"]["main_text"],
+      address: placeList[index]["description"],
+      city: "",
+      country: "",
+      lat: result.first.latitude,
+      lng: result.first.longitude,
+    );
+    debugPrint("///245///${model.title}");
+    debugPrint("///246///${model.address}");
+    debugPrint("///247///${model.city}");
+    debugPrint("///248///${model.country}");
+    debugPrint("///249///${model.lat}");
+    debugPrint("///250///${model.lng}");
+    dropLocationMap = model.toMap();
+    debugPrint("///245///${dropLocationMap["title"]}");
+    debugPrint("///246///${dropLocationMap["address"]}");
+    debugPrint("///247///${dropLocationMap["city"]}");
+    debugPrint("///248///${dropLocationMap["country"]}");
+    debugPrint("///249///${dropLocationMap["lat"]}");
+    debugPrint("///250///${dropLocationMap["lng"]}");
+  }
 }

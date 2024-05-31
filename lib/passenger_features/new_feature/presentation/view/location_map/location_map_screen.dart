@@ -19,10 +19,19 @@ class LocationMapScreen extends StatefulWidget {
 
 class _LocationMapScreenState extends State<LocationMapScreen> {
 
+  int a = 0;
   late PolylinePoints polylinePoints;
   List<LatLng> polylineCoordinates = [];
   Set<Polyline> polyLines = <Polyline>{};
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    polyLines.clear();
+    polylineCoordinates.clear();
+    polylinePoints = PolylinePoints();
+    super.initState();
+  }
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
@@ -39,59 +48,7 @@ class _LocationMapScreenState extends State<LocationMapScreen> {
     return Scaffold(
       body: pickLocation.lat != null
           ? BlocConsumer<HomeBloc, HomeState>(
-        listener: (context, state) async {
-          //LocationModel dropLocationModel = LocationModel.fromMap(homeBloc.dropLocationMap);
-          /*print("///30///$state");
-          final Uint8List? markerIDOne = await getBytesFromAsset(
-              AppAssets.pickPin,
-              (100.h).toInt());
-          final Uint8List? markerIDTwo = await getBytesFromAsset(
-              AppAssets.dropPin,
-              (100.h).toInt());
-          if(homeBloc.pickLocationMap["lat"] != null){
-            setState(() {
-              homeBloc.markers.add(
-                Marker(
-                  markerId: const MarkerId("id-1"),
-                  icon: BitmapDescriptor.fromBytes(markerIDOne!),
-                  position: LatLng(homeBloc.pickLocationMap["lat"]!,
-                      homeBloc.pickLocationMap["lng"]!),
-                ),
-
-              );
-            });
-
-            homeBloc.markerSetPick();
-          }
-
-          if(homeBloc.dropLocationMap["lat"] != null){
-            homeBloc.markers.add(
-              Marker(
-                markerId: const MarkerId("id-2"),
-                icon: BitmapDescriptor.fromBytes(markerIDTwo!),
-                position: LatLng(homeBloc.dropLocationMap["lat"],
-                    homeBloc.dropLocationMap["lng"]),
-              ),
-            );
-            homeBloc.markerSetDrop();
-          }*/
-          /*final Uint8List? markerIDTwo = await getBytesFromAsset(
-              AppAssets.dropPin,
-              (100.h).toInt());
-          if(state is PickMarkerSet && homeBloc.dropLocationMap["lat"] != null){
-            homeBloc.markerSetDrop();
-          }
-          if(state is DropMarkerSet){
-            homeBloc.markers.add(
-              Marker(
-                markerId: const MarkerId("id-2"),
-                icon: BitmapDescriptor.fromBytes(markerIDTwo!),
-                position: LatLng(homeBloc.dropLocationMap["lat"],
-                    homeBloc.dropLocationMap["lng"]),
-              ),
-            );
-          }*/
-        },
+        listener: (context, state) async {},
         builder: (context, state) {
           return Stack(
             children: [
@@ -106,7 +63,7 @@ class _LocationMapScreenState extends State<LocationMapScreen> {
                     homeBloc.controller = controller;
                   },
                   markers: homeBloc.markers,
-                  polylines: polyLines,
+                  polylines: polyLines.isEmpty ? {} : <Polyline>{polyLines.last},
                   buildingsEnabled: false,
                   myLocationEnabled: true,
                   zoomControlsEnabled: false,
@@ -136,6 +93,7 @@ class _LocationMapScreenState extends State<LocationMapScreen> {
       ),
     );
   }
+
   setMarkerAndPolyLine() async {
     final homeBloc = BlocProvider.of<HomeBloc>(context);
     print("////143///${homeBloc.pickLocationMap}");
@@ -159,9 +117,12 @@ class _LocationMapScreenState extends State<LocationMapScreen> {
         );
       });
     }
-
+print("////110///${homeBloc.dropLocationMap["lat"]}");
     if(homeBloc.dropLocationMap["lat"] != null){
-      setPolyLines();
+      if(a == 0){
+        setPolyLines();
+        a = a+1;
+      }
       setState(() {
         homeBloc.markers.add(
           Marker(
@@ -176,7 +137,7 @@ class _LocationMapScreenState extends State<LocationMapScreen> {
   }
 
   Future<void> setPolyLines() async {
-    polylinePoints = PolylinePoints();
+    print("///179");
     final homeBloc = BlocProvider.of<HomeBloc>(context);
     PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
         homeBloc.apiKey,
