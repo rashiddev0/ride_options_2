@@ -106,7 +106,7 @@ class  DriverVehicleInfoAuthInitial extends DriverAuthState {
 }
 
 class  DriverVehicleInfoAuthSelected extends DriverAuthState {
-  DriverVehicleInfoAuthSelected({ required DateTime super.vehicleModelDate,super.selectedBrand, super.selectedModel});
+  DriverVehicleInfoAuthSelected({  super.vehicleModelDate,super.selectedBrand, super.selectedModel});
 }
 
 
