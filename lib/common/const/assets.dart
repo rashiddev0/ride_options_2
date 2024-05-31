@@ -26,4 +26,5 @@ class AppAssets {
   static const dropPin = 'assets/imgs/dropPin.png';
   static const splashLotti = 'assets/lottie/splash.json';
   static const userWaiting = 'assets/lottie/location_and_search_bubble.json';
+  static const courierBike = 'assets/icons/courierBike.svg';
 }

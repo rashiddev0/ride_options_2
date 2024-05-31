@@ -81,7 +81,9 @@ class HomeScreen extends StatelessWidget {
                       CategoryBox(
                         categoryName: AppLocalizations.of(context)!.courier,
                         categoryImage: AppAssets.courier,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, AppRoute.courierScreen);
+                        },
                       ),
                       CategoryBox(
                         categoryName: AppLocalizations.of(context)!.cityToCity,

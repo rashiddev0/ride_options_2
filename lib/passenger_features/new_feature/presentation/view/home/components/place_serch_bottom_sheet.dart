@@ -143,19 +143,19 @@ class PlaceSearchSheet extends StatelessWidget {
                         onTap: () async {
                           loadingAlertDialog(context: context);
                           if(homeBloc.pickLocationTextController == true){
-                            await homeBloc.getLatLngFromAddress(homeBloc.placeList, index,homeBloc.pickLocationMap);
+                            await homeBloc.getLatLngFromAddress(homeBloc.placeList, index);
                             if(context.mounted){
                               homeBloc.pickLocationController.text = homeBloc.placeList[index]["description"];
                               Navigator.pop(context);
-                              Navigator.pushNamed(context, AppRoute.locationMapScreen);
+                              Navigator.pushNamedAndRemoveUntil(context, AppRoute.locationMapScreen,(route) => false,);
                             }
                           }
                           else{
-                            await homeBloc.getLatLngFromAddress(homeBloc.placeList, index,homeBloc.dropLocationMap);
+                            await homeBloc.getLatLngFromAddressDrop(homeBloc.placeList, index);
                             if(context.mounted){
                               homeBloc.dropLocationController.text = homeBloc.placeList[index]["description"];
                               Navigator.pop(context);
-                              Navigator.pushNamed(context, AppRoute.locationMapScreen);
+                              Navigator.pushNamedAndRemoveUntil(context, AppRoute.locationMapScreen,(route) => false,);
                             }
                           }
                         },
