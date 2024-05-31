@@ -1,9 +1,12 @@
 import 'package:ride_options_2/common_features/auth/presentation/view/otp/otp_screen.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common_features/auth/presentation/view/account_type/account_type.dart';
+import 'package:ride_options_2/common_features/drawer/presentation/view/setting_screen.dart';
+import 'package:ride_options_2/common_features/drawer/presentation/view/theme_screen.dart';
 import 'package:ride_options_2/common_features/onboarding/onboard_one.dart';
 import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart';
 import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type_screen.dart';
+import 'package:ride_options_2/driver_features/home/presentation/view/driver_bottom_navbar.dart';
 
 import '../common_features/auth/presentation/view/number/number_screen.dart';
 import '../driver_features/auth/presentation/view/basic_info_screen.dart';
@@ -21,9 +24,8 @@ class AppRoute {
   static const accountType = '/account_type';
   static const numberScreen = '/number_screen';
   static const otpScreen = '/otp';
-
-
-
+  static const settingScreen = '/setting_screen';
+  static const themeScreen = '/theme_screen';
 
   ///*********** Driver Routes
   static const vehicleTypeScreen = '/vehicleTypeScreen';
@@ -38,6 +40,7 @@ class AppRoute {
   static const licenseScreen = '/LicenseScreen';
   static const vehicleInfoScreen = '/VehicleInfoScreen';
   static const vehiclePhotoScreen = '/VehiclePhotoScreen';
+  static const drivrNavBar = '/driver_navbar';
 
   static Route<Object>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -73,32 +76,31 @@ class AppRoute {
 
       case vehicleTypeScreen:
         return MaterialPageRoute(
-          builder: (_) => VehicleTypeScreen(),
+          builder: (_) => const VehicleTypeScreen(),
           settings: settings,
         );
 
       case vehicleRideTypeScreen:
         return MaterialPageRoute(
-          builder: (_) => VehicleRideTypeScreen(),
+          builder: (_) => const VehicleRideTypeScreen(),
           settings: settings,
         );
 
       case vehicleFrightTypeScreen:
         return MaterialPageRoute(
-          builder: (_) => VehicleFreightTypeScreen(),
+          builder: (_) => const VehicleFreightTypeScreen(),
           settings: settings,
         );
 
-
       case driversDetailScreen:
         return MaterialPageRoute(
-          builder: (_) => DriversDetailScreen(),
+          builder: (_) => const DriversDetailScreen(),
           settings: settings,
         );
 
       case basicInfoScreen:
         return MaterialPageRoute(
-          builder: (_) => BasicInfoScreen(),
+          builder: (_) => const BasicInfoScreen(),
           settings: settings,
         );
       case cNICScreen:
@@ -109,7 +111,7 @@ class AppRoute {
 
       case licenseScreen:
         return MaterialPageRoute(
-          builder: (_) => LicenseScreen(),
+          builder: (_) => const LicenseScreen(),
           settings: settings,
         );
 
@@ -119,15 +121,26 @@ class AppRoute {
           settings: settings,
         );
 
-
       case vehiclePhotoScreen:
         return MaterialPageRoute(
           builder: (_) => VehiclePhotoScreen(),
           settings: settings,
         );
-
-
-
+      case settingScreen:
+        return MaterialPageRoute(
+          builder: (_) => const SettingScreen(),
+          settings: settings,
+        );
+      case themeScreen:
+        return MaterialPageRoute(
+          builder: (_) => const ThemeScreen(),
+          settings: settings,
+        );
+      case drivrNavBar:
+        return MaterialPageRoute(
+          builder: (_) => const DriverNavBar(),
+          settings: settings,
+        );
 
       default:
         return null;

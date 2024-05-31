@@ -31,8 +31,19 @@ class AppAssets {
   static const locationPin = 'assets/icons/locationPin.svg';
   static const appbarSetting = 'assets/icons/appbarSetting.svg';
   static const drawerIcon = 'assets/icons/drowerIcon.svg';
-  // static const camera  = 'assets/icons/camera.svg';
-  // static const gallery  = 'assets/icons/gallery.svg';
+  static const delete = 'assets/icons/delete.svg';
+  static const help = 'assets/icons/help.svg';
+  static const rate = 'assets/icons/rate.svg';
+  static const navigator = 'assets/icons/navigator.svg';
+  static const theme = 'assets/icons/theme.svg';
+  static const language = 'assets/icons/language.svg';
+  static const notification = 'assets/icons/notification.svg';
+  static const activity = 'assets/icons/activity.svg';
+  static const rideRequest = 'assets/icons/rideRequiest.svg';
+  static const notifications = 'assets/icons/notifications.svg';
+  static const wallet2 = 'assets/icons/wallet2.svg';
 
   static const down = 'assets/icons/down.svg';
+  static const pointA = 'assets/icons/pointA.svg';
+  static const pointB = 'assets/icons/pointB.svg';
 }

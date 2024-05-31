@@ -12,6 +12,7 @@ class OTPScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authCubit = BlocProvider.of<AuthCubit>(context);
+    TextEditingController controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -97,7 +98,7 @@ class OTPScreen extends StatelessWidget {
                               backgroundColor: Colors.transparent,
                               enableActiveFill: true,
                               //errorAnimationController: errorController,
-                              controller: authCubit.otpController,
+                              controller: controller,
                               keyboardType: TextInputType.number,
                               beforeTextPaste: (_) => false,
                               onCompleted: (v) {},
@@ -141,7 +142,10 @@ class OTPScreen extends StatelessWidget {
                           title: AppLocalizations.of(context)!.next,
                           onTap: authCubit.otpController.text.isEmpty
                               ? null
-                              : () {},
+                              : () {
+                                  Navigator.pushNamed(
+                                      context, AppRoute.vehicleRideTypeScreen);
+                                },
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
                           titleSize: 18.sp,

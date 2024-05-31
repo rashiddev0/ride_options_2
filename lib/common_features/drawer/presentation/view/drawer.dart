@@ -83,7 +83,8 @@ class CustomDrawer extends StatelessWidget {
                 title: AppLocalizations.of(context)!.wallet),
             addHeight(8.h),
             DrawerTile(
-                onTap: () {},
+                onTap: () =>
+                    Navigator.pushNamed(context, AppRoute.settingScreen),
                 icon: AppAssets.setting,
                 title: AppLocalizations.of(context)!.settings),
             addHeight(8.h),
