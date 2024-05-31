@@ -2,14 +2,33 @@
 
 
 
+import 'dart:ui';
+
 import 'package:image_picker/image_picker.dart';
+import 'package:multi_dropdown/models/value_item.dart';
 
 abstract class DriverAuthState {
-  final XFile? imageFile1;
-  final XFile? imageFile2;
+  final XFile? imageFileCNIC1;
+  final XFile? imageFileCNIC2;
+  final XFile? imageFileLicense1;
+  final XFile? imageFileLicense2;
+  final XFile? profileImage;
   final DateTime? dateTime;
+  final String? cnicNumber;
+  final String? fullName;
+  final String? referralId;
+  final ValueItem? selectedBrand;
+  final ValueItem? selectedModel;
+  final DateTime? vehicleModelDate;
+  final XFile? vehicleImage;
+  final XFile? vehicleDoc;
+  final Color? vehicleColor;
+  final String? vehicleRegNumber;
 
-  DriverAuthState({this.imageFile1, this.imageFile2,  this.dateTime});
+  DriverAuthState({this.imageFileCNIC1, this.imageFileCNIC2,  this.dateTime,this.imageFileLicense1,
+    this.imageFileLicense2,this.profileImage,this.cnicNumber,this.fullName,this.referralId,this.selectedBrand,
+  this.selectedModel,this.vehicleModelDate,this.vehicleImage,this.vehicleColor,this.vehicleDoc,this.vehicleRegNumber
+  });
 }
 
 
@@ -19,16 +38,16 @@ class DriverBasicAuthInitial extends DriverAuthState {
 }
 
 class DriverBasicImageAuthImageSelected extends DriverAuthState {
-  DriverBasicImageAuthImageSelected({XFile? imageFile1, String? fullName,String? referralId});
+  DriverBasicImageAuthImageSelected({super.profileImage, super.fullName,super.referralId});
 }
 
 class DriverBasicNameAuthDateSelected extends DriverAuthState {
-  DriverBasicNameAuthDateSelected({XFile? imageFile1, String? fullName,String? referralId});
+  DriverBasicNameAuthDateSelected({super.profileImage, super.fullName,super.referralId});
 }
 
 
 class DriverBasicReferralAuthDateSelected extends DriverAuthState {
-  DriverBasicReferralAuthDateSelected({XFile? imageFile1, String? fullName,String? referralId});
+  DriverBasicReferralAuthDateSelected({super.profileImage,super.fullName,super.referralId});
 }
 
 class DriverBasicAuthError extends DriverAuthState {
@@ -48,11 +67,11 @@ class DriverLicenseAuthInitial extends DriverAuthState {
 }
 
 class DriverLicenseAuthImageSelected extends DriverAuthState {
-  DriverLicenseAuthImageSelected({super.imageFile1, super.imageFile2, required DateTime super.dateTime});
+  DriverLicenseAuthImageSelected({super.imageFileLicense1, super.imageFileLicense2, required DateTime super.dateTime});
 }
 
 class DriverLicenseAuthDateSelected extends DriverAuthState {
-  DriverLicenseAuthDateSelected({required DateTime super.dateTime, super.imageFile1, super.imageFile2});
+  DriverLicenseAuthDateSelected({required DateTime super.dateTime, super.imageFileLicense1, super.imageFileLicense2});
 }
 
 class DriverLicenseAuthError extends DriverAuthState {
@@ -67,15 +86,30 @@ class DriverCNICAuthInitial extends DriverAuthState {
 }
 
 class DriverCNICAuthImageSelected extends DriverAuthState {
-  DriverCNICAuthImageSelected({String? cNICNumber,super.imageFile1, super.imageFile2, });
+  DriverCNICAuthImageSelected({super.cnicNumber,super.imageFileCNIC1, super.imageFileCNIC2, });
 }
 
 class DriverCNICAuthDateSelected extends DriverAuthState {
-  DriverCNICAuthDateSelected({String? cNICNumber, super.imageFile1, super.imageFile2});
+  DriverCNICAuthDateSelected({super.cnicNumber, super.imageFileCNIC1, super.imageFileCNIC2});
 }
 
 class DriverCNICAuthError extends DriverAuthState {
   final String error;
 
   DriverCNICAuthError(this.error) : super(dateTime: DateTime.now());
+}
+
+
+
+class  DriverVehicleInfoAuthInitial extends DriverAuthState {
+  DriverVehicleInfoAuthInitial() : super(dateTime: DateTime.now());
+}
+
+class  DriverVehicleInfoAuthSelected extends DriverAuthState {
+  DriverVehicleInfoAuthSelected({ required DateTime super.vehicleModelDate,super.selectedBrand, super.selectedModel});
+}
+
+
+class DriverVehiclePhotoAuthSelected extends DriverAuthState {
+  DriverVehiclePhotoAuthSelected({super.vehicleImage, super.vehicleDoc, super.vehicleRegNumber,Color? vehicleColor});
 }

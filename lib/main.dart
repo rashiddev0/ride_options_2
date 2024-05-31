@@ -6,6 +6,8 @@ import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.d
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 
+import 'driver_features/auth/presentation/cubit/auth_cubit.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (_) => OnboardCubit()),
               BlocProvider(create: (_) => AuthCubit()),
               BlocProvider(create: (_) => InternetCubit()),
+              BlocProvider(create: (_) => DriverAuthCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},
