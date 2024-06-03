@@ -33,6 +33,22 @@
 "wallet":"Wallet",
 "settings":"Settings",
 "aboutUs":"About us",
+"notifications":"Notifications",
+"language":"Language",
+"citySelection":"City Selection",
+"theme":"Theme",
+"navigator":"Navigator",
+"rateThisApp":"Rate this app",
+"help":"Help",
+"deleteAccount":"Delete Account",
+"requests":"Requests",
+"activity":"Activity",
+"useSystemTheme":"Use system theme",
+"light":"Light",
+"dark":"Dark",
+"offline":"Offline",
+"online":"Online",
+
 
 
 

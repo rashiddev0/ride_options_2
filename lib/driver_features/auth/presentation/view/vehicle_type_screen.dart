@@ -39,41 +39,6 @@ class VehicleTypeScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: Text(AppLocalizations.of(context)!.type),
       ),
-
-      // this appbar for driver
-      // CustomAppBar(
-      //   height: 70.h,
-      //   leading: Builder(
-      //     builder: (BuildContext context) {
-      //       return IconButton(
-      //         icon: SvgPicture.asset(
-      //           AppAssets.drawerIcon,
-      //           width: 28.w,
-      //           height: 28.h,
-      //           colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),
-      //         ),
-      //         onPressed: () {
-      //           Scaffold.of(context).openDrawer();
-      //         },
-      //         tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-      //       );
-      //     },
-      //   ),
-      //   action: [
-      //     SvgPicture.asset(
-      //       AppAssets.appbarSetting,
-      //       width: 28.w,
-      //       height: 28.h,
-      //       colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),
-      //     ),
-      //     addWidth(16.w),
-      //   ],
-      //   bgColor: AppColors.primary,
-      //   title: CustomToggle(
-      //       showOnline: true,
-      //       values: const ['Offline', 'Online'],
-      //       onToggleCallback: (value) {}),
-      // ),
       body: Center(
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 22.h, horizontal: 16.w),

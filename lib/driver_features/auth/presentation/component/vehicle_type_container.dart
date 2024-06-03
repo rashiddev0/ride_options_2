@@ -63,7 +63,7 @@ class VehicleTypeContainer extends StatelessWidget {
               child: Text(
                 textAlign: TextAlign.center,
                 desc,
-                style: Theme.of(context).textTheme.titleSmall,
+                style: Theme.of(context).textTheme.bodyMedium,
               ),
             )
           ],
