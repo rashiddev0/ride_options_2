@@ -100,7 +100,7 @@ class AppRoute {
 
       case basicInfoScreen:
         return MaterialPageRoute(
-          builder: (_) => const BasicInfoScreen(),
+          builder: (_) =>  BasicInfoScreen(),
           settings: settings,
         );
       case cNICScreen:

@@ -185,11 +185,11 @@ class DriverAuthCubit extends Cubit<DriverAuthState> {
 
 
   void selectBrand(ValueItem brand) {
-    emit( DriverVehicleInfoAuthSelected(selectedBrand: brand, selectedModel: state.selectedModel, vehicleModelDate: state.vehicleModelDate??DateTime.now()));
+    emit( DriverVehicleInfoAuthSelected(selectedBrand: brand, selectedModel: state.selectedModel, vehicleModelDate: state.vehicleModelDate));
   }
 
   void selectModel(ValueItem model) {
-    emit(DriverVehicleInfoAuthSelected(selectedBrand: state.selectedBrand, selectedModel: model,vehicleModelDate: state.vehicleModelDate??DateTime.now()));
+    emit(DriverVehicleInfoAuthSelected(selectedBrand: state.selectedBrand, selectedModel: model,vehicleModelDate: state.vehicleModelDate));
   }
 
 
@@ -268,5 +268,23 @@ class DriverAuthCubit extends Cubit<DriverAuthState> {
   }
 
 
+
+  XFile? vehicleImage;
+  XFile? vehicleDoc;
+  String? vehicleRegNumber;
+  Color? vehicleColor;
+
+  setDataVehicleOnPress(context){
+    vehicleImage= state.vehicleImage;
+    vehicleDoc=state.vehicleDoc;
+    vehicleRegNumber=state.vehicleRegNumber;
+    vehicleColor=state.vehicleColor;
+    emit(DriverVehiclePhotoAuthSelected(vehicleImage: vehicleImage, vehicleDoc: vehicleDoc,vehicleRegNumber: vehicleRegNumber ,vehicleColor: vehicleColor));
+    Navigator.pop(context);
+  }
+
+  setDataVehicleInit(){
+    emit(DriverVehiclePhotoAuthSelected(vehicleImage: vehicleImage, vehicleDoc: vehicleDoc,vehicleRegNumber: vehicleRegNumber ,vehicleColor: vehicleColor));
+  }
 
 }

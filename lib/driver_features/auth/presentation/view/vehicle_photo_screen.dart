@@ -18,6 +18,7 @@ class VehiclePhotoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<DriverAuthCubit>().setDataVehicleInit();
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
@@ -32,6 +33,7 @@ class VehiclePhotoScreen extends StatelessWidget {
               child: BlocBuilder<DriverAuthCubit, DriverAuthState>(
 
                   builder: (context, state) {
+                    regNumber.text=state.vehicleRegNumber??"";
                     return Column(
                       children: [
                         addHeight(30.h),
@@ -179,7 +181,9 @@ class VehiclePhotoScreen extends StatelessWidget {
                         ),
                         addHeight(24.h),
                         ElevatedButton(
-                            onPressed: (){},
+                            onPressed: (){
+                              context.read<DriverAuthCubit>().setDataVehicleOnPress(context);
+                            },
                             child: Text(
                               AppLocalizations.of(context)!.save,
                               style: Theme.of(context).textTheme.headlineMedium,
