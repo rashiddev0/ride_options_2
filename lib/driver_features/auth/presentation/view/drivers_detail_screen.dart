@@ -1,5 +1,4 @@
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_appbar.dart';
 
 import '../component/driver_details_tile.dart';
 
@@ -66,7 +65,9 @@ class DriversDetailScreen extends StatelessWidget {
               ),
               const Spacer(),
               ElevatedButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoute.drivrNavBar);
+                  },
                   child: Text(
                     AppLocalizations.of(context)!.save,
                     style: Theme.of(context).textTheme.headlineMedium,

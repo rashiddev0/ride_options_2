@@ -2,6 +2,8 @@ import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/theme/custom_themes/app_bar_theme.dart';
 import 'package:ride_options_2/common/theme/custom_themes/color_scheme_theme.dart';
 import 'package:ride_options_2/common/theme/custom_themes/elevated_button_theme.dart';
+import 'package:ride_options_2/common/theme/custom_themes/navigation_bar_theme.dart';
+import 'package:ride_options_2/common/theme/custom_themes/switch_button_theme.dart';
 import 'package:ride_options_2/common/theme/custom_themes/text_theme.dart';
 
 import 'custom_themes/textfiled_theme.dart';
@@ -11,19 +13,16 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       fontFamily: appFontFamily,
-
       scaffoldBackgroundColor: AppColors.backGround,
-
       colorScheme: TColorSchemeTheme.lightColorScheme,
-
       disabledColor: AppColors.disable,
-
       inputDecorationTheme: TTextFieldTheme.inputDecorationThemeLight,
-
       textTheme: TTextTheme.lightTextTheme,
       elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
       //****************** This section for AppBar********************* */
       appBarTheme: TAppBarTheme.lightAppBarTheme,
+      switchTheme: TSwitchButtonTheme.lightSwitchButtonTheme,
+      navigationBarTheme: TNavigationBarTheme.lightNavigationBarTheme,
     );
   }
 
@@ -40,6 +39,8 @@ class AppTheme {
       appBarTheme: TAppBarTheme.darkAppBarTheme,
       elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
       colorScheme: TColorSchemeTheme.darkColorScheme,
+      switchTheme: TSwitchButtonTheme.darkSwitchButtonTheme,
+      navigationBarTheme: TNavigationBarTheme.darkNavigationBarTheme,
     );
   }
 }

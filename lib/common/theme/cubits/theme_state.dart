@@ -7,3 +7,5 @@ class ThemeState {
 class InitState extends ThemeState {}
 
 class ChangeTheme extends ThemeState {}
+
+class UseSystemTheme extends ThemeState {}
