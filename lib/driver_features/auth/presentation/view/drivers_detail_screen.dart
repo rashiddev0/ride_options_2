@@ -1,5 +1,4 @@
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_appbar.dart';
 
 import '../component/driver_details_tile.dart';
 

@@ -44,6 +44,9 @@ class AppAssets {
   static const wallet2 = 'assets/icons/wallet2.svg';
 
   static const down = 'assets/icons/down.svg';
+  static const money = 'assets/icons/money.svg';
   static const pointA = 'assets/icons/pointA.svg';
   static const pointB = 'assets/icons/pointB.svg';
+  static const notificationsScreen = 'assets/imgs/notificationsScreen.svg';
+  static const walletScreen = 'assets/imgs/walletScreen.svg';
 }

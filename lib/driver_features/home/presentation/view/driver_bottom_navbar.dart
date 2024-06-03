@@ -25,43 +25,47 @@ class _DriverNavBarState extends State<DriverNavBar> {
       child: Scaffold(
         drawer: const CustomDrawer(),
         // this appbar for driver
-        appBar: CustomAppBar(
-          height: 70.h,
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: SvgPicture.asset(
-                  AppAssets.drawerIcon,
-                  width: 28.w,
-                  height: 28.h,
-                  colorFilter:
-                      ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+        appBar: _currentIndex == 0
+            ? CustomAppBar(
+                height: 70.h,
+                leading: Builder(
+                  builder: (BuildContext context) {
+                    return IconButton(
+                      icon: SvgPicture.asset(
+                        AppAssets.drawerIcon,
+                        width: 28.w,
+                        height: 28.h,
+                        colorFilter:
+                            ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+                      ),
+                      onPressed: () {
+                        Scaffold.of(context).openDrawer();
+                      },
+                      tooltip: MaterialLocalizations.of(context)
+                          .openAppDrawerTooltip,
+                    );
+                  },
                 ),
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                },
-                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-              );
-            },
-          ),
-          action: [
-            SvgPicture.asset(
-              AppAssets.appbarSetting,
-              width: 28.w,
-              height: 28.h,
-              colorFilter: ColorFilter.mode(AppColors.white, BlendMode.srcIn),
-            ),
-            addWidth(16.w),
-          ],
-          bgColor: AppColors.primary,
-          title: CustomToggle(
-              showOnline: true,
-              values: [
-                AppLocalizations.of(context)!.offline,
-                AppLocalizations.of(context)!.online
-              ],
-              onToggleCallback: (value) {}),
-        ),
+                action: [
+                  SvgPicture.asset(
+                    AppAssets.appbarSetting,
+                    width: 28.w,
+                    height: 28.h,
+                    colorFilter:
+                        ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+                  ),
+                  addWidth(16.w),
+                ],
+                bgColor: AppColors.primary,
+                title: CustomToggle(
+                    showOnline: true,
+                    values: [
+                      AppLocalizations.of(context)!.offline,
+                      AppLocalizations.of(context)!.online
+                    ],
+                    onToggleCallback: (value) {}),
+              )
+            : null,
         body: IndexedStack(
           index: _currentIndex,
           children: const <Widget>[

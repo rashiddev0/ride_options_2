@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
                     debugShowCheckedModeBanner: false,
                     title: 'Ride Options',
                     onGenerateRoute: AppRoute.generateRoute,
-                    initialRoute: AppRoute.onboardingOne,
+                    initialRoute: AppRoute.drivrNavBar,
                     theme: AppTheme.lightTheme(
                       context,
                       locale.toString() == "ur" ? "jameelUrdu" : "Nunito",
