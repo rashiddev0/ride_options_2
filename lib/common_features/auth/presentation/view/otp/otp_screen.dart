@@ -134,7 +134,10 @@ class OTPScreen extends StatelessWidget {
                           title: AppLocalizations.of(context)!.next,
                           onTap: authCubit.otpController.text.isEmpty
                               ? null
-                              : () {},
+                              : () {
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, AppRoute.passengerHome, (route) => false);
+                          },
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
                           /*titleSize: 18.sp,

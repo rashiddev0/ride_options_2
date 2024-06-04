@@ -1,5 +1,4 @@
 import '../../../../../../common/const/export.dart';
-import '../../../../../../common/custom_widgets/custom_button.dart';
 import 'emergency_assistance_sheet.dart';
 
 class SaftyOptionSheet extends StatelessWidget {
@@ -17,12 +16,13 @@ class SaftyOptionSheet extends StatelessWidget {
         ),
       ),
       child: ListView(
-        padding: EdgeInsets.zero,
+        padding: EdgeInsets.only(
+            top: 8.h, left: 16.w, right: 16.w, bottom: 16.h),
         physics: const ClampingScrollPhysics(),
         children: [
           addHeight(8.h),
           Padding(
-            padding: EdgeInsets.only(left: 170.w, right: 170.w),
+            padding: EdgeInsets.only(left: 140.w, right: 140.w),
             child: SizedBox(
               width: 50,
               child: Divider(
@@ -35,7 +35,7 @@ class SaftyOptionSheet extends StatelessWidget {
           SizedBox(
             width: 361.w,
               child: Text(
-            "Safety options",
+            AppLocalizations.of(context)!.safetyOptions,
             style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
           )),
@@ -43,35 +43,93 @@ class SaftyOptionSheet extends StatelessWidget {
           SizedBox(
             width: 361.w,
               child: Text(
-            "Don’t worry, Your safety is our first priority.",
+                AppLocalizations.of(context)!.dontWorry,
             style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
           )),
           addHeight(8.h),
           const Spacer(),
-          CustomButton(
-            icon: Icons.emergency_share_outlined,
-            title: "Share trip status",
-            onTap: () {},
-            borderColor: Theme.of(context).primaryColor,
+          Directionality(
+            textDirection: TextDirection.ltr,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoute.rideCancelScreen);
+              },
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.resolveWith<double?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return 0.5.r; // Color when button is pressed
+                    }
+                    return 0.5.r; // Default color
+                  },
+                ),
+                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Theme.of(context).colorScheme.onPrimaryContainer; // Color when button is pressed
+                    }
+                    return Theme.of(context).colorScheme.onPrimaryContainer; // Default color
+                  },
+                ),
+                foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return AppColors.black; // Color when button is pressed
+                    }
+                    return AppColors.black; // Default color
+                  },
+                ),
+              ),
+              icon: Icon(Icons.emergency_share_outlined,size: 22.h,),
+              label: Text(AppLocalizations.of(context)!.shareTripStatus),
+            ),
           ),
           addHeight(8.h),
-          CustomButton(
-            icon: Icons.add_alert,
-            title: "Emergency assist",
-            onTap: () {
-              showModalBottomSheet(
-                  context: context,
-                  //isScrollControlled: true,
-                  enableDrag: true,
-                  useSafeArea: true,
-                  backgroundColor:
-                  Theme.of(context).scaffoldBackgroundColor,
-                  builder: (BuildContext context) {
-                    return const EmargencyAssistanceSheet();
-                  });
-            },
-            borderColor: Theme.of(context).primaryColor,
+          Directionality(
+            textDirection: TextDirection.ltr,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    //isScrollControlled: true,
+                    enableDrag: true,
+                    useSafeArea: true,
+                    backgroundColor:
+                    Theme.of(context).scaffoldBackgroundColor,
+                    builder: (BuildContext context) {
+                      return const EmargencyAssistanceSheet();
+                    });
+              },
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.resolveWith<double?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return 0.5.r; // Color when button is pressed
+                    }
+                    return 0.5.r; // Default color
+                  },
+                ),
+                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Theme.of(context).colorScheme.onPrimaryContainer; // Color when button is pressed
+                    }
+                    return Theme.of(context).colorScheme.onPrimaryContainer; // Default color
+                  },
+                ),
+                foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return AppColors.black; // Color when button is pressed
+                    }
+                    return AppColors.black; // Default color
+                  },
+                ),
+              ),
+              icon: Icon(Icons.add_alert,size: 22.h,),
+              label: Text(AppLocalizations.of(context)!.emergencyAssist),
+            ),
           ),
         ],
       ),

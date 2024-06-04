@@ -8,9 +8,9 @@ class LocationInitial extends HomeState {}
 
 class LocationLoaded extends HomeState {
   final LocationModel pickLocModel;
-
   LocationLoaded(this.pickLocModel);
 }
+
 class DropLocationLoaded extends HomeState {
   final DropLocationModel dropLocModel;
 
@@ -28,6 +28,11 @@ class GetLocationPrediction extends HomeState {}
 class PredictionError extends HomeState {}
 
 class RideIndex extends HomeState {}
+
+class HideButton extends HomeState{
+  final bool hideButton;
+  HideButton({required this.hideButton});
+}
 
 class PickLocationController extends HomeState {
   final bool isActive;

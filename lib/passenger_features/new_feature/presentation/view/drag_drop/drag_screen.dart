@@ -47,19 +47,20 @@ class DragScreen extends StatelessWidget {
                           zoom: 16,
                         ),
                         onCameraMove: (CameraPosition position) {
-                          homeBloc.selectedLocation = false;
+                          homeBloc.hideButton(true);
                           //pick current location
                             homeBloc.centerLocation = position.target;
                         },
-                        onCameraIdle: () {
-                          homeBloc.selectedLocation = true;
+                        onCameraIdle: () async {
                           if(homeBloc.pickLocationTextController == true){
                             LocationModel pickLocationModel = LocationModel();
-                            homeBloc.getCurrentAddress(homeBloc.centerLocation.latitude, homeBloc.centerLocation.longitude, pickLocationModel);
+                            await homeBloc.getCurrentAddress(homeBloc.centerLocation.latitude, homeBloc.centerLocation.longitude, pickLocationModel);
+                            homeBloc.hideButton(false);
                           }
                           else if(homeBloc.pickLocationTextController == false){
                             DropLocationModel dropLocationModel = DropLocationModel();
-                            homeBloc.getDropAddress(homeBloc.centerLocation.latitude, homeBloc.centerLocation.longitude, dropLocationModel);
+                            await homeBloc.getDropAddress(homeBloc.centerLocation.latitude, homeBloc.centerLocation.longitude, dropLocationModel);
+                            homeBloc.hideButton(false);
                           }
                         },
                         //onTap: _handleTap,
@@ -85,8 +86,8 @@ class DragScreen extends StatelessWidget {
                         right: size.width * 0.02,
                         bottom: size.height * 0.01,
                         child: Visibility(
-                          //visible: homeBloc.selectedLocation,
-                          visible: true,
+                          visible: state is HideButton && state.hideButton == true ? false : true,
+                          //visible: true,
                           child: CustomButton(
                             title: AppLocalizations.of(context)!.done,
                             onTap: () {
@@ -94,8 +95,7 @@ class DragScreen extends StatelessWidget {
                               /*if(homeBloc.pickLocationTextController == false){
                                 homeBloc.markerSetDrop();
                               }*/
-                              Navigator.pushNamedAndRemoveUntil(context,
-                                  AppRoute.locationMapScreen, (route) => false);
+                              Navigator.pushNamed(context, AppRoute.locationMapScreen);
                             },
                             borderColor: Theme.of(context).primaryColor,
                           ),

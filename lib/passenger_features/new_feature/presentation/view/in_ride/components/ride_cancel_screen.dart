@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:ride_options_2/common/custom_widgets/custom_button.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_textfield.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
-
 import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
 
 import '../../../../../../common/const/export.dart';
@@ -17,7 +13,7 @@ class RideCancelScreen extends StatelessWidget {
     final inRideMapBloc = BlocProvider.of<InRideMapBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Cancel ride"),
+        title: Text(AppLocalizations.of(context)!.cancelRide),
         centerTitle: true,
       ),
       body: BlocConsumer<InRideMapBloc, InRideMapState>(
@@ -25,43 +21,47 @@ class RideCancelScreen extends StatelessWidget {
           // TODO: implement listener
         },
         builder: (context, state) {
-          return Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: ListView.separated(
-                  itemCount: inRideMapBloc.cancelReasons.length,
-                  separatorBuilder: (context, index) {
-                    return SizedBox(height: 10.h,);
-                  },
-                  itemBuilder: (context, index) {
-                    return CancelReasonsModel(reasons: inRideMapBloc.cancelReasons[index],);
-                  },
+          return Directionality(
+            textDirection: TextDirection.ltr,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: ListView.separated(
+                    itemCount: inRideMapBloc.cancelReasons.length,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(height: 10.h,);
+                    },
+                    itemBuilder: (context, index) {
+                      return CancelReasonsModel(reasons: inRideMapBloc.cancelReasons[index],);
+                    },
+                  ),
                 ),
-              ),
-              TextFormField(
-                maxLines: 4,
-                style: Theme.of(context).textTheme.bodyMedium,
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.only(
-                        left: 15.w, right: 15.w, top: 10.h, bottom: 10.h),
-                    border: OutlineInputBorder(
-                      // Add border
-                      borderSide: BorderSide(width: 0.5.w, color: inRideMapBloc.cancelReasonController.text.isNotEmpty ? Theme.of(context).primaryColor : Theme.of(context).scaffoldBackgroundColor),
-                      borderRadius: BorderRadius.circular(12.r), // Add border radius
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1.w, color: Theme.of(context).primaryColor),
-                      borderRadius: BorderRadius.circular(12.r),
-                    ),
-                    hintText: "Description", // Hint text
-                    hintStyle: Theme.of(context).textTheme.bodyMedium
+                TextFormField(
+                  maxLines: 4,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.only(
+                          left: 15.w, right: 15.w, top: 10.h, bottom: 10.h),
+                      border: OutlineInputBorder(
+                        // Add border
+                        borderSide: BorderSide(width: 0.5.w, color: inRideMapBloc.cancelReasonController.text.isNotEmpty ? Theme.of(context).primaryColor : Theme.of(context).scaffoldBackgroundColor),
+                        borderRadius: BorderRadius.circular(12.r), // Add border radius
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(width: 1.w, color: Theme.of(context).primaryColor),
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      hintText: AppLocalizations.of(context)!.description, // Hint text
+                      hintStyle: Theme.of(context).textTheme.bodyMedium
+                  ),
                 ),
-              ),
-              addHeight(24.h),
-              CustomButton(title: "Submit", onTap: (){},borderColor: Theme.of(context).primaryColor,),
-              
-            ],
+                addHeight(24.h),
+                ElevatedButton(onPressed: (){}, child: Text(AppLocalizations.of(context)!.submit,)),
+                /*CustomButton(title: "Submit", onTap: (){},borderColor: Theme.of(context).primaryColor,),*/
+
+              ],
+            ),
           );
         },
       ),

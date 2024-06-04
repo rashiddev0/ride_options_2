@@ -6,7 +6,6 @@ import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
 import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_bloc.dart';
 import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/view/in_ride/in_ride_map.dart';
 
 void main() {
 
@@ -71,6 +70,7 @@ class MyApp extends StatelessWidget {
                           false
                           ? AppTheme.lightTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" )
                           : AppTheme.darkTheme(context,locale.toString()=="ur"?"jameelUrdu":"Nunito" ),
+
                       //****************** This section for Localization***********************/
 
                     );

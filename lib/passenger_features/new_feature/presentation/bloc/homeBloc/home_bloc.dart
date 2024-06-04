@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:typed_data';
 
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,6 +14,7 @@ import 'package:ride_options_2/passenger_features/new_feature/data/models/locati
 import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_state.dart';
 
 import '../../../../../common/const/export.dart';
+import '../../view/location_map/location_map_screen.dart';
 import 'home_event.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
@@ -72,11 +75,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   final Completer<GoogleMapController> controllerCompleter = Completer();
 
   LatLng centerLocation = const LatLng(41.4219057, -102.0840772);
-  Set<Marker> markers = {};
   bool selectedLocation = false;
   int? selectedRideIndex;
-  bool fullSheet = false;
   bool pickLocationTextController = false;
+
+  Set<Marker> markers = {};
+  /*late PolylinePoints polylinePoints;
+  List<LatLng> animatedCoordinates = [];
+  List<LatLng> polylineCoordinates = [];
+  Set<Polyline> polyLines = <Polyline>{};*/
+
+  Timer? myTimer;
 
   Map pickLocationMap = {};
   Map dropLocationMap = {};
@@ -303,5 +312,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     debugPrint("///248///${dropLocationMap["country"]}");
     debugPrint("///249///${dropLocationMap["lat"]}");
     debugPrint("///250///${dropLocationMap["lng"]}");
+  }
+
+  hideButton(bool hide){
+    selectedLocation = hide;
+    emit(HideButton(hideButton: hide));
   }
 }

@@ -1,5 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_button.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_bloc.dart';
 import 'package:ride_options_2/passenger_features/new_feature/presentation/view/home/components/option_sheet.dart';
@@ -38,13 +39,13 @@ class RideSelectionSheet extends StatelessWidget {
             ),
           ),
           child: ListView(
-            padding: EdgeInsets.zero,
+            padding: EdgeInsets.only(top: 8.h,left: 16.w,right: 16.w),
             physics: const ClampingScrollPhysics(),
             controller: scrollController,
             children: [
               addHeight(8.h),
               Padding(
-                padding: EdgeInsets.only(left: 170.w, right: 170.w),
+                padding: EdgeInsets.only(left: 120.w, right: 120.w),
                 child: SizedBox(
                   width: 50,
                   child: Divider(
@@ -58,27 +59,30 @@ class RideSelectionSheet extends StatelessWidget {
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? false
                     : true,
-                child: WhereToContainer(
-                  locationHistory: homeBloc.locationHistory.isNotEmpty
-                      ? homeBloc.locationHistory
-                      : [],
-                  //onTap: ()=> const PlaceSearchSheet(),
-                  onTap: () async {
-                    if (homeBloc.pickLocationMap.isEmpty) {
-                      homeBloc.add(GetLocation());
-                    } else {
-                      showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          enableDrag: true,
-                          useSafeArea: true,
-                          backgroundColor:
-                              Theme.of(context).scaffoldBackgroundColor,
-                          builder: (BuildContext context) {
-                            return const PlaceSearchSheet();
-                          });
-                    }
-                  },
+                child: Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: WhereToContainer(
+                    locationHistory: homeBloc.locationHistory.isNotEmpty
+                        ? homeBloc.locationHistory
+                        : [],
+                    //onTap: ()=> const PlaceSearchSheet(),
+                    onTap: () async {
+                      if (homeBloc.pickLocationMap.isEmpty) {
+                        homeBloc.add(GetLocation());
+                      } else {
+                        showModalBottomSheet(
+                            context: context,
+                            isScrollControlled: true,
+                            enableDrag: true,
+                            useSafeArea: true,
+                            backgroundColor:
+                                Theme.of(context).scaffoldBackgroundColor,
+                            builder: (BuildContext context) {
+                              return const PlaceSearchSheet();
+                            });
+                      }
+                    },
+                  ),
                 ),
               ),
               addHeight(12.h),
@@ -86,11 +90,12 @@ class RideSelectionSheet extends StatelessWidget {
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? true
                     : false,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 25.w, right: 25.w),
+                child: Directionality(
+                  textDirection: TextDirection.ltr,
                   child: CustomLocationField(
                     image: AppAssets.icLocationA,
                     readOnly: true,
+                    focusNode: FocusNode(canRequestFocus: false),
                     controller: homeBloc.pickLocationController,
                     hintText: homeBloc.pickLocationController.text.isNotEmpty
                         ? homeBloc.pickLocationController.text
@@ -118,11 +123,12 @@ class RideSelectionSheet extends StatelessWidget {
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? true
                     : false,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 25.w, right: 25.w),
+                child: Directionality(
+                  textDirection: TextDirection.ltr,
                   child: CustomLocationField(
                     image: AppAssets.icLocationB,
                     readOnly: true,
+                    focusNode: FocusNode(canRequestFocus: false),
                     controller: homeBloc.dropLocationController,
                     hintText: homeBloc.pickLocationController.text.isNotEmpty
                         ? homeBloc.pickLocationController.text
@@ -164,25 +170,22 @@ class RideSelectionSheet extends StatelessWidget {
                   Row(
                     children: [
                       addWidth(16.w),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: 4.h, right: 6.w),
-                        child: InkWell(
-                          child: Icon(
-                            Icons.calendar_month_outlined,
-                            color: Theme.of(context).primaryColor,
-                            size: 19.5,
-                          ),
-                          onTap: () {
-                            DatePicker.showDateTimePicker(context,
-                                showTitleActions: true, onChanged: (date) {
-                              //print('change $date');
-                            }, onConfirm: (date) {
-                              //print('confirm $date');
-                            },
-                                currentTime: DateTime.now(),
-                                locale: LocaleType.en);
-                          },
+                      InkWell(
+                        child: Icon(
+                          Icons.calendar_month_outlined,
+                          color: Theme.of(context).primaryColor,
+                          size: 19.5,
                         ),
+                        onTap: () {
+                          DatePicker.showDateTimePicker(context,
+                              showTitleActions: true, onChanged: (date) {
+                            //print('change $date');
+                          }, onConfirm: (date) {
+                            //print('confirm $date');
+                          },
+                              currentTime: DateTime.now(),
+                              locale: LocaleType.en);
+                        },
                       ),
                       Text(
                         AppLocalizations.of(context)!.now,
@@ -202,7 +205,7 @@ class RideSelectionSheet extends StatelessWidget {
               ),
               addHeight(6.h),
               Expanded(
-                flex: 2,
+                flex: 1,
                 child: SizedBox(
                   width: 120.w,
                   height: 120.h,
@@ -239,12 +242,9 @@ class RideSelectionSheet extends StatelessWidget {
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? false
                     : true,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 16.w),
-                  child: Text(
-                    AppLocalizations.of(context)!.ourServices,
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                child: Text(
+                  AppLocalizations.of(context)!.ourServices,
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
               ),
               homeBloc.dropLocationController.text.isNotEmpty
@@ -254,29 +254,32 @@ class RideSelectionSheet extends StatelessWidget {
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? false
                     : true,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    CategoryBox(
-                      categoryName: AppLocalizations.of(context)!.cityRides,
-                      categoryImage: AppAssets.bike,
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, AppRoute.locationMapScreen);
-                      },
+                child: Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        CategoryBox(
+                          categoryName: AppLocalizations.of(context)!.cityRides,
+                          categoryImage: AppAssets.bike,
+                          onTap: () {},
+                        ),
+                        CategoryBox(
+                          categoryName: AppLocalizations.of(context)!.courier,
+                          categoryImage: AppAssets.courier,
+                          onTap: () {},
+                        ),
+                        CategoryBox(
+                          categoryName: AppLocalizations.of(context)!.cityToCity,
+                          categoryImage: AppAssets.cityToCity,
+                          onTap: () {},
+                        ),
+                      ],
                     ),
-                    CategoryBox(
-                      categoryName: AppLocalizations.of(context)!.courier,
-                      categoryImage: AppAssets.courier,
-                      onTap: () {},
-                    ),
-                    CategoryBox(
-                      categoryName: AppLocalizations.of(context)!.cityToCity,
-                      categoryImage: AppAssets.cityToCity,
-                      onTap: () {},
-                    ),
-                  ],
+                  ),
                 ),
               ),
               homeBloc.dropLocationController.text.isNotEmpty
@@ -286,12 +289,9 @@ class RideSelectionSheet extends StatelessWidget {
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? false
                     : true,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 16.w),
-                  child: Text(
-                    AppLocalizations.of(context)!.savedAddresses,
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
+                child: Text(
+                  AppLocalizations.of(context)!.savedAddresses,
+                  style: Theme.of(context).textTheme.labelMedium,
                 ),
               ),
               addHeight(6.h),
@@ -300,7 +300,7 @@ class RideSelectionSheet extends StatelessWidget {
                     ? false
                     : true,
                 child: Expanded(
-                  flex: 2,
+                  flex: 1,
                   child: SizedBox(
                     height: 150.h,
                     child: ListView.separated(
@@ -325,20 +325,29 @@ class RideSelectionSheet extends StatelessWidget {
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? true
                     : false,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    addWidth(6.w),
-                    Expanded(
-                      flex: 2,
-                      child: SizedBox(
+                child: Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      addWidth(6.w),
+                      SizedBox(
                           height: 59.h,
-                          width: 59.w,
-                          child: CustomButton(
-                              title: "",
-                              icon: Icons.tune_outlined,
-                              borderColor: Theme.of(context).primaryColor,
+                          width: 71.w,
+                          child: InkWell(
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 75.w,
+                                height: 31.h,
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).primaryColor,
+                                    borderRadius: BorderRadius.circular(16.r),
+                                    border: Border.all(
+                                        width: 1.w,
+                                        color: Theme.of(context).primaryColor)),
+                                child: Icon(Icons.tune_outlined,size: 22.h,color: Theme.of(context).colorScheme.onPrimaryContainer,),
+                              ),
                               onTap: () {
                                 showModalBottomSheet(
                                     context: context,
@@ -350,33 +359,37 @@ class RideSelectionSheet extends StatelessWidget {
                                     builder: (BuildContext context) {
                                       return OptionSheet(scrollController: scrollController);
                                     });
-                              })),
-                    ),
-                    addWidth(6.w),
-                    SizedBox(
-                        height: 62.h,
-                        width: 291.w,
-                        child: CustomButton(
-                          title: "Find Driver",
-                          icon: Icons.search,
-                          borderColor: Theme.of(context).primaryColor,
-                          onTap: () {
-                            showModalBottomSheet(
-                                context: context,
-                                //isScrollControlled: true,
-                                enableDrag: true,
-                                useSafeArea: true,
-                                backgroundColor:
-                                Theme.of(context).scaffoldBackgroundColor,
-                                builder: (BuildContext context) {
-                                  return const UserWaitingSheet();
-                                });
-                          },
-                        )),
-                    addWidth(6.w),
-                  ],
+                              }),
+                      ),
+                      addWidth(6.w),
+                      Expanded(
+                        flex: 1,
+                        child: SizedBox(
+                            height: 62.h,
+                            width: 291.w,
+                            child: ElevatedButton.icon(
+                              icon: const Icon(Icons.search,size: 22,),
+                              label: Text(AppLocalizations.of(context)!.findDriver),
+                              onPressed: (){
+                                showModalBottomSheet(
+                                    context: context,
+                                    //isScrollControlled: true,
+                                    enableDrag: true,
+                                    useSafeArea: true,
+                                    backgroundColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                    builder: (BuildContext context) {
+                                      return const UserWaitingSheet();
+                                    });
+                              },
+                            ),),
+                      ),
+                      addWidth(6.w),
+                    ],
+                  ),
                 ),
               ),
+              addHeight(16.h),
             ],
           ),
         );

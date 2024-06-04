@@ -1,8 +1,4 @@
-import 'package:ride_options_2/common/const/colors.dart';
-
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_apptext.dart';
-import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_state.dart';
 
@@ -81,29 +77,32 @@ class OnBoardOne extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const Spacer(),
-                InkWell(
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 86.w,
-                    height: 58.h,
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(100.r),
-                        border: Border.all(
-                            width: 1.w,
-                            color: Theme.of(context).primaryColor)),
-                    child: Icon(
-                      Icons.arrow_forward_rounded,
-                      color: Theme.of(context).scaffoldBackgroundColor,
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: InkWell(
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 86.w,
+                      height: 58.h,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(100.r),
+                          border: Border.all(
+                              width: 1.w,
+                              color: Theme.of(context).primaryColor)),
+                      child: Icon(
+                        Icons.arrow_forward_rounded,
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                      ),
                     ),
+                    onTap: () {
+                      onboardCubit.getBoardingIndex();
+                      if (onboardCubit.boardingIndex == 3) {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, AppRoute.accountType, (route) => false);
+                      }
+                    },
                   ),
-                  onTap: () {
-                    onboardCubit.getBoardingIndex();
-                    if (onboardCubit.boardingIndex == 3) {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, AppRoute.accountType, (route) => false);
-                    }
-                  },
                 )
               ],
             ),

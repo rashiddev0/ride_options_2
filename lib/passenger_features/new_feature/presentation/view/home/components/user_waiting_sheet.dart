@@ -9,7 +9,7 @@ class UserWaitingSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:350.h,
+      height: 350.h,
       decoration: BoxDecoration(
         color: Theme.of(context).scaffoldBackgroundColor,
         borderRadius: BorderRadius.only(
@@ -21,13 +21,20 @@ class UserWaitingSheet extends StatelessWidget {
         children: [
           Center(
             child: Lottie.asset(AppAssets.userWaiting,
-                fit: BoxFit.fill, repeat: true,height: 200.h,width: 200.w),
+                fit: BoxFit.fill, repeat: true, height: 200.h, width: 200.w),
           ),
           const Spacer(),
-          CustomButton(title: "Cancel Ride", onTap: (){
+          ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, AppRoute.inRideMap, (route) => false);
+              },
+              child: Text(AppLocalizations.of(context)!.cancelRide)),
+          /*CustomButton(title: AppLocalizations.of(context)!.cancelRide, onTap: (){
             Navigator.pushNamedAndRemoveUntil(context, AppRoute.inRideMap, (route) => false);
           },
-            borderColor: Theme.of(context).primaryColor,)
+    borderColor: Theme.of(context).primaryColor,),*/
+          addHeight(16.h),
         ],
       ),
     );

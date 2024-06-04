@@ -16,12 +16,13 @@ class EmargencyAssistanceSheet  extends StatelessWidget {
         ),
       ),
       child: ListView(
-        padding: EdgeInsets.zero,
+        padding: EdgeInsets.only(
+            top: 8.h, left: 16.w, right: 16.w, bottom: 16.h),
         physics: const ClampingScrollPhysics(),
         children: [
           addHeight(8.h),
           Padding(
-            padding: EdgeInsets.only(left: 170.w, right: 170.w),
+            padding: EdgeInsets.only(left: 120.w, right: 120.w),
             child: SizedBox(
               width: 50,
               child: Divider(
@@ -34,7 +35,7 @@ class EmargencyAssistanceSheet  extends StatelessWidget {
           SizedBox(
               width: 361.w,
               child: Text(
-                "Emergency assist",
+                AppLocalizations.of(context)!.emergencyAssist,
                 style: Theme.of(context).textTheme.headlineMedium,
                 textAlign: TextAlign.center,
               )),
@@ -42,24 +43,102 @@ class EmargencyAssistanceSheet  extends StatelessWidget {
           SizedBox(
               width: 361.w,
               child: Text(
-                "You can use options given below for emergency assistance.",
+                AppLocalizations.of(context)!.youCanUseOptions,
                 style: Theme.of(context).textTheme.bodyMedium,
                 textAlign: TextAlign.center,
               )),
           addHeight(8.h),
           const Spacer(),
-          CustomButton(
-            icon: Icons.call,
-            title: "Ambulance",
-            onTap: () {},
-            borderColor: Theme.of(context).primaryColor,
+          Directionality(
+            textDirection: TextDirection.ltr,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    //isScrollControlled: true,
+                    enableDrag: true,
+                    useSafeArea: true,
+                    backgroundColor:
+                    Theme.of(context).scaffoldBackgroundColor,
+                    builder: (BuildContext context) {
+                      return const EmargencyAssistanceSheet();
+                    });
+              },
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.resolveWith<double?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return 0.5.r; // Color when button is pressed
+                    }
+                    return 0.5.r; // Default color
+                  },
+                ),
+                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Theme.of(context).colorScheme.onPrimaryContainer; // Color when button is pressed
+                    }
+                    return Theme.of(context).colorScheme.onPrimaryContainer; // Default color
+                  },
+                ),
+                foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return AppColors.red; // Color when button is pressed
+                    }
+                    return AppColors.red; // Default color
+                  },
+                ),
+              ),
+              icon: Icon(Icons.call,size: 22.h,),
+              label: Text(AppLocalizations.of(context)!.ambulance),
+            ),
           ),
           addHeight(8.h),
-          CustomButton(
-            icon: Icons.call,
-            title: "Police",
-            onTap: () {},
-            borderColor: Theme.of(context).primaryColor,
+          Directionality(
+            textDirection: TextDirection.ltr,
+            child: ElevatedButton.icon(
+              onPressed: () {
+                showModalBottomSheet(
+                    context: context,
+                    //isScrollControlled: true,
+                    enableDrag: true,
+                    useSafeArea: true,
+                    backgroundColor:
+                    Theme.of(context).scaffoldBackgroundColor,
+                    builder: (BuildContext context) {
+                      return const EmargencyAssistanceSheet();
+                    });
+              },
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.resolveWith<double?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return 0.5.r; // Color when button is pressed
+                    }
+                    return 0.5.r; // Default color
+                  },
+                ),
+                backgroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return Theme.of(context).colorScheme.onPrimaryContainer; // Color when button is pressed
+                    }
+                    return Theme.of(context).colorScheme.onPrimaryContainer; // Default color
+                  },
+                ),
+                foregroundColor: MaterialStateProperty.resolveWith<Color?>(
+                      (Set<MaterialState> states) {
+                    if (states.contains(MaterialState.pressed)) {
+                      return AppColors.red; // Color when button is pressed
+                    }
+                    return AppColors.red; // Default color
+                  },
+                ),
+              ),
+              icon: Icon(Icons.call,size: 22.h,),
+              label: Text(AppLocalizations.of(context)!.police),
+            ),
           ),
         ],
       ),
