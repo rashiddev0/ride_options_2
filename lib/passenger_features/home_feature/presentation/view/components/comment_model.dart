@@ -7,6 +7,7 @@ class CommentModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
+      margin: EdgeInsets.only(right: 6.w),
       padding: EdgeInsets.only(top: 4.h,bottom: 4.h,right: 16.w,left: 16.w),
       decoration: BoxDecoration(
           borderRadius:
@@ -14,10 +15,13 @@ class CommentModel extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary.withOpacity(.10)),
       //width: 156.w,
       height: 46.h,
-      child: Text(
-        comments,
-        style: Theme.of(context).textTheme.labelMedium!,
-        maxLines: 1,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          comments,
+          style: Theme.of(context).textTheme.labelMedium!,
+          maxLines: 1,
+        ),
       ),);
   }
 }

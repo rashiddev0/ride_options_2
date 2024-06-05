@@ -140,10 +140,10 @@ class OTPScreen extends StatelessWidget {
                             Navigator.pushNamedAndRemoveUntil(
                                 context, AppRoute.passengerHome, (route) => false);
                           },
-                              : () {
+                              /*: () {
                                   Navigator.pushNamed(
                                       context, AppRoute.vehicleRideTypeScreen);
-                                },
+                                },*/
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
                           titleSize: 18.sp,

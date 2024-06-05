@@ -1,6 +1,6 @@
-
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type/component/vehicle_type_container.dart';
+
+import '../../component/vehicle_type_container.dart';
 
 class VehicleType extends StatelessWidget {
   const VehicleType({super.key});
@@ -23,6 +23,8 @@ class VehicleType extends StatelessWidget {
                 icon: AppAssets.bike,
                 desc: "اردو",
                 onTap: () {},
+                width: 200.w,
+                height: 200.w,
               ),
               addHeight(24.h),
             ],

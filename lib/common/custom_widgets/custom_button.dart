@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../const/colors.dart';
-import 'custom_apptext.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
   final String title;
-  //double? titleSize;
+  double? titleSize;
   IconData? icon;
 
   //double? borderRadius;
@@ -31,7 +30,7 @@ class CustomButton extends StatelessWidget {
     this.borderColor,
     this.titleSize,
     this.height,
-    this.width
+    this.width,
   });
 
   @override

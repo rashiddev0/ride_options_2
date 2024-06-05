@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(393, 852),
-        // minTextAdapt: true,
-        // splitScreenMode: true,
+        minTextAdapt: true,
+        splitScreenMode: true,
         builder: (context, child) {
           return MultiBlocProvider(
             providers: [
@@ -33,6 +33,8 @@ class MyApp extends StatelessWidget {
               BlocProvider(create: (_) => AuthCubit()),
               BlocProvider(create: (_) => HomeBloc()),
               BlocProvider(create: (_) => InRideMapBloc()),
+              BlocProvider(create: (_) => InternetCubit()),
+              BlocProvider(create: (_) => DriverAuthCubit()),
             ],
             child: BlocConsumer<ThemeCubit, ThemeState>(
               listener: (context, state) {},
@@ -82,59 +84,5 @@ class MyApp extends StatelessWidget {
             ),
           );
         });
-      designSize: const Size(393, 852),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(create: (_) => ThemeCubit()),
-            BlocProvider(create: (_) => LocalizationCubit()),
-            BlocProvider(create: (_) => OnboardCubit()),
-            BlocProvider(create: (_) => AuthCubit()),
-            BlocProvider(create: (_) => InternetCubit()),
-            BlocProvider(create: (_) => DriverAuthCubit()),
-          ],
-          child: BlocBuilder<ThemeCubit, ThemeState>(
-            builder: (context, themeState) {
-              final themeCubit = BlocProvider.of<ThemeCubit>(context);
-              ThemeMode themeMode;
-
-              if (themeCubit.useSystemTheme) {
-                themeMode = ThemeMode.system;
-              } else if (themeCubit.isDarkMode) {
-                themeMode = ThemeMode.dark;
-              } else {
-                themeMode = ThemeMode.light;
-              }
-
-              return BlocBuilder<LocalizationCubit, Locale>(
-                builder: (context, locale) {
-                  return MaterialApp(
-                    localizationsDelegates:
-                        AppLocalizations.localizationsDelegates,
-                    supportedLocales: AppLocalizations.supportedLocales,
-                    locale: locale,
-                    debugShowCheckedModeBanner: false,
-                    title: 'Ride Options',
-                    onGenerateRoute: AppRoute.generateRoute,
-                    initialRoute: AppRoute.drivrNavBar,
-                    theme: AppTheme.lightTheme(
-                      context,
-                      locale.toString() == "ur" ? "jameelUrdu" : "Nunito",
-                    ),
-                    darkTheme: AppTheme.darkTheme(
-                      context,
-                      locale.toString() == "ur" ? "jameelUrdu" : "Nunito",
-                    ),
-                    themeMode: themeMode,
-                  );
-                },
-              );
-            },
-          ),
-        );
-      },
-    );
   }
 }
