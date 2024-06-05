@@ -23,6 +23,7 @@ class AppTheme {
       appBarTheme: TAppBarTheme.lightAppBarTheme,
       switchTheme: TSwitchButtonTheme.lightSwitchButtonTheme,
       navigationBarTheme: TNavigationBarTheme.lightNavigationBarTheme,
+
     );
   }
 

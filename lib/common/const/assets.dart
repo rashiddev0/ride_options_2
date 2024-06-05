@@ -49,4 +49,17 @@ class AppAssets {
   static const pointB = 'assets/icons/pointB.svg';
   static const notificationsScreen = 'assets/imgs/notificationsScreen.svg';
   static const walletScreen = 'assets/imgs/walletScreen.svg';
+  static const edit = 'assets/icons/edit.svg';
+
+  static const a = 'assets/icons/a.svg';
+  static const b = 'assets/icons/b.svg';
+  static const check = 'assets/icons/check.svg';
+  static const cancle_fav = 'assets/icons/cancle_fav.svg';
+
+  static const complain = 'assets/icons/complain.svg';
+
+  static const contactUs = 'assets/icons/contactUs.svg';
+  static const termsOfService = 'assets/icons/termsOfService.svg';
+
+
 }

@@ -5,15 +5,14 @@ import '../../../../common/const/export.dart';
 class ColorCircularOption extends StatelessWidget {
   final Color color;
   final String colorName;
+  void Function()? onTap;
 
-  ColorCircularOption(this.color, this.colorName);
+  ColorCircularOption(this.color, this.colorName,this.onTap);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-
-      },
+      onTap: (){},
       child: Column(
         children: [
           Container(

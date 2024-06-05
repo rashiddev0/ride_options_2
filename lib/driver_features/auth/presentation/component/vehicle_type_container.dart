@@ -23,9 +23,8 @@ class VehicleTypeContainer extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(24.r),
       child: Ink(
-        height: 134.h,
         width: 361.w,
-        padding: EdgeInsets.only(top: 12.h),
+        padding: EdgeInsets.only(top: 12.h,bottom: 8.h,left: 12.w,right: 12.w),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.r),
           color: Theme.of(context).colorScheme.onPrimaryContainer,
@@ -58,13 +57,10 @@ class VehicleTypeContainer extends StatelessWidget {
               ],
             ),
             addHeight(8.h),
-            SizedBox(
-              width: 286.w,
-              child: Text(
-                textAlign: TextAlign.center,
-                desc,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
+            Text(
+              textAlign: TextAlign.center,
+              desc,
+              style: Theme.of(context).textTheme.bodyMedium,
             )
           ],
         ),
