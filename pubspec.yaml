@@ -37,6 +37,7 @@ dependencies:
   dotted_border:
   image_picker:
   permission_handler:
+  # this is for app Localizations
   flutter_localizations:
     sdk: flutter
   intl: any
