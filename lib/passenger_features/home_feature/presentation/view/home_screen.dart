@@ -39,16 +39,16 @@ class HomeScreen extends StatelessWidget {
                   AppAssets.drawerIcon,
                   width: 28.w,
                   height: 28.h,
-                  colorFilter:
-                  ColorFilter.mode(themeCubit.isDarkMode ?
-                  AppColors.darkBlack
-                      : AppColors.black, BlendMode.srcIn),
+                  colorFilter: ColorFilter.mode(
+                      themeCubit.isDarkMode
+                          ? AppColors.darkBlack
+                          : AppColors.black,
+                      BlendMode.srcIn),
                 ),
                 onPressed: () {
                   Scaffold.of(context).openDrawer();
                 },
-                tooltip: MaterialLocalizations.of(context)
-                    .openAppDrawerTooltip,
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
               );
             },
           ),
@@ -57,16 +57,29 @@ class HomeScreen extends StatelessWidget {
               AppAssets.appbarSetting,
               width: 28.w,
               height: 28.h,
-              colorFilter:
-              ColorFilter.mode(themeCubit.isDarkMode ?
-              AppColors.darkBlack
-                  : AppColors.black, BlendMode.srcIn),
+              colorFilter: ColorFilter.mode(
+                  themeCubit.isDarkMode ? AppColors.darkBlack : AppColors.black,
+                  BlendMode.srcIn),
             ),
             addWidth(16.w),
           ],
           bgColor: Theme.of(context).scaffoldBackgroundColor,
-          title: SvgPicture.asset(
-            AppAssets.logoAppBar,
+          title: Container(
+            height: 32.h,
+            width: 32.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16.r),
+            ),
+            child: SvgPicture.asset(
+              AppAssets.logoAppBar,
+              height: 38.h,
+              width: 38.h,
+              fit: BoxFit.fill,
+              alignment: Alignment.center,
+              colorFilter: ColorFilter.mode(
+                  Theme.of(context).primaryColor, BlendMode.srcIn),
+            ),
           ),
         ),
         drawer: const CustomDrawer(),
@@ -79,7 +92,8 @@ class HomeScreen extends StatelessWidget {
               child: SizedBox(
                 height: size.height,
                 child: Padding(
-                  padding: EdgeInsets.only(top: 8.h,left: 16.w,right: 16.w,bottom: 75.h),
+                  padding: EdgeInsets.only(
+                      top: 8.h, left: 16.w, right: 16.w, bottom: 75.h),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,8 +109,7 @@ class HomeScreen extends StatelessWidget {
                           onTap: () async {
                             if (homeBloc.pickLocationMap.isEmpty) {
                               homeBloc.add(GetLocation());
-                            }
-                            else {
+                            } else {
                               homeBloc.placeList.clear();
                               showModalBottomSheet(
                                   context: context,
@@ -125,32 +138,39 @@ class HomeScreen extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               CategoryBox(
-                                categoryName: AppLocalizations.of(context)!.cityRides,
+                                categoryName:
+                                    AppLocalizations.of(context)!.cityRides,
                                 categoryImage: AppAssets.bike,
                                 onTap: () {
-                                  print("///84///${homeBloc.pickLocationMap["lat"]}");
+                                  print(
+                                      "///84///${homeBloc.pickLocationMap["lat"]}");
                                   if (homeBloc.pickLocationMap.isEmpty) {
                                     homeBloc.add(GetLocation());
-                                    Future.delayed(const Duration(seconds: 3),(){
+                                    Future.delayed(const Duration(seconds: 3),
+                                        () {
                                       if (homeBloc.pickLocationMap.isNotEmpty) {
-                                        Navigator.pushNamed(context, AppRoute.locationMapScreen);
+                                        Navigator.pushNamed(context,
+                                            AppRoute.locationMapScreen);
                                       }
                                     });
-                                  }
-                                  else{
-                                    Navigator.pushNamed(context, AppRoute.locationMapScreen);
+                                  } else {
+                                    Navigator.pushNamed(
+                                        context, AppRoute.locationMapScreen);
                                   }
                                 },
                               ),
                               CategoryBox(
-                                categoryName: AppLocalizations.of(context)!.courier,
+                                categoryName:
+                                    AppLocalizations.of(context)!.courier,
                                 categoryImage: AppAssets.courier,
                                 onTap: () {
-                                  Navigator.pushNamed(context, AppRoute.courierScreen);
+                                  Navigator.pushNamed(
+                                      context, AppRoute.courierScreen);
                                 },
                               ),
                               CategoryBox(
-                                categoryName: AppLocalizations.of(context)!.cityToCity,
+                                categoryName:
+                                    AppLocalizations.of(context)!.cityToCity,
                                 categoryImage: AppAssets.cityToCity,
                                 onTap: () {},
                               ),
@@ -175,7 +195,8 @@ class HomeScreen extends StatelessWidget {
                             reverseScroll: false,
                             //duplicateChild : 25,
                             enableScrollInput: true,
-                            delayAfterScrollInput: const Duration(milliseconds: 10),
+                            delayAfterScrollInput:
+                                const Duration(milliseconds: 10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
