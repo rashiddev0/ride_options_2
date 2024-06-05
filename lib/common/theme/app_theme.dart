@@ -18,7 +18,11 @@ class AppTheme {
       disabledColor: AppColors.disable,
       inputDecorationTheme: TTextFieldTheme.inputDecorationThemeLight,
       textTheme: TTextTheme.lightTextTheme,
+
       elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
+
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: AppColors.backGround),
+
       //****************** This section for AppBar********************* */
       appBarTheme: TAppBarTheme.lightAppBarTheme,
       switchTheme: TSwitchButtonTheme.lightSwitchButtonTheme,
@@ -40,6 +44,7 @@ class AppTheme {
       appBarTheme: TAppBarTheme.darkAppBarTheme,
       elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
       colorScheme: TColorSchemeTheme.darkColorScheme,
+      bottomSheetTheme: BottomSheetThemeData(backgroundColor: AppColors.darkBackGround),
       switchTheme: TSwitchButtonTheme.darkSwitchButtonTheme,
       navigationBarTheme: TNavigationBarTheme.darkNavigationBarTheme,
     );

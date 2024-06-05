@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../const/colors.dart';
-import 'custom_apptext.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
   final String title;
   double? titleSize;
   IconData? icon;
+
   //double? borderRadius;
   final VoidCallback? onTap;
 
@@ -30,7 +30,7 @@ class CustomButton extends StatelessWidget {
     this.borderColor,
     this.titleSize,
     this.height,
-    this.width
+    this.width,
   });
 
   @override
@@ -49,12 +49,17 @@ class CustomButton extends StatelessWidget {
         ),
       ),
       onPressed: onTap,
-      icon: Icon(icon,color: textColor,size: 18.sp,),
-
+      icon: Icon(
+        icon,
+        color: Theme.of(context).scaffoldBackgroundColor,
+        size: 22.h,
+      ),
       label: Text(
         title, //size: 16.sp, color: textColor
-        style: TextStyle(fontSize: titleSize, color: textColor),
-
+        style: TextStyle(
+            fontSize: 22.sp,
+            color: Theme.of(context).scaffoldBackgroundColor,
+            fontWeight: FontWeight.w700),
       ),
     );
   }

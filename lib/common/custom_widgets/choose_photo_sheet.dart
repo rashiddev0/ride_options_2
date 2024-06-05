@@ -1,4 +1,4 @@
-import 'dart:io';
+
 
 import 'package:image_picker/image_picker.dart';
 
@@ -9,6 +9,8 @@ import 'custom_apptext.dart';
 
 
 class ChoosePhotoSheet extends StatelessWidget {
+  const ChoosePhotoSheet({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -25,7 +27,9 @@ class ChoosePhotoSheet extends StatelessWidget {
                 GestureDetector(
                   onTap: () async {
                     XFile? file = await UtilityFunction().getFromCamera();
-                    Navigator.pop(context, file);
+                    if(context.mounted){
+                      Navigator.pop(context, file);
+                    }
                   },
                   child: Container(
                     height: 60.h,
@@ -60,7 +64,9 @@ class ChoosePhotoSheet extends StatelessWidget {
                 GestureDetector(
                   onTap: () async {
                     XFile? file = await UtilityFunction().getFromGallery();
-                    Navigator.pop(context, file);
+                    if(context.mounted){
+                      Navigator.pop(context, file);
+                    }
                   },
                   child: Container(
                     height: 60.h,

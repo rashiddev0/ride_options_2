@@ -1,12 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../../../common/const/colors.dart';
 import '../../../../../common/const/export.dart';
-import '../../../../../common/custom_widgets/custom_apptext.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';
 import '../../../../../common/custom_widgets/custom_textfield.dart';
-import '../../../../../common/theme/cubits/theme_cubit.dart';
 import '../../cubits/auth_cubit.dart';
 import '../../cubits/auth_state.dart';
 
@@ -15,7 +10,7 @@ class NumberScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeCubit = BlocProvider.of<ThemeCubit>(context);
+    //final themeCubit = BlocProvider.of<ThemeCubit>(context);
     final authCubit = BlocProvider.of<AuthCubit>(context);
     return Scaffold(
       appBar: AppBar(
@@ -24,12 +19,10 @@ class NumberScreen extends StatelessWidget {
           onTap: () => Navigator.pop(context),
         ),
         centerTitle: true,
-        title: AppText(
+        title: Text(
           AppLocalizations.of(context)!.phoneNumber,
-          style: Theme.of(context).textTheme.displayLarge!,
+          style: Theme.of(context).textTheme.headlineLarge!,
           textAlign: TextAlign.center,
-          fontSize: 26.sp,
-          fontWeight: FontWeight.w700,
         ),
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
@@ -46,12 +39,10 @@ class NumberScreen extends StatelessWidget {
                   height: 660.h,
                   child: Column(
                     children: [
-                      AppText(
+                      Text(
                         AppLocalizations.of(context)!.enterYourPhone,
-                        style: Theme.of(context).textTheme.displayLarge!,
+                        style: Theme.of(context).textTheme.bodyMedium!,
                         textAlign: TextAlign.center,
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w400,
                       ),
                       addHeight(32.h),
                       SvgPicture.asset(
@@ -93,8 +84,8 @@ class NumberScreen extends StatelessWidget {
                                 },
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
-                          titleSize: 18.sp,
-                          textColor:  Theme.of(context).scaffoldBackgroundColor,
+                          /*titleSize: 18.sp,
+                          textColor:  Theme.of(context).scaffoldBackgroundColor,*/
                         ),
                       ),
                       Padding(

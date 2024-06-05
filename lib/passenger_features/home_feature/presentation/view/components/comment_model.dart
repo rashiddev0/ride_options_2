@@ -1,0 +1,27 @@
+import '../../../../../../common/const/export.dart';
+
+class CommentModel extends StatelessWidget {
+  String comments;
+  CommentModel({super.key,required this.comments});
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      margin: EdgeInsets.only(right: 6.w),
+      padding: EdgeInsets.only(top: 4.h,bottom: 4.h,right: 16.w,left: 16.w),
+      decoration: BoxDecoration(
+          borderRadius:
+          BorderRadius.circular(10),
+          color: Theme.of(context).colorScheme.primary.withOpacity(.10)),
+      //width: 156.w,
+      height: 46.h,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          comments,
+          style: Theme.of(context).textTheme.labelMedium!,
+          maxLines: 1,
+        ),
+      ),);
+  }
+}

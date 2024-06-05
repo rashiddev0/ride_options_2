@@ -13,6 +13,20 @@ class AppAssets {
   static const auto = 'assets/icons/auto.svg';
   static const car = 'assets/icons/car.svg';
   static const info = 'assets/icons/info.svg';
+  static const hamBurger = 'assets/icons/hamBarger.svg';
+  static const courier = 'assets/icons/courier.svg';
+  static const cityToCity = 'assets/icons/cityToCity.svg';
+  static const logoAppBar = 'assets/icons/logoAppBar.svg';
+  static const icFilter = 'assets/icons/filter.svg';
+  static const icLocationA = 'assets/imgs/locationA.svg';
+  static const icLocationB = 'assets/imgs/locationB.svg';
+  static const icLocationPin = 'assets/imgs/icLocationPin.svg';
+  static const icPin = 'assets/imgs/icDropofMarker.png';
+  static const pickPin = 'assets/imgs/pickPin.png';
+  static const dropPin = 'assets/imgs/dropPin.png';
+  static const splashLotti = 'assets/lottie/splash.json';
+  static const userWaiting = 'assets/lottie/location_and_search_bubble.json';
+  static const courierBike = 'assets/icons/courierBike.svg';
   static const rides = 'assets/icons/rides.svg';
   static const freight = 'assets/icons/freight.svg';
 

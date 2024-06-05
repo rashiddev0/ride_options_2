@@ -1,7 +1,6 @@
 
 
 // ignore: must_be_immutable
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ride_options_2/common/const/strings.dart';
 import '../const/export.dart';
 

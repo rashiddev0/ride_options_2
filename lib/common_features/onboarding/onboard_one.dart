@@ -1,6 +1,4 @@
 import 'package:ride_options_2/common/const/export.dart';
-import 'package:ride_options_2/common/custom_widgets/custom_apptext.dart';
-import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_state.dart';
 
@@ -9,7 +7,7 @@ class OnBoardOne extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeCubit = BlocProvider.of<ThemeCubit>(context);
+    //final themeCubit = BlocProvider.of<ThemeCubit>(context);
     final onboardCubit = BlocProvider.of<OnboardCubit>(context);
     return Scaffold(
       appBar: AppBar(
@@ -24,16 +22,18 @@ class OnBoardOne extends StatelessWidget {
                     width: 75.w,
                     height: 31.h,
                     decoration: BoxDecoration(
-                        color: Theme.of(context).scaffoldBackgroundColor,
+                        color: Theme.of(context).appBarTheme.backgroundColor,
                         borderRadius: BorderRadius.circular(100.r),
                         border: Border.all(
-                            width: 1.w, color: Theme.of(context).primaryColor)),
-                    child: AppText(
+                            width: 1.w,
+                            color: Theme.of(context).primaryColor)),
+                    child: Text(
                       AppLocalizations.of(context)!.skip,
-                      style: const TextStyle(),
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w700,
-                      color: Theme.of(context).primaryColor,
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).primaryColor,
+                      ),
                     ),
                   ),
                   onTap: () {
@@ -61,48 +61,48 @@ class OnBoardOne extends StatelessWidget {
                   height: 208.h,
                 ),
                 addHeight(24.h),
-                AppText(
+                Text(
                   onboardCubit.boardingIndex == 0
                       ? AppLocalizations.of(context)!.anywhereYouAre
                       : onboardCubit.boardingIndex == 1
                           ? AppLocalizations.of(context)!.atAnytime
                           : AppLocalizations.of(context)!.bookYourCar,
-                  style: Theme.of(context).textTheme.displayLarge!,
-                  fontSize: 34.sp,
-                  fontWeight: FontWeight.w500,
+                  style: Theme.of(context).textTheme.headlineLarge!,
                   textAlign: TextAlign.center,
                 ),
                 addHeight(12.h),
-                AppText(
+                Text(
                   AppLocalizations.of(context)!.sellHouseEasilly,
-                  style: Theme.of(context).textTheme.displaySmall!,
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w400,
+                  style: Theme.of(context).textTheme.bodyMedium!,
                   textAlign: TextAlign.center,
                 ),
                 const Spacer(),
-                InkWell(
-                  child: Container(
-                    alignment: Alignment.center,
-                    width: 86.w,
-                    height: 58.h,
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).primaryColor,
-                        borderRadius: BorderRadius.circular(100.r),
-                        border: Border.all(
-                            width: 1.w, color: Theme.of(context).primaryColor)),
-                    child: Icon(
-                      Icons.arrow_forward_rounded,
-                      color: Theme.of(context).scaffoldBackgroundColor,
+                Directionality(
+                  textDirection: TextDirection.ltr,
+                  child: InkWell(
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 86.w,
+                      height: 58.h,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).primaryColor,
+                          borderRadius: BorderRadius.circular(100.r),
+                          border: Border.all(
+                              width: 1.w,
+                              color: Theme.of(context).primaryColor)),
+                      child: Icon(
+                        Icons.arrow_forward_rounded,
+                        color: Theme.of(context).scaffoldBackgroundColor,
+                      ),
                     ),
+                    onTap: () {
+                      onboardCubit.getBoardingIndex();
+                      if (onboardCubit.boardingIndex == 3) {
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, AppRoute.accountType, (route) => false);
+                      }
+                    },
                   ),
-                  onTap: () {
-                    onboardCubit.getBoardingIndex();
-                    if (onboardCubit.boardingIndex == 3) {
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, AppRoute.accountType, (route) => false);
-                    }
-                  },
                 )
               ],
             ),
