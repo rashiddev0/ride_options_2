@@ -4,8 +4,8 @@ import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart
 import 'package:ride_options_2/common_features/onboarding/cubits/onboard_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_bloc.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
+import 'package:ride_options_2/passenger_features/home_feature/presentation/bloc/homeBloc/home_bloc.dart';
+import 'package:ride_options_2/passenger_features/ride_feature/presentation/bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
 
 void main() {
 

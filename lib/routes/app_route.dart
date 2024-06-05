@@ -4,13 +4,14 @@ import 'package:ride_options_2/common_features/auth/presentation/view/account_ty
 import 'package:ride_options_2/common_features/onboarding/onboard_one.dart';
 import 'package:ride_options_2/common_features/splash_screen/splash_screen.dart';
 import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_type/vehicle_type.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/view/courier/courier_screen.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/view/drag_drop/drag_screen.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/view/in_ride/components/ride_cancel_screen.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/view/in_ride/in_ride_map.dart';
 import '../common_features/auth/presentation/view/number/number_screen.dart';
-import '../passenger_features/new_feature/presentation/view/home/home_screen.dart';
-import '../passenger_features/new_feature/presentation/view/location_map/location_map_screen.dart';
+import '../passenger_features/home_feature/presentation/view/courier_screen.dart';
+import '../passenger_features/home_feature/presentation/view/drag_screen.dart';
+import '../passenger_features/home_feature/presentation/view/home_screen.dart';
+import '../passenger_features/home_feature/presentation/view/in_ride_map_screen.dart';
+import '../passenger_features/home_feature/presentation/view/location_map_screen.dart';
+import '../passenger_features/ride_feature/presentation/view/components/ride_cancel_screen.dart';
+
 
 class AppRoute {
   static const splashScreen = '/splash_screen';
@@ -22,7 +23,7 @@ class AppRoute {
   static const passengerHome = '/home_screen';
   static const dragMarkerScreen = '/drag_screen';
   static const locationMapScreen = '/location_map_screen';
-  static const inRideMap = '/in_ride_map';
+  static const inRideMap = '/in_ride_map_screen';
   static const rideCancelScreen = '/ride_cancel_screen';
   static const courierScreen = '/courier_screen';
 

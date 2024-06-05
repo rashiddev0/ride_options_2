@@ -1,7 +1,7 @@
 import 'package:lottie/lottie.dart';
 import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
-import 'package:ride_options_2/passenger_features/new_feature/presentation/bloc/homeBloc/home_bloc.dart';
+import '../../passenger_features/home_feature/presentation/bloc/homeBloc/home_bloc.dart';
 
 
 class SplashScreen extends StatelessWidget {
