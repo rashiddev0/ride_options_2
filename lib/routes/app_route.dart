@@ -9,6 +9,11 @@ import 'package:ride_options_2/driver_features/auth/presentation/view/vehicle_ty
 import 'package:ride_options_2/driver_features/home/presentation/view/driver_bottom_navbar.dart';
 
 import '../common_features/auth/presentation/view/number/number_screen.dart';
+import '../driver_features/about_us/presentation/view/about_us_screen.dart';
+import '../driver_features/about_us/presentation/view/complain_screen.dart';
+import '../driver_features/about_us/presentation/view/contacts_us_screen.dart';
+import '../driver_features/about_us/presentation/view/privacy_policy_screen.dart';
+import '../driver_features/about_us/presentation/view/terms_of_service_screen.dart';
 import '../driver_features/auth/presentation/view/basic_info_screen.dart';
 import '../driver_features/auth/presentation/view/cnic_screen.dart';
 import '../driver_features/auth/presentation/view/drivers_detail_screen.dart';
@@ -17,6 +22,10 @@ import '../driver_features/auth/presentation/view/vehicle_fright_type_screen.dar
 import '../driver_features/auth/presentation/view/vehicle_info_screen.dart';
 import '../driver_features/auth/presentation/view/vehicle_photo_screen.dart';
 import '../driver_features/auth/presentation/view/vehicle_ride_type_screen.dart';
+import '../driver_features/favorites/presentation/view/favorites_screen.dart';
+import '../driver_features/history/presentation/view/history_screen.dart';
+import '../driver_features/home/presentation/view/wallet_screen.dart';
+import '../driver_features/wallet/presentation/view/wallet_screen.dart';
 
 class AppRoute {
   static const splashScreen = '/splash_screen';
@@ -41,6 +50,18 @@ class AppRoute {
   static const vehicleInfoScreen = '/VehicleInfoScreen';
   static const vehiclePhotoScreen = '/VehiclePhotoScreen';
   static const drivrNavBar = '/driver_navbar';
+
+  static const favouritesScreen = '/FavouritesScreen';
+  static const historyScreen = '/HistoryScreen';
+  static const aboutUsPage = '/AboutUsPage';
+  static const privacyPolicyScreen = '/PrivacyPolicyScreen';
+
+  static const termsOfServices = '/TermsOfServices';
+
+  static const  contactUsScreen= '/ContactUsScreen';
+
+  static const  complainScreen= '/complainScreen';
+  static const  walletScreen= '/WalletScreen';
 
   static Route<Object>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -100,7 +121,7 @@ class AppRoute {
 
       case basicInfoScreen:
         return MaterialPageRoute(
-          builder: (_) => const BasicInfoScreen(),
+          builder: (_) =>  BasicInfoScreen(),
           settings: settings,
         );
       case cNICScreen:
@@ -141,6 +162,56 @@ class AppRoute {
           builder: (_) => const DriverNavBar(),
           settings: settings,
         );
+
+
+      case favouritesScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  FavouritesScreen(),
+          settings: settings,
+        );
+
+      case historyScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  HistoryScreen(),
+          settings: settings,
+        );
+
+
+      case aboutUsPage:
+        return MaterialPageRoute(
+          builder: (_) =>  AboutUsPage(),
+          settings: settings,
+        );
+      case  privacyPolicyScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  PrivacyPolicyScreen(),
+          settings: settings,
+        );
+      case  termsOfServices:
+        return MaterialPageRoute(
+          builder: (_) =>  TermsOfServices(),
+          settings: settings,
+        );
+
+      case contactUsScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  ContactUsScreen(),
+          settings: settings,
+        );
+      case complainScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  ComplainScreen(),
+          settings: settings,
+        );
+      case walletScreen:
+        return MaterialPageRoute(
+          builder: (_) =>  ReferralWalletScreen(),
+          settings: settings,
+        );
+
+
+
+
 
       default:
         return null;

@@ -5,6 +5,8 @@ import 'package:ride_options_2/common/utils/utility_function.dart';
 import '../../../../common/const/export.dart';
 import '../component/driver_details_tile.dart';
 import '../component/dropdown_selection.dart';
+import '../cubit/auth_cubit.dart';
+import '../cubit/auth_state.dart';
 
 class VehicleInfoScreen extends StatelessWidget {
   List<ValueItem> _getVehicleBrandList(context) {
@@ -31,11 +33,10 @@ class VehicleInfoScreen extends StatelessWidget {
     ];
   }
 
-  String? selectedBrand;
 
-  UtilityFunction utilityFunction = UtilityFunction();
   @override
   Widget build(BuildContext context) {
+    context.read<DriverAuthCubit>().setDataVehicleInfoInit();
     List<ValueItem> vehicleBrands = _getVehicleBrandList(context);
     List<ValueItem> vehicleModels = _getVehicleModelList(context);
     return Directionality(
@@ -46,50 +47,60 @@ class VehicleInfoScreen extends StatelessWidget {
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              DropDownSelection(
-                options: vehicleBrands,
-                onOptionSelected: (option) {},
-                hint: AppLocalizations.of(context)!.selectVehicle,
-                searchLabel: AppLocalizations.of(context)!.search,
-              ),
-              addHeight(12.h),
-              DropDownSelection(
-                  options: vehicleModels,
-                  onOptionSelected: (option) {},
-                  hint: AppLocalizations.of(context)!.selectModel,
-                  searchLabel: AppLocalizations.of(context)!.search),
-              addHeight(8.h),
-              DriverDetailTile(
-                onTap: () {
-                  utilityFunction.selectYear(context);
-                },
-                title: AppLocalizations.of(context)!.model_year,
-                icon2: "",
-                icon: AppAssets.down,
-              ),
-              DriverDetailTile(
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    AppRoute.vehiclePhotoScreen,
-                  );
-                },
-                title: AppLocalizations.of(context)!.vehicle_photo,
-                icon2: "",
-                icon: AppAssets.down,
-              ),
-              const Spacer(),
-              ElevatedButton(
-                  onPressed: null,
-                  child: Text(
-                    AppLocalizations.of(context)!.save,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  )),
-            ],
-          ),
+          child:
+          BlocBuilder<DriverAuthCubit, DriverAuthState>(
+              builder: (context, state) {
+                return
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      DropDownSelection(
+                        options: vehicleBrands,
+                        onOptionSelected: (option) {
+                           context.read<DriverAuthCubit>().selectBrand(option[0]);
+                        },
+                        hint:state.selectedBrand?.label?? AppLocalizations.of(context)!.selectVehicle,
+                        searchLabel: AppLocalizations.of(context)!.search,
+                      ),
+                      addHeight(12.h),
+                      DropDownSelection(
+                          options: vehicleModels,
+                          onOptionSelected: (option) {
+                             context.read<DriverAuthCubit>().selectModel(option[0]);
+                          },
+                          hint:state.selectedModel?.label?? AppLocalizations.of(context)!.selectModel,
+                          searchLabel: AppLocalizations.of(context)!.search),
+                      addHeight(8.h),
+                      DriverDetailTile(
+                        onTap: () {
+                          context.read<DriverAuthCubit>().selectVehicleModel(context);
+                        },
+                        title:state.vehicleModelDate?.year.toString()?? AppLocalizations.of(context)!.model_year,
+                        icon2: "",
+                        icon: AppAssets.down,
+                      ),
+                      DriverDetailTile(
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            AppRoute.vehiclePhotoScreen,
+                          );
+                        },
+                        title: AppLocalizations.of(context)!.vehicle_photo,
+                        icon2: "",
+                        icon: AppAssets.down,
+                      ),
+                      const Spacer(),
+                      ElevatedButton(
+                          onPressed: (){
+                            context.read<DriverAuthCubit>().setDataVehicleInfoOnPress(context);
+                          },
+                          child: Text(
+                            AppLocalizations.of(context)!.save,
+                            style: Theme.of(context).textTheme.headlineMedium,
+                          )),
+                    ],
+                  );})
         ),
       ),
     );

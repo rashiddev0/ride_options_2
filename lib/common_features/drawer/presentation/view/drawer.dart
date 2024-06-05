@@ -68,17 +68,21 @@ class CustomDrawer extends StatelessWidget {
             ),
             addHeight(24.h),
             DrawerTile(
-                onTap: () {},
+                onTap: () =>
+                    Navigator.pushNamed(context, AppRoute.favouritesScreen),
                 icon: AppAssets.locationPin,
                 title: AppLocalizations.of(context)!.favorites),
             addHeight(8.h),
             DrawerTile(
-                onTap: () {},
+                onTap: () =>
+                    Navigator.pushNamed(context, AppRoute.historyScreen),
                 icon: AppAssets.history,
                 title: AppLocalizations.of(context)!.history),
             addHeight(8.h),
             DrawerTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoute.walletScreen);
+                },
                 icon: AppAssets.wallet,
                 title: AppLocalizations.of(context)!.wallet),
             addHeight(8.h),
@@ -89,7 +93,10 @@ class CustomDrawer extends StatelessWidget {
                 title: AppLocalizations.of(context)!.settings),
             addHeight(8.h),
             DrawerTile(
-                onTap: () {},
+                onTap: () {
+
+                  Navigator.pushNamed(context, AppRoute.aboutUsPage);
+                },
                 icon: AppAssets.about,
                 title: AppLocalizations.of(context)!.aboutUs),
             addHeight(8.h),

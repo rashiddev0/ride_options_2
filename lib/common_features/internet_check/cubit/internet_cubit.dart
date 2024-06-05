@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:connectivity_plus/connectivity_plus.dart';
+// import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Define your states
@@ -10,20 +10,20 @@ class InternetCubit extends Cubit<InternetState> {
   StreamSubscription? connectivitySubscription;
 
   InternetCubit() : super(InternetState.Initial) {
-    connectivitySubscription =
-        Connectivity().onConnectivityChanged.listen((result) {
-      _checkInitialConnectivity();
-    });
+    // connectivitySubscription =
+    //     Connectivity().onConnectivityChanged.listen((result) {
+    //   _checkInitialConnectivity();
+    // });
   }
 
   Future<void> _checkInitialConnectivity() async {
-    var connectivityResult = await Connectivity().checkConnectivity();
-    if (connectivityResult.contains(ConnectivityResult.mobile) ||
-        connectivityResult.contains(ConnectivityResult.wifi)) {
-      emit(InternetState.Gained);
-    } else {
-      emit(InternetState.Lost);
-    }
+    // var connectivityResult = await Connectivity().checkConnectivity();
+    // if (connectivityResult.contains(ConnectivityResult.mobile) ||
+    //     connectivityResult.contains(ConnectivityResult.wifi)) {
+    //   emit(InternetState.Gained);
+    // } else {
+    //   emit(InternetState.Lost);
+    // }
   }
 
   @override
