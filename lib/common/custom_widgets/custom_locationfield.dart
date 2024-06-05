@@ -29,7 +29,7 @@ class CustomLocationField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 315.w,
+      width: 393.w,
       height: 60.h,
       child: TextFormField(
         focusNode: focusNode,
@@ -47,7 +47,10 @@ class CustomLocationField extends StatelessWidget {
             suffixIcon: Container(
               width: 42.w,
               height: 50.h,
-                color: Theme.of(context).colorScheme.primary.withOpacity(.10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12.r),
+                  color: controller.text.isNotEmpty ? Theme.of(context).colorScheme.onPrimaryContainer : Theme.of(context).colorScheme.primary.withOpacity(.10),
+                ),
               child: InkWell(
                 onTap: iconTap,
                 child: Icon(

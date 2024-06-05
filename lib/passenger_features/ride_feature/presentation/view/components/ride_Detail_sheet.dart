@@ -19,7 +19,6 @@ class RideDetailsSheet extends StatelessWidget {
         padding: EdgeInsets.only(top: 8.h,left: 16.w,right: 16.w,bottom: 16.h),
         physics: const ClampingScrollPhysics(),
         children: [
-          addHeight(8.h),
           Padding(
             padding: EdgeInsets.only(left: 120.w, right: 120.w),
             child: SizedBox(
@@ -37,7 +36,6 @@ class RideDetailsSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                addWidth(40.w),
                 Text(
                   "Zain ${AppLocalizations.of(context)!.isOnTheWay}",
                   style: Theme.of(context).textTheme.titleMedium,
@@ -52,7 +50,6 @@ class RideDetailsSheet extends StatelessWidget {
                   "4:37",
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                addWidth(40.w),
               ],
             ),
           ),

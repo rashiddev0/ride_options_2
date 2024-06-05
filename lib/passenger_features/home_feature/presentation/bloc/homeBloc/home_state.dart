@@ -1,5 +1,6 @@
 
 
+import '../../../../../common/const/export.dart';
 import '../../../data/models/dropLocation.dart';
 import '../../../data/models/location.dart';
 
@@ -35,7 +36,16 @@ class HideButton extends HomeState{
   HideButton({required this.hideButton});
 }
 
+
 class PickLocationController extends HomeState {
   final bool pickLocController;
   PickLocationController(this.pickLocController);
 }
+
+class ClearPickLocation extends HomeState{
+  TextEditingController controller;
+  Map locationMap;
+  ClearPickLocation({required this.controller,required this.locationMap});
+}
+
+class SetLocation extends HomeState{}

@@ -16,10 +16,10 @@ class WhereToContainer extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 28.w),
-          padding: EdgeInsets.symmetric(horizontal: 12.w),
+          //margin: EdgeInsets.symmetric(horizontal: 28.w),
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
           height: 55.h,
-          width: 361.w,
+          width: 380.w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12.r),
             /*boxShadow: [

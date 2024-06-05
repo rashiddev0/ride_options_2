@@ -97,6 +97,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<GetLocation>(_fetchLocation);
   }
 
+
   Future<void> _fetchLocation(HomeEvent event, Emitter<HomeState> emit) async {
     try {
       await getCurrentLatLng();
@@ -104,20 +105,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(LocationError("error"));
     }
   }
-
-  /*@override
-  Stream<HomeState> reduce(HomeEvent event) async* {
-    if (event is GetLocation) {
-      yield LocationInitial();
-      try {
-        await getCurrentLatLng();
-        LocationModel pickLocationModel  = LocationModel.fromMap(pickLocationMap);
-        yield LocationLoaded(pickLocationModel);
-      } catch (e) {
-        yield LocationError('Failed to fetch location: $e');
-      }
-    }
-  }*/
 
   getCurrentLatLng() async {
     LocationPermission permission = await Geolocator.checkPermission();
@@ -314,5 +301,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   hideButton(bool hide){
     selectedLocation = hide;
     emit(HideButton(hideButton: hide));
+  }
+
+  clearPickLocation(TextEditingController controller,Map locationMap){
+    controller.clear();
+    locationMap.clear();
+    emit(ClearPickLocation(controller: controller, locationMap: locationMap));
+  }
+
+  setLocation(){
+    emit(setLocation());
   }
 }

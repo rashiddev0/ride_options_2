@@ -44,18 +44,6 @@ class RideSelectionSheet extends StatelessWidget {
             physics: const ClampingScrollPhysics(),
             controller: scrollController,
             children: [
-              addHeight(8.h),
-              Padding(
-                padding: EdgeInsets.only(left: 120.w, right: 120.w),
-                child: SizedBox(
-                  width: 50,
-                  child: Divider(
-                    thickness: 5,
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
-                  ),
-                ),
-              ),
-              addHeight(3.h),
               Visibility(
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? false
@@ -71,6 +59,7 @@ class RideSelectionSheet extends StatelessWidget {
                       if (homeBloc.pickLocationMap.isEmpty) {
                         homeBloc.add(GetLocation());
                       } else {
+                        homeBloc.placeList.clear();
                         showModalBottomSheet(
                             context: context,
                             isScrollControlled: true,
@@ -104,7 +93,10 @@ class RideSelectionSheet extends StatelessWidget {
                     icon: Icons.clear,
                     colorIcon: Theme.of(context).colorScheme.shadow,
                     iconTap: () {
-                      homeBloc.pickLocationController.clear();
+
+                    },
+                    onTap: (){
+                      homeBloc.placeList.clear();
                       showModalBottomSheet(
                           context: context,
                           isScrollControlled: true,
@@ -131,8 +123,8 @@ class RideSelectionSheet extends StatelessWidget {
                     readOnly: true,
                     focusNode: FocusNode(canRequestFocus: false),
                     controller: homeBloc.dropLocationController,
-                    hintText: homeBloc.pickLocationController.text.isNotEmpty
-                        ? homeBloc.pickLocationController.text
+                    hintText: homeBloc.dropLocationController.text.isNotEmpty
+                        ? homeBloc.dropLocationController.text
                         : AppLocalizations.of(context)!.to,
                     icon: Icons.clear,
                     colorIcon: Theme.of(context).colorScheme.shadow,
@@ -143,7 +135,9 @@ class RideSelectionSheet extends StatelessWidget {
                       }
                     },
                     iconTap: () {
-                      homeBloc.dropLocationController.clear();
+                    },
+                    onTap: (){
+                      homeBloc.placeList.clear();
                       showModalBottomSheet(
                           context: context,
                           isScrollControlled: true,

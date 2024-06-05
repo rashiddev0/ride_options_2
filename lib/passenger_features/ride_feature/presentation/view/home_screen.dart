@@ -49,6 +49,7 @@ class HomeScreen extends StatelessWidget {
                           homeBloc.add(GetLocation());
                         }
                         else {
+                          homeBloc.placeList.clear();
                           showModalBottomSheet(
                               context: context,
                               isScrollControlled: true,
