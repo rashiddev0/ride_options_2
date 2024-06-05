@@ -1,14 +1,15 @@
 {
   "rideOptions": "Ride Options",
   "pakistan": "Pakistan",
-  "appFontFamily": "Nunito",
+  "appFontFamily":"Nunito",
   "skip": "Skip",
   "anywhereYouAre": "Anywhere you are",
   "sellHouseEasilly": "Sell houses easily with the help of Listenoryx and to make this line bigI am writing more.",
   "atAnytime": "At anytime",
   "bookYourCar": "Book your car",
   "chooseOne": "Choose one",
-  "howDoYouWant": "How do you wanna use this app. Choose the desired the option.",
+  "howDoYouWant":
+  "How do you wanna use this app. Choose the desired the option.",
   "passenger": "Passenger",
   "driver": "Driver",
   "selectOne": "Select one",
@@ -66,5 +67,147 @@
   "receiver" : "Receiver",
   "whereToDeliver" : "Where to deliver",
   "receiverPhoneNumber" : "Receiver phone number",
-  "deliverBy" : "Deliver by"
+  "deliverBy" : "Deliver by",
+
+
+
+
+"favorites":"Favorites",
+"history":"History",
+"wallet":"Wallet",
+"settings":"Settings",
+"aboutUs":"About us",
+"notifications":"Notifications",
+"language":"Language",
+"citySelection":"City Selection",
+"theme":"Theme",
+"navigator":"Navigator",
+"rateThisApp":"Rate this app",
+"help":"Help",
+"deleteAccount":"Delete Account",
+"requests":"Requests",
+"activity":"Activity",
+"useSystemTheme":"Use system theme",
+"light":"Light",
+"dark":"Dark",
+"offline":"Offline",
+"online":"Online",
+
+
+
+
+
+
+
+
+
+
+  "type":"Type",
+  "freight": "Freight",
+  "rides": "Rides",
+  "ridesFreightDescription": "Rides, Loader trucks & rikshaw will be offered for in city or city to city Freight delivery.",
+  "bikeRikshawCarTextDescription":"Bike, Rikshaw, Car rides, City to City & Courier will be offered in this category.",
+
+   "bike": "Bike",
+   "bikeDescription": "Economy fast and easiest way to move around the city.",
+   "auto": "Auto",
+   "autoDescription": "Convenient economy and fast service recommended for 2 persons.",
+   "car": "Car",
+   "carDescription": "Best low budget travel option for up to 4 persons.",
+
+"loaderRikshaw": "Loader Rikshaw",
+  "@loaderRikshaw": {
+    "description": "Label for loader rikshaw transportation option"
+  },
+  "loaderRikshawDescription": "Loading capacity up to 700kg. Size 6x4 feet. i.e New Asia, Sazgar loader",
+  "@loaderRikshawDescription": {
+    "description": "Description for loader rikshaw transportation option"
+  },
+  "truckSmall": "Truck Small",
+  "@truckSmall": {
+    "description": "Label for small truck transportation option"
+  },
+  "truckSmallDescription": "Loading capacity up to 1 ton. Size 6x5 feet. i.e Suzuki Ravi, Faw carrier",
+  "@truckSmallDescription": {
+    "description": "Description for small truck transportation option"
+  },
+  "truckMedium": "Truck Medium",
+  "@truckMedium": {
+    "description": "Label for medium truck transportation option"
+  },
+  "truckMediumDescription": "Loading capacity up to 1.5 tons. Size 10x6.5 feet. i.e Hyundai Shehzore, Foton",
+  "@truckMediumDescription": {
+    "description": "Description for medium truck transportation option"
+  },
+  "truckLarge": "Truck Large",
+  "@truckLarge": {
+    "description": "Label for large truck transportation option"
+  },
+  "truckLargeDescription": "Loading capacity up to 5 tons. Size 18x8 feet. i.e Hyundai Mighty, Mazda, Forland",
+  "@truckLargeDescription": {
+    "description": "Description for large truck transportation option"
+  },
+
+    "driver_details": "Driver Details",
+    "basic_info": "Basic Info",
+    "cnic": "CNIC",
+    "driving_license": "Driving License",
+    "vehicle_info": "Vehicle Info",
+    "save": "Save",
+    "agree_terms": "By signing up, you agree to the Terms of Service and Privacy Policy.",
+    "referral_id": "Referral Id",
+    "add_photo": "Add a photo",
+    "full_name":"Full Name",
+    "expiry_date":"Expiry Date",
+      "selectVehicle": "Select Vehicle",
+      "search": "Search",
+      "selectModel": "Select Model",
+      "vehicle_info": "Vehicle Info",
+      "honda": "Honda",
+      "suzuki": "Suzuki",
+      "united": "United",
+      "yamaha": "Yamaha",
+      "roadPrince": "Road Prince",
+      "unique": "Unique",
+      "crown": "Crown",
+      "city": "City",
+      "civic": "Civic",
+      "none": "N-One",
+      "nWeg": "N-WEG",
+      "hrv": "HR-V",
+      "vezel": "Vezel",
+      "insight": "Insight",
+
+       "vehicle_photo": "Vehicle Photo",
+        "referral_id": "Referral ID",
+        "select_color": "Select color",
+        "white": "White",
+        "silver": "Silver",
+        "black": "Black",
+        "grey": "Grey",
+        "blue": "Blue",
+        "registration_number":"Reg. Number",
+
+        "vehicle_photo":"Vehicle Photo",
+        "model_year":"Model Year",
+        "add_new":"Add New",
+        "favourites":"Favourites",
+
+
+
+ "tell_us_your_problem": "Tell us your problem...",
+  "submit": "Submit",
+  "about_us": "About us",
+  "privacy_policy": "Privacy policy",
+  "terms_of_service": "Terms of service",
+  "complain": "Complain",
+  "contact_us": "Contact us",
+  "company_name": "Ride Options PVT Ltd.",
+  "address": "Tele tower, Link road, Model town, Lahore",
+  "contact_information": "Contact Information",
+  "privacy_policy_content": "We collect user data, including account information (name, email, phone), location for ride accuracy, ride details (pick-up/drop-off, route, fare), device specifics (type, OS), and app interactions. This information is utilized for service provision, enhancing app functionality, security, and legal compliance. Sharing may occur with third-party service providers, legal obligations, and for anonymized analytics. Security measures, including encryption and access controls, protect user data. Users control location settings and manage preferences in-app. Material changes to the policy will be communicated. Your use of Ride Options implies agreement with this Privacy Policy. For queries, contact us.",
+  "terms_of_service_content": "By using Ride Options you agree to the following terms. You must be of legal age in your jurisdiction to use the service. Users are responsible for accurate account information and are prohibited from sharing login credentials. The app may collect and use user data for service improvement and analytics, as outlined in our Privacy Policy. Users are expected to comply with local laws and regulations while using the app. Ride Options reserves the right to suspend or terminate accounts for violation of these terms. The app's content, features, and availability may change without notice. Users are responsible for keeping their devices secure. For support or inquiries, contact us."
+
+
+
 }

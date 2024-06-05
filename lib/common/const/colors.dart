@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-//*************new Colors*****************/
+//****new Colors******/
 
 const Color primaryColor = Color(0xff6D41A2);
 const Color blackColor = Color(0xff2A2A2A);
@@ -14,7 +14,7 @@ const Color lightPurple3 = Color(0xffa05fed);
 const Color whiteColor = Color(0xffFFFFFF);
 
 class AppColors {
-  //****light Colors******/
+  //*light Colors***/
   static Color shadow = const Color(0xff000000).withOpacity(0.30);
   static Color border = const Color(0xff000000).withOpacity(0.5);
   static Color secondary = const Color(0xff6D41A2).withOpacity(0.10);
@@ -31,7 +31,7 @@ class AppColors {
   static Color navSelected = const Color(0xff472A6A);
   static Color navUnselected = const Color(0xff6D41A2).withOpacity(0.10);
 
-//****both Colors******/
+//*both Colors***/
   static Color darkBlue = const Color(0xff017DC5);
   static Color blue = const Color(0xff06A3FE);
   static Color lightBlue = const Color(0xff017DC5).withOpacity(0.10);
@@ -48,7 +48,7 @@ class AppColors {
   static Color red = const Color(0xffFF8383);
   static Color lightRed = const Color(0xffFD5548).withOpacity(0.10);
 
-//****dark Colors******/
+//*dark Colors***/
 
   static Color darkShadow = const Color(0xff000000);
   static Color darkBorder = const Color(0xff000000).withOpacity(10.0);

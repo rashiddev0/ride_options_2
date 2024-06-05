@@ -1,6 +1,7 @@
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import '../../../../../common/const/export.dart';
+import '../../../../../common/custom_widgets/custom_apptext.dart';
 import '../../../../../common/custom_widgets/custom_button.dart';
 import '../../cubits/auth_cubit.dart';
 import '../../cubits/auth_state.dart';
@@ -11,6 +12,7 @@ class OTPScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authCubit = BlocProvider.of<AuthCubit>(context);
+    TextEditingController controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: InkWell(
@@ -138,10 +140,14 @@ class OTPScreen extends StatelessWidget {
                             Navigator.pushNamedAndRemoveUntil(
                                 context, AppRoute.passengerHome, (route) => false);
                           },
+                              : () {
+                                  Navigator.pushNamed(
+                                      context, AppRoute.vehicleRideTypeScreen);
+                                },
                           borderColor: Theme.of(context).primaryColor,
                           icon: Icons.arrow_back_ios,
-                          /*titleSize: 18.sp,
-                          textColor: Colors.white,*/
+                          titleSize: 18.sp,
+                          textColor: Colors.white,
                         ),
                       ),
                       Padding(

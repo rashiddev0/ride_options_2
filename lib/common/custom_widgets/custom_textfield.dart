@@ -28,7 +28,7 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 337.w,
+      width: 361.w,
       height: 60.h,
       child: TextFormField(
         // cursorHeight: 20.h,
@@ -79,7 +79,7 @@ class CustomTextField extends StatelessWidget {
                 : null,
             border: OutlineInputBorder(
               // Add border
-              borderSide: BorderSide(width: 0.5.w, color: controller.text.isNotEmpty ? Theme.of(context).primaryColor : Theme.of(context).scaffoldBackgroundColor),
+              // borderSide: BorderSide(width: 0.5.w, color: controller.text.isNotEmpty ? Theme.of(context).primaryColor : Theme.of(context).scaffoldBackgroundColor),
               borderRadius: BorderRadius.circular(12.r), // Add border radius
             ),
             focusedBorder: OutlineInputBorder(

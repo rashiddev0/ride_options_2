@@ -52,9 +52,11 @@ class AccountType extends StatelessWidget {
             ),
           ),
         ],*/
-        title: Text(
+        title: AppText(
           AppLocalizations.of(context)!.chooseOne,
-          style: Theme.of(context).textTheme.headlineLarge!,
+          style: Theme.of(context).textTheme.displayLarge!,
+          fontSize: 26.sp,
+          fontWeight: FontWeight.w700,
           textAlign: TextAlign.center,
         ),
       ),
@@ -74,9 +76,11 @@ class AccountType extends StatelessWidget {
                   ),
                   SizedBox(
                     width: 262.w,
-                    child: Text(
+                    child: AppText(
                       AppLocalizations.of(context)!.howDoYouWant,
-                      style: Theme.of(context).textTheme.labelMedium!,
+                      style: Theme.of(context).textTheme.displaySmall!,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -215,8 +219,8 @@ class AccountType extends StatelessWidget {
                             },
                       borderColor: Theme.of(context).primaryColor,
                       icon: Icons.arrow_back_ios,
-                      /*titleSize: 18.sp,
-                      textColor: Theme.of(context).scaffoldBackgroundColor,*/
+                      titleSize: 18.sp,
+                      textColor: Theme.of(context).scaffoldBackgroundColor,
                     ),
                   )
                 ],
