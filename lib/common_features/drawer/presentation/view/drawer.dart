@@ -3,8 +3,16 @@ import 'package:ride_options_2/common/custom_widgets/custom_toggle_button.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
 import 'package:ride_options_2/common_features/drawer/presentation/components/drawer_tile.dart';
 
+// ignore: must_be_immutable
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  final String buttonText;
+  final String buttonIcon;
+  VoidCallback buttonOnTap;
+  CustomDrawer(
+      {super.key,
+      required this.buttonIcon,
+      required this.buttonText,
+      required this.buttonOnTap});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +89,7 @@ class CustomDrawer extends StatelessWidget {
             addHeight(8.h),
             DrawerTile(
                 onTap: () {
-                  Navigator.pushNamed(context, AppRoute.walletScreen);
+                  Navigator.pushNamed(context, AppRoute.referralWalletScreen);
                 },
                 icon: AppAssets.wallet,
                 title: AppLocalizations.of(context)!.wallet),
@@ -94,7 +102,6 @@ class CustomDrawer extends StatelessWidget {
             addHeight(8.h),
             DrawerTile(
                 onTap: () {
-
                   Navigator.pushNamed(context, AppRoute.aboutUsPage);
                 },
                 icon: AppAssets.about,
@@ -114,6 +121,30 @@ class CustomDrawer extends StatelessWidget {
                 },
               );
             }),
+            addHeight(100.h),
+            ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24.r),
+                  ),
+                  minimumSize: Size(203.w, 66.h),
+                ),
+                onPressed: buttonOnTap,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset(
+                      buttonIcon,
+                      height: 30.h,
+                      width: 30.w,
+                      colorFilter: ColorFilter.mode(
+                          Theme.of(context).colorScheme.inverseSurface,
+                          BlendMode.srcIn),
+                    ),
+                    addWidth(12.w),
+                    Text(buttonText)
+                  ],
+                ))
           ],
         ),
       ),
