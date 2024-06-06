@@ -21,7 +21,6 @@ class _ComplainScreenState extends State<ComplainScreen> {
     });
   }
 
-
   @override
   void dispose() {
     _controller.dispose();
@@ -30,45 +29,40 @@ class _ComplainScreenState extends State<ComplainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:   Text( AppLocalizations.of(context)!.complain,),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        appBar: CustomAppBar(
+          title: Text(
+            AppLocalizations.of(context)!.complain,
+          ),
         ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-
-            TextField(
-              controller: _controller,
-              maxLines: 4,
-              decoration: InputDecoration(
-                hintText:  AppLocalizations.of(context)!.tell_us_your_problem,
-                hintStyle: Theme.of(context).textTheme.labelSmall,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12.r),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                controller: _controller,
+                maxLines: 4,
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context)!.tell_us_your_problem,
+                  hintStyle: Theme.of(context).textTheme.labelSmall,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12.r),
+                  ),
                 ),
               ),
-            ),
-            addHeight(20.h),
-            ElevatedButton(
-              onPressed: _isButtonEnabled
-                  ? () {}
-                  : null,
-              child:  Text( AppLocalizations.of(context)!.submit,
+              addHeight(20.h),
+              ElevatedButton(
+                onPressed: _isButtonEnabled ? () {} : null,
+                child: Text(
+                  AppLocalizations.of(context)!.submit,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
-
-
 }

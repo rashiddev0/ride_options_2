@@ -2,8 +2,6 @@ import '../../../../common/const/export.dart';
 import '../../components/favourites_card.dart';
 
 class FavouritesScreen extends StatelessWidget {
-
-
   FavouritesScreen({super.key});
 
   final List<Map<String, String>> favourites = [
@@ -33,35 +31,39 @@ class FavouritesScreen extends StatelessWidget {
     },
   ];
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:  Text( AppLocalizations.of(context)!.favourites,),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        appBar: CustomAppBar(
+          title: Text(
+            AppLocalizations.of(context)!.favourites,
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+        body: ListView.builder(
+          padding: EdgeInsets.all(16.sp),
+          itemCount: favourites.length,
+          itemBuilder: (context, index) {
+            return CustomCard(
+              title: favourites[index]['title']!,
+              subtitle: favourites[index]['subtitle']!,
+            );
           },
         ),
-      ),
-      body: ListView.builder(
-        padding: EdgeInsets.all(16.sp),
-        itemCount: favourites.length,
-        itemBuilder: (context, index) {
-          return CustomCard(
-            title: favourites[index]['title']!,
-            subtitle: favourites[index]['subtitle']!,
-          );
-        },
-      ),
-      bottomNavigationBar:Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 16.h),
-        child: ElevatedButton(
-          onPressed: () {},
-          child: Text(
-            AppLocalizations.of(context)!.add_new,
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              AppLocalizations.of(context)!.add_new,
+            ),
           ),
         ),
       ),

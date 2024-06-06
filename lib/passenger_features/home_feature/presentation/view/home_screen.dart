@@ -1,7 +1,6 @@
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 
 import '../../../../../common/const/export.dart';
-import '../../../../common/custom_widgets/custom_toggle_button.dart';
 import '../../../../common/theme/cubits/theme_cubit.dart';
 import '../../../../common_features/drawer/presentation/view/drawer.dart';
 import '../bloc/homeBloc/home_bloc.dart';
@@ -9,7 +8,6 @@ import '../bloc/homeBloc/home_event.dart';
 import '../bloc/homeBloc/home_state.dart';
 import 'components/banner_box.dart';
 import 'components/categoryBox.dart';
-import 'components/home_appbar.dart';
 import 'components/offer_box.dart';
 import 'components/place_serch_bottom_sheet.dart';
 import 'components/whereToContainer.dart';
@@ -68,21 +66,25 @@ class HomeScreen extends StatelessWidget {
             height: 32.h,
             width: 32.w,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               borderRadius: BorderRadius.circular(16.r),
             ),
             child: SvgPicture.asset(
               AppAssets.logoAppBar,
               height: 38.h,
               width: 38.h,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               alignment: Alignment.center,
               colorFilter: ColorFilter.mode(
                   Theme.of(context).primaryColor, BlendMode.srcIn),
             ),
           ),
         ),
-        drawer: const CustomDrawer(),
+        drawer: CustomDrawer(
+          buttonText: 'Driver mode',
+          buttonIcon: AppAssets.driverIcon,
+          buttonOnTap: () => Navigator.pushNamed(context, AppRoute.drivrNavBar),
+        ),
         body: BlocConsumer<HomeBloc, HomeState>(
           listener: (context, state) {
             // TODO: implement listener

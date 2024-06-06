@@ -33,57 +33,63 @@ class HistoryScreen extends StatelessWidget {
     },
   ];
 
+  HistoryScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.history,),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        appBar: CustomAppBar(
+          title: Text(
+            AppLocalizations.of(context)!.history,
+          ),
+        ),
+        body: ListView.builder(
+          padding: EdgeInsets.all(16.r),
+          itemCount: historyItems.length,
+          itemBuilder: (context, index) {
+            final item = historyItems[index];
+            return HistoryCard(
+              statusIcon: item['status'] == "Completed"
+                  ? AppAssets.check
+                  : AppAssets.cancle_fav,
+              date: item['date'],
+              status: item['status'],
+              amount: item['amount'],
+              location: item['location'],
+              statusColor: item['statusColor'],
+            );
           },
         ),
-      ),
-      body: ListView.builder(
-        padding: EdgeInsets.all(16.0),
-        itemCount: historyItems.length,
-        itemBuilder: (context, index) {
-          final item = historyItems[index];
-          return HistoryCard(
-            statusIcon:item['status']=="Completed"?AppAssets.check:AppAssets.cancle_fav ,
-            date: item['date'],
-            status: item['status'],
-            amount: item['amount'],
-            location: item['location'],
-            statusColor: item['statusColor'],
-          );
-        },
-      ),
-      bottomNavigationBar: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 60.w,vertical: 10.h),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            side: BorderSide(color: Colors.purple),
-            surfaceTintColor: Colors.transparent,
-            backgroundColor: Colors.transparent,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.r),
-            ),
-          ),
-          onPressed: () {
-            // Handle button press
-          },
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.refresh, color: AppColors.primary),
-              Text(
-                'Load more',
-                style: TextStyle(color: AppColors.primary),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 60.w, vertical: 10.h),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              side: BorderSide(
+                  color: Theme.of(context).colorScheme.primary, width: 2.w),
+              surfaceTintColor: Colors.transparent,
+              backgroundColor: Colors.transparent,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.r),
               ),
-
-            ],
+            ),
+            onPressed: () {
+              // Handle button press
+            },
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.refresh,
+                    color: Theme.of(context).colorScheme.primary),
+                addWidth(12.w),
+                Text(
+                  'Load more',
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.primary),
+                ),
+              ],
+            ),
           ),
         ),
       ),
