@@ -54,8 +54,8 @@ class RideBox extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            addHeight(10.h),
-            Expanded(
+            /*addHeight(10.h),*/
+            /*Expanded(
               flex: 2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -74,11 +74,25 @@ class RideBox extends StatelessWidget {
                       ))
                 ],
               ),
+            ),*/
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  vehicleName!,
+                  style: Theme.of(context).textTheme.labelMedium,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                addHeight(6.h),
+                SvgPicture.asset(vehicleImage ?? "",
+                    height: 45.h, width: 66.w),
+              ],
             ),
-            addHeight(10.h),
+            /*addHeight(10.h),
             Text(
               "Rs.$price",
-            ),
+            ),*/
           ],
         ),
       )

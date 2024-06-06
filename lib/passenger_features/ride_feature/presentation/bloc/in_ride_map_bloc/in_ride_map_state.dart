@@ -8,4 +8,4 @@ class InRideMapState {
   }
 }
 
-class EnableDrag extends InRideMapState{}
+class ShowRideDetails extends InRideMapState{}

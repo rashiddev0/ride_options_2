@@ -6,9 +6,8 @@ import '../../../../home_feature/presentation/bloc/homeBloc/home_state.dart';
 import '../../../../home_feature/presentation/view/components/comment_model.dart';
 
 class OptionSheet extends StatelessWidget {
-  ScrollController scrollController;
 
-  OptionSheet({super.key, required this.scrollController});
+  const OptionSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class OptionSheet extends StatelessWidget {
             padding: EdgeInsets.only(
                 top: 8.h, left: 16.w, right: 16.w, bottom: 16.h),
             physics: const ClampingScrollPhysics(),
-            controller: scrollController,
+            //controller: scrollController,
             children: [
               addHeight(8.h),
               SizedBox(

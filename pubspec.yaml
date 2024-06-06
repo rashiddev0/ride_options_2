@@ -36,7 +36,7 @@ dependencies:
   shared_preferences: ^2.2.3
   dotted_border:
   image_picker:
-  # this is for app Localizations
+# this is for app Localizations
   flutter_localizations:
     sdk: flutter
   intl: any
@@ -55,6 +55,7 @@ dependencies:
   uuid: ^4.4.0
   interactive_bottom_sheet: ^1.0.0
   flutter_datetime_picker_plus: ^2.2.0
+  sheet: ^1.0.0
 
   bloc: ^8.1.4
 dev_dependencies:

@@ -13,15 +13,8 @@ import '../common_features/auth/presentation/view/number/number_screen.dart';
 import '../passenger_features/home_feature/presentation/view/courier_screen.dart';
 import '../passenger_features/home_feature/presentation/view/drag_screen.dart';
 import '../passenger_features/home_feature/presentation/view/home_screen.dart';
-import '../passenger_features/home_feature/presentation/view/in_ride_map_screen.dart';
 import '../passenger_features/home_feature/presentation/view/location_map_screen.dart';
 import '../passenger_features/ride_feature/presentation/view/components/ride_cancel_screen.dart';
-
-import '../driver_features/about_us/presentation/view/about_us_screen.dart';
-import '../driver_features/about_us/presentation/view/complain_screen.dart';
-import '../driver_features/about_us/presentation/view/contacts_us_screen.dart';
-import '../driver_features/about_us/presentation/view/privacy_policy_screen.dart';
-import '../driver_features/about_us/presentation/view/terms_of_service_screen.dart';
 import '../driver_features/auth/presentation/view/basic_info_screen.dart';
 import '../driver_features/auth/presentation/view/cnic_screen.dart';
 import '../driver_features/auth/presentation/view/drivers_detail_screen.dart';
@@ -34,6 +27,7 @@ import '../driver_features/favorites/presentation/view/favorites_screen.dart';
 import '../driver_features/history/presentation/view/history_screen.dart';
 import '../driver_features/home/presentation/view/wallet_screen.dart';
 import '../driver_features/wallet/presentation/view/wallet_screen.dart';
+import '../passenger_features/ride_feature/presentation/view/in_ride_map_screen.dart';
 
 class AppRoute {
   static const splashScreen = '/splash_screen';

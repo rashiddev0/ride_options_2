@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../../common/const/export.dart';
@@ -35,8 +34,7 @@ class InRideMapBloc extends Bloc<InRideMapEvent, InRideMapState> {
     emit(state.clone());
   }
 
-  isDrag() {
-    enableDrag = !enableDrag!;
-    emit(EnableDrag());
+  showRideDetails(){
+    emit(ShowRideDetails());
   }
 }

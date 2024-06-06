@@ -1,5 +1,6 @@
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
+import 'package:ride_options_2/passenger_features/home_feature/presentation/view/components/fare_faild.dart';
 import 'package:ride_options_2/passenger_features/home_feature/presentation/view/components/ride_box.dart';
 import 'package:ride_options_2/passenger_features/home_feature/presentation/view/components/saved_address_model.dart';
 import 'package:ride_options_2/passenger_features/home_feature/presentation/view/components/user_waiting_sheet.dart';
@@ -8,8 +9,6 @@ import 'package:ride_options_2/passenger_features/home_feature/presentation/view
 import '../../../../../../common/const/export.dart';
 import '../../../../../../common/custom_widgets/custom_locationfield.dart';
 import '../../../../ride_feature/presentation/view/components/option_sheet.dart';
-import '../../../data/models/dropLocation.dart';
-import '../../../data/models/location.dart';
 import '../../bloc/homeBloc/home_bloc.dart';
 import '../../bloc/homeBloc/home_event.dart';
 import '../../bloc/homeBloc/home_state.dart';
@@ -17,15 +16,14 @@ import 'categoryBox.dart';
 import 'place_serch_bottom_sheet.dart';
 
 class RideSelectionSheet extends StatelessWidget {
-  ScrollController scrollController;
-  RideSelectionSheet({super.key, required this.scrollController});
+  //ScrollController scrollController;
+  String travelTime;
+  RideSelectionSheet({super.key,required this.travelTime});
 
   @override
   Widget build(BuildContext context) {
     final homeBloc = BlocProvider.of<HomeBloc>(context);
     final themeCubit = BlocProvider.of<ThemeCubit>(context);
-    LocationModel pickModel = LocationModel.fromMap(homeBloc.pickLocationMap);
-    DropLocationModel dropModel = DropLocationModel.fromMap(homeBloc.dropLocationMap);
     return BlocConsumer<HomeBloc, HomeState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -40,10 +38,21 @@ class RideSelectionSheet extends StatelessWidget {
             ),
           ),
           child: ListView(
-            padding: EdgeInsets.only(top: 8.h,left: 16.w,right: 16.w),
+            padding: EdgeInsets.only(top: 4.h,left: 16.w,right: 16.w),
             physics: const ClampingScrollPhysics(),
-            controller: scrollController,
+            //controller: scrollController,
             children: [
+              Padding(
+                padding: EdgeInsets.only(left: 140.w, right: 140.w),
+                child: SizedBox(
+                  width: 50,
+                  child: Divider(
+                    thickness: 5,
+                    color: Theme.of(context).colorScheme.onPrimaryContainer,
+                  ),
+                ),
+              ),
+              addHeight(8.h),
               Visibility(
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? false
@@ -75,7 +84,7 @@ class RideSelectionSheet extends StatelessWidget {
                   ),
                 ),
               ),
-              addHeight(12.h),
+              addHeight(6.h),
               Visibility(
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? true
@@ -151,7 +160,6 @@ class RideSelectionSheet extends StatelessWidget {
                 ),
               ),
               addHeight(8.h),
-              addHeight(20.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -280,7 +288,7 @@ class RideSelectionSheet extends StatelessWidget {
               homeBloc.dropLocationController.text.isNotEmpty
                   ? addHeight(0.h)
                   : addHeight(20.h),
-              Visibility(
+              /*Visibility(
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? false
                     : true,
@@ -315,14 +323,31 @@ class RideSelectionSheet extends StatelessWidget {
                     ),
                   ),
                 ),
+              ),*/
+              addHeight(16.h),
+              Visibility(
+                visible: homeBloc.dropLocationController.text.isNotEmpty
+                    ? true
+                    : false,
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 256.w,
+                  height: 30.h,
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.onPrimary,
+                      borderRadius: BorderRadius.circular(26.r),
+                  ),
+                  child: Text("${AppLocalizations.of(context)!.travelTimeApprox}.~ $travelTime"),
+                ),
               ),
+              addHeight(8.h),
               Visibility(
                 visible: homeBloc.dropLocationController.text.isNotEmpty
                     ? true
                     : false,
                 child: Directionality(
                   textDirection: TextDirection.ltr,
-                  child: Row(
+                  /*child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -380,6 +405,62 @@ class RideSelectionSheet extends StatelessWidget {
                             ),),
                       ),
                       addWidth(6.w),
+                    ],
+                  ),*/
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          FareField(),
+                          addWidth(6.w),
+                          InkWell(
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 50.w,
+                                height: 50.h,
+                                decoration: BoxDecoration(
+                                    color: Theme.of(context).scaffoldBackgroundColor,
+                                    borderRadius: BorderRadius.circular(12.r),
+                                    border: Border.all(
+                                        width: 1.w,
+                                        color: Theme.of(context).colorScheme.inverseSurface)),
+                                child: Icon(Icons.tune_outlined,size: 26.h,color: Theme.of(context).colorScheme.inverseSurface,),
+                              ),
+                              onTap: () {
+                                showModalBottomSheet(
+                                    context: context,
+                                    //isScrollControlled: true,
+                                    enableDrag: true,
+                                    useSafeArea: true,
+                                    backgroundColor:
+                                    Theme.of(context).scaffoldBackgroundColor,
+                                    builder: (BuildContext context) {
+                                      return const OptionSheet();
+                                    });
+                              }),
+                          addWidth(6.w),
+
+                        ],
+                      ),
+                      addHeight(8.h),
+                      SizedBox(
+                        height: 62.h,
+                        child: ElevatedButton.icon(
+                          icon: const Icon(Icons.search,size: 22,),
+                          label: Text(AppLocalizations.of(context)!.findDriver),
+                          onPressed: (){
+                            showModalBottomSheet(
+                                context: context,
+                                //isScrollControlled: true,
+                                enableDrag: true,
+                                useSafeArea: true,
+                                backgroundColor:
+                                Theme.of(context).scaffoldBackgroundColor,
+                                builder: (BuildContext context) {
+                                  return const UserWaitingSheet();
+                                });
+                          },
+                        ),),
                     ],
                   ),
                 ),

@@ -3,6 +3,8 @@ import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:ride_options_2/passenger_features/home_feature/data/models/dropLocation.dart';
+import 'package:sheet/sheet.dart';
 
 import '../../../../../common/const/export.dart';
 import '../../data/models/location.dart';
@@ -24,6 +26,8 @@ class _LocationMapScreenState extends State<LocationMapScreen>
   List<LatLng> animatedCoordinates = [];
   List<LatLng> polylineCoordinates = [];
   Set<Polyline> polyLines = <Polyline>{};
+  SheetController sheetController = SheetController();
+  String? travelTime;
 
   Timer? myTimer;
 
@@ -53,7 +57,12 @@ class _LocationMapScreenState extends State<LocationMapScreen>
     return Scaffold(
       body: pickLocation.lat != null
           ? BlocConsumer<HomeBloc, HomeState>(
-              listener: (context, state) async {},
+              listener: (context, state) async {
+                /*if (homeBloc.dropLocationController.text.isEmpty) {
+            polyLines.clear();
+            polylineCoordinates.clear();
+          }*/
+              },
               builder: (context, state) {
                 return Stack(
                   children: [
@@ -62,7 +71,7 @@ class _LocationMapScreenState extends State<LocationMapScreen>
                       left: 0.w,
                       right: 0.w,
                       bottom: homeBloc.dropLocationController.text.isNotEmpty
-                          ? 420.h
+                          ? 400.h
                           : 100.h,
                       child: GoogleMap(
                         onMapCreated: (GoogleMapController controller) async {
@@ -83,7 +92,7 @@ class _LocationMapScreenState extends State<LocationMapScreen>
                         ),
                       ),
                     ),
-                    DraggableScrollableSheet(
+                    /*DraggableScrollableSheet(
                       initialChildSize:
                           homeBloc.dropLocationMap.isNotEmpty ? .5 : .12,
                       minChildSize:
@@ -94,6 +103,18 @@ class _LocationMapScreenState extends State<LocationMapScreen>
                           scrollController: scrollSheetController,
                         );
                       },
+                    ),*/
+                    Sheet(
+                      initialExtent:
+                          homeBloc.dropLocationMap.isNotEmpty ? 400.h : 100.h,
+                      minExtent:
+                          homeBloc.dropLocationMap.isNotEmpty ? 400.h : 100.h,
+                      maxExtent: 400.h,
+                      controller: sheetController,
+                      fit: SheetFit.expand,
+                      child: RideSelectionSheet(
+                        travelTime: travelTime ?? "0.0",
+                      ),
                     ),
                   ],
                 );
@@ -107,6 +128,9 @@ class _LocationMapScreenState extends State<LocationMapScreen>
 
   setMarkerAndPolyLine() async {
     final homeBloc = BlocProvider.of<HomeBloc>(context);
+    LocationModel pickModel = LocationModel.fromMap(homeBloc.pickLocationMap);
+    DropLocationModel dropModel =
+        DropLocationModel.fromMap(homeBloc.dropLocationMap);
     homeBloc.markers.clear();
     final Uint8List? markerIDOne =
         await getBytesFromAsset(AppAssets.pickPin, (100.h).toInt());
@@ -127,18 +151,20 @@ class _LocationMapScreenState extends State<LocationMapScreen>
     if (homeBloc.dropLocationMap["lat"] != null) {
       if (a == 0) {
         setPolyLines();
+        setState(() async {
+          homeBloc.markers.add(
+            Marker(
+              markerId: const MarkerId("id-2"),
+              icon: BitmapDescriptor.fromBytes(markerIDTwo!),
+              position: LatLng(homeBloc.dropLocationMap["lat"],
+                  homeBloc.dropLocationMap["lng"]),
+            ),
+          );
+          travelTime = await homeBloc.getTravelTime(
+              pickModel.lat!, pickModel.lng!, dropModel.lat!, dropModel.lng!);
+        });
         a = a + 1;
       }
-      setState(() {
-        homeBloc.markers.add(
-          Marker(
-            markerId: const MarkerId("id-2"),
-            icon: BitmapDescriptor.fromBytes(markerIDTwo!),
-            position: LatLng(homeBloc.dropLocationMap["lat"],
-                homeBloc.dropLocationMap["lng"]),
-          ),
-        );
-      });
     }
   }
 

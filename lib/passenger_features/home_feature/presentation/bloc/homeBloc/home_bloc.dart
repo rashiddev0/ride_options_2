@@ -255,19 +255,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       lat: result.first.latitude,
       lng: result.first.longitude,
     );
-    debugPrint("///245///${model.title}");
-    debugPrint("///246///${model.address}");
-    debugPrint("///247///${model.city}");
-    debugPrint("///248///${model.country}");
-    debugPrint("///249///${model.lat}");
-    debugPrint("///250///${model.lng}");
     pickLocationMap = model.toMap();
-    debugPrint("///245///${dropLocationMap["title"]}");
-    debugPrint("///246///${dropLocationMap["address"]}");
-    debugPrint("///247///${dropLocationMap["city"]}");
-    debugPrint("///248///${dropLocationMap["country"]}");
-    debugPrint("///249///${dropLocationMap["lat"]}");
-    debugPrint("///250///${dropLocationMap["lng"]}");
   }
 
   getLatLngFromAddressDrop(
@@ -283,19 +271,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       lat: result.first.latitude,
       lng: result.first.longitude,
     );
-    debugPrint("///245///${model.title}");
-    debugPrint("///246///${model.address}");
-    debugPrint("///247///${model.city}");
-    debugPrint("///248///${model.country}");
-    debugPrint("///249///${model.lat}");
-    debugPrint("///250///${model.lng}");
     dropLocationMap = model.toMap();
-    debugPrint("///245///${dropLocationMap["title"]}");
-    debugPrint("///246///${dropLocationMap["address"]}");
-    debugPrint("///247///${dropLocationMap["city"]}");
-    debugPrint("///248///${dropLocationMap["country"]}");
-    debugPrint("///249///${dropLocationMap["lat"]}");
-    debugPrint("///250///${dropLocationMap["lng"]}");
   }
 
   hideButton(bool hide){
@@ -311,5 +287,36 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   setLocation(){
     emit(setLocation());
+  }
+
+  getTravelTime(double pointALat, double pointALng, double pointBLat,
+      double pointBLng) async {
+    String directionBaseUrl =
+        "https://maps.googleapis.com/maps/api/directions/json";
+    String directionApiUrl =
+        "$directionBaseUrl?origin=$pointALat,$pointALng&destination=$pointBLat,$pointBLng&key=$apiKey";
+    var response = await http.get(Uri.parse(directionApiUrl));
+    if (response.statusCode == 200) {
+      var data = jsonDecode(response.body.toString())["routes"][0];
+      final legs = data["legs"][0];
+      var travelTime = legs["duration"]["value"];
+      if (travelTime <= 3599) {
+        int sec = travelTime % 60;
+        int min = (travelTime / 60).floor();
+        String minute = min.toString().length <= 1 ? "0$min" : "$min";
+        String second = sec.toString().length <= 1 ? "0$sec" : "$sec";
+        String travelT = "$minute min, $second sec";
+        return travelT;
+      } else {
+        int minte = travelTime % 60;
+        int hours = (travelTime / 3600).floor();
+        String minute = minte.toString().length <= 1 ? "0$minte" : "$minte";
+        String hour = hours.toString().length <= 1 ? "0$hours" : "$hours";
+        String travelT = "$hour hr, $minute min";
+        return travelT;
+      }
+    } else {
+      throw Exception("///727//faild to load data//$Exception");
+    }
   }
 }
