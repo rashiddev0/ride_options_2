@@ -10,7 +10,11 @@ class ActivityScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
+      drawer: CustomDrawer(
+        buttonText: 'Passenger mode',
+        buttonIcon: AppAssets.passengerIcon,
+        buttonOnTap: () => Navigator.pushNamed(context, AppRoute.passengerHome),
+      ),
       // this appbar for driver
       appBar: CustomAppBar(
           height: 70.h,

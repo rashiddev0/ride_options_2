@@ -23,7 +23,12 @@ class _DriverNavBarState extends State<DriverNavBar> {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
-        drawer: const CustomDrawer(),
+        drawer: CustomDrawer(
+          buttonText: 'Passenger mode',
+          buttonIcon: AppAssets.passengerIcon,
+          buttonOnTap: () =>
+              Navigator.pushNamed(context, AppRoute.passengerHome),
+        ),
         // this appbar for driver
         appBar: _currentIndex == 0
             ? CustomAppBar(
