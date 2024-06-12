@@ -1,5 +1,3 @@
-import 'package:ride_options_2/passenger_features/ride_feature/presentation/bloc/in_ride_map_bloc/in_ride_map_event.dart';
-import 'package:ride_options_2/passenger_features/ride_feature/presentation/view/components/ride_Detail_sheet.dart';
 import 'package:ride_options_2/passenger_features/ride_feature/presentation/view/components/safty_option_sheet.dart';
 import 'package:sheet/sheet.dart';
 
@@ -7,10 +5,10 @@ import '../../../../../../common/const/export.dart';
 import '../../bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
 import '../../bloc/in_ride_map_bloc/in_ride_map_state.dart';
 
+// ignore: must_be_immutable
 class DriverDetailsSheet extends StatelessWidget {
   //ScrollController scrollController = ScrollController();
   SheetController sheetController;
-
   DriverDetailsSheet({super.key, required this.sheetController});
 
   @override

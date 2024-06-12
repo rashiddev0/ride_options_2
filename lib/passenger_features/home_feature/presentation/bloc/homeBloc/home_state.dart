@@ -1,5 +1,10 @@
 
 
+import 'dart:typed_data';
+
+import 'package:equatable/equatable.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import '../../../../../common/const/export.dart';
 import '../../../data/models/dropLocation.dart';
 import '../../../data/models/location.dart';
@@ -49,3 +54,20 @@ class ClearPickLocation extends HomeState{
 }
 
 class SetLocation extends HomeState{}
+
+class SetFareFieldState extends HomeState{}
+
+/*class SetPickMarkerState {
+  LocationModel model;
+  Map locationMap;
+  String markerIcon;
+  Set<Marker> markers;
+  Uint8List? markerID;
+
+  SetPickMarkerState(
+      {required this.model,
+        required this.locationMap,
+        required this.markerIcon,
+        required this.markers,
+        required this.markerID});
+}*/

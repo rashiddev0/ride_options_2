@@ -74,6 +74,7 @@ class AppAssets {
 
   static const contactUs = 'assets/icons/contactUs.svg';
   static const termsOfService = 'assets/icons/termsOfService.svg';
+  static const centerLocationIcon = 'assets/imgs/centerLocationIcon.svg';
 
 
 }

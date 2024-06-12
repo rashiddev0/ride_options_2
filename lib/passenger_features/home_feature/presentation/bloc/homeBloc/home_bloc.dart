@@ -67,6 +67,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   TextEditingController pickLocationController = TextEditingController();
   TextEditingController dropLocationController = TextEditingController();
   TextEditingController userCommentController = TextEditingController();
+  TextEditingController fareController = TextEditingController();
 
   GoogleMapController? controller;
   final Completer<GoogleMapController> controllerCompleter = Completer();
@@ -75,12 +76,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   bool selectedLocation = false;
   int? selectedRideIndex;
   bool pickLocationTextController = false;
-
-  Set<Marker> markers = {};
-  /*late PolylinePoints polylinePoints;
-  List<LatLng> animatedCoordinates = [];
-  List<LatLng> polylineCoordinates = [];
-  Set<Polyline> polyLines = <Polyline>{};*/
 
   Timer? myTimer;
 
@@ -95,8 +90,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   HomeBloc() : super(LocationInitial()) {
     on<GetLocation>(_fetchLocation);
+    /*on<HomeEvent>((event, emit) async {
+      if (event is LocationMapEvent) {
+        _setMarker(
+            event,
+            emit,
+            event.model,
+            event.locationMap,
+            event.markerIcon,
+            event.markers,
+            event.markerID);
+        emit(SetPickMarkerState(markers: event.markers,markerID: event.markerID,markerIcon: event.markerIcon,locationMap: event.locationMap,model: event.model));
+      }
+    });*/
   }
-
 
   Future<void> _fetchLocation(HomeEvent event, Emitter<HomeState> emit) async {
     try {
@@ -160,8 +167,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     }
   }
 
-  getDropAddress(
-      double dropLat, double dropLng, DropLocationModel model) async {
+  getDropAddress(double dropLat, double dropLng,
+      DropLocationModel model) async {
     http.Response response = await http.get(Uri.parse(
         "https://maps.googleapis.com/maps/api/geocode/json?latlng=$dropLat,$dropLng&key=$apiKey"));
     if (response.statusCode == 200) {
@@ -258,10 +265,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     pickLocationMap = model.toMap();
   }
 
-  getLatLngFromAddressDrop(
-    List<dynamic> placeList,
-    int index,
-  ) async {
+  getLatLngFromAddressDrop(List<dynamic> placeList,
+      int index,) async {
     var result = await locationFromAddress(placeList[index]["description"]);
     DropLocationModel model = DropLocationModel(
       title: placeList[index]["structured_formatting"]["main_text"],
@@ -274,18 +279,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     dropLocationMap = model.toMap();
   }
 
-  hideButton(bool hide){
+  hideButton(bool hide) {
     selectedLocation = hide;
     emit(HideButton(hideButton: hide));
   }
 
-  clearPickLocation(TextEditingController controller,Map locationMap){
+  clearPickLocation(TextEditingController controller, Map locationMap) {
     controller.clear();
     locationMap.clear();
     emit(ClearPickLocation(controller: controller, locationMap: locationMap));
   }
 
-  setLocation(){
+  setLocation() {
     emit(setLocation());
   }
 
@@ -297,26 +302,66 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         "$directionBaseUrl?origin=$pointALat,$pointALng&destination=$pointBLat,$pointBLng&key=$apiKey";
     var response = await http.get(Uri.parse(directionApiUrl));
     if (response.statusCode == 200) {
+      debugPrint("///301///${jsonDecode(response.body)}");
       var data = jsonDecode(response.body.toString())["routes"][0];
+      debugPrint("///303///$data");
       final legs = data["legs"][0];
       var travelTime = legs["duration"]["value"];
       if (travelTime <= 3599) {
         int sec = travelTime % 60;
         int min = (travelTime / 60).floor();
-        String minute = min.toString().length <= 1 ? "0$min" : "$min";
-        String second = sec.toString().length <= 1 ? "0$sec" : "$sec";
+        String minute = min
+            .toString()
+            .length <= 1 ? "0$min" : "$min";
+        String second = sec
+            .toString()
+            .length <= 1 ? "0$sec" : "$sec";
         String travelT = "$minute min, $second sec";
         return travelT;
-      } else {
+      }
+      else {
         int minte = travelTime % 60;
         int hours = (travelTime / 3600).floor();
-        String minute = minte.toString().length <= 1 ? "0$minte" : "$minte";
-        String hour = hours.toString().length <= 1 ? "0$hours" : "$hours";
+        String minute = minte
+            .toString()
+            .length <= 1 ? "0$minte" : "$minte";
+        String hour = hours
+            .toString()
+            .length <= 1 ? "0$hours" : "$hours";
         String travelT = "$hour hr, $minute min";
         return travelT;
       }
-    } else {
+    }
+    else {
       throw Exception("///727//faild to load data//$Exception");
     }
   }
+
+  setFareInField(){
+    emit(SetFareFieldState());
+  }
+
+/*  _setMarker(HomeEvent event, Emitter<HomeState> emit, LocationModel model,
+      Map locationMap, String markerIcon, Set<Marker> markers,
+      Uint8List? markerID) async {
+    LocationModel model = LocationModel.fromMap(locationMap);
+    markers.clear();
+    markerID =
+    await getBytesFromAsset(markerIcon, (100.h).toInt());
+
+    if (model.address != null) {
+      markers.add(
+        Marker(
+          markerId: const MarkerId("id-1"),
+          icon: BitmapDescriptor.fromBytes(markerID!),
+          position: LatLng(model.lat!, model.lng!),
+        ),
+      );
+    }
+    emit(SetPickMarkerState(model: model,
+        locationMap: locationMap,
+        markerIcon: markerIcon,
+        markerID: markerID,
+        markers: markers));
+  }*/
 }

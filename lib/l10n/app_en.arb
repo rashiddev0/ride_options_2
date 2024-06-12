@@ -180,6 +180,10 @@
   "terms_of_service_content": "By using Ride Options you agree to the following terms. You must be of legal age in your jurisdiction to use the service. Users are responsible for accurate account information and are prohibited from sharing login credentials. The app may collect and use user data for service improvement and analytics, as outlined in our Privacy Policy. Users are expected to comply with local laws and regulations while using the app. Ride Options reserves the right to suspend or terminate accounts for violation of these terms. The app's content, features, and availability may change without notice. Users are responsible for keeping their devices secure. For support or inquiries, contact us.",
   "fare": "Fare",
   "recommendedFare": "Recommended fare",
+  "yourOffer": "Your offer",
   "offerAPrice": "Offer a price",
-  "travelTimeApprox": "Travel time approx"
+  "travelTimeApprox": "Travel time approx",
+  "offerYourFare": "Offer your fare",
+  "suggestions" : "Suggestions",
+  "autoAcceptDriverWithMyOffer": "Auto accept driver with my offer"
 }

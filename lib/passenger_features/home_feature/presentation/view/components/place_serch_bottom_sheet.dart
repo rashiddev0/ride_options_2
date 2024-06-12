@@ -179,6 +179,7 @@ class PlaceSearchSheet extends StatelessWidget {
                                 Navigator.pop(context);
                                 //loadingAlertDialog(context: context);
                                 if (homeBloc.pickLocationTextController == true) {
+                                  Navigator.pushNamedAndRemoveUntil(context, AppRoute.mapLoad, (route) => false);
                                   await homeBloc.getLatLngFromAddress(
                                       homeBloc.placeList, index);
                                   if (context.mounted) {
@@ -186,10 +187,11 @@ class PlaceSearchSheet extends StatelessWidget {
                                         homeBloc.placeList[index]
                                             ["description"];
                                     //Navigator.pop(context);
-                                    Navigator.pushNamed(
-                                        context, AppRoute.locationMapScreen);
+                                    Navigator.pushNamedAndRemoveUntil(context, AppRoute.mapLoad, (route) => false);
                                   }
-                                } else if (homeBloc.pickLocationTextController == false) {
+                                }
+                                else if (homeBloc.pickLocationTextController == false) {
+                                  Navigator.pushNamedAndRemoveUntil(context, AppRoute.mapLoad, (route) => false);
                                   await homeBloc.getLatLngFromAddressDrop(
                                       homeBloc.placeList, index);
                                   homeBloc.dropLocationController.text =
@@ -197,8 +199,7 @@ class PlaceSearchSheet extends StatelessWidget {
                                   ["description"];
                                   if (context.mounted) {
                                     //Navigator.pop(context);
-                                    Navigator.pushNamed(
-                                        context, AppRoute.locationMapScreen);
+                                    //Navigator.pushNamedAndRemoveUntil(context, AppRoute.mapLoad, (route) => false);
                                     homeBloc.setLocation();
                                   }
                                 }

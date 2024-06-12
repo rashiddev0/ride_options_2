@@ -16,6 +16,7 @@ import 'package:ride_options_2/driver_features/home/presentation/view/driver_bot
 import 'package:ride_options_2/driver_features/wallet/presentation/view/referral_wallet_screen.dart';
 
 import '../common_features/auth/presentation/view/number/number_screen.dart';
+import '../passenger_features/home_feature/presentation/view/components/load_map.dart';
 import '../passenger_features/home_feature/presentation/view/courier_screen.dart';
 import '../passenger_features/home_feature/presentation/view/drag_screen.dart';
 import '../passenger_features/home_feature/presentation/view/home_screen.dart';
@@ -47,6 +48,7 @@ class AppRoute {
   static const courierScreen = '/courier_screen';
   static const settingScreen = '/setting_screen';
   static const themeScreen = '/theme_screen';
+  static const mapLoad = '/load_map';
 
   ///*********** Driver Routes
   static const vehicleTypeScreen = '/vehicleTypeScreen';
@@ -250,6 +252,12 @@ class AppRoute {
       case referralWalletScreen:
         return MaterialPageRoute(
           builder: (_) => const ReferralWalletScreen(),
+          settings: settings,
+        );
+
+      case mapLoad:
+        return MaterialPageRoute(
+          builder: (_) => const LoadMap(),
           settings: settings,
         );
 

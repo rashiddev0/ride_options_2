@@ -53,11 +53,13 @@ dependencies:
   geocoding: ^3.0.0
   http: ^1.2.1
   uuid: ^4.4.0
-  interactive_bottom_sheet: ^1.0.0
+  #interactive_bottom_sheet: ^1.0.0
   flutter_datetime_picker_plus: ^2.2.0
   sheet: ^1.0.0
+  simple_gesture_detector: ^0.2.1
 
-  bloc: ^8.1.4
+  #bloc: ^8.1.4
+  equatable: ^2.0.5
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,3 +1,4 @@
+import 'package:ride_options_2/passenger_features/bloc_test/test_map/test_map_view.dart';
 import 'package:scroll_loop_auto_scroll/scroll_loop_auto_scroll.dart';
 
 import '../../../../../common/const/export.dart';
@@ -174,7 +175,14 @@ class HomeScreen extends StatelessWidget {
                                 categoryName:
                                     AppLocalizations.of(context)!.cityToCity,
                                 categoryImage: AppAssets.cityToCity,
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.pushAndRemoveUntil(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const TestMap()),
+                                      (route) => false);
+                                },
                               ),
                             ],
                           ),
