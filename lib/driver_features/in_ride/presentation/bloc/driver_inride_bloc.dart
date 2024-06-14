@@ -22,6 +22,7 @@ class DriverInRideBloc extends Bloc<DriverInRideEvent, DriverInRideState> {
   List<LatLng> animatedCoordinates = [];
   List<LatLng> polylineCoordinates = [];
   Set<Polyline> polyLines = <Polyline>{};
+  bool tapZoom = false;
 
   Timer? myTimer;
 
@@ -86,25 +87,29 @@ class DriverInRideBloc extends Bloc<DriverInRideEvent, DriverInRideState> {
       );
 
       Future.delayed(const Duration(seconds: 2), () async {
-        await setPolyLines(event, emit, driPinMap, pickLocMap, apiKey);
+        await setPolyLines(
+          event,
+          emit,
+          driPinMap,
+          pickLocMap,
+          apiKey,
+        );
       });
 
       emit(MarkerSetState(
           driPinMap: driPinMap,
           pickLocMap: pickLocMap,
-          //color: color,
           apiKey: apiKey));
     }
   }
 
   Future<void> setPolyLines(
-    MarkerSetEvent event,
-    Emitter<DriverInRideState> emit,
-    Map driPinMap,
-    Map pickLocMap,
-    String apiKey,
-    //Color color
-  ) async {
+      MarkerSetEvent event,
+      Emitter<DriverInRideState> emit,
+      Map driPinMap,
+      Map pickLocMap,
+      String apiKey,
+      ) async {
     LocationModel driPinModel = LocationModel.fromMap(driPinMap);
     LocationModel pickPinModel = LocationModel.fromMap(pickLocMap);
 
@@ -115,6 +120,7 @@ class DriverInRideBloc extends Bloc<DriverInRideEvent, DriverInRideState> {
     if (myTimer?.isActive != true) {
       PolylineResult result = await polylinePoints.getRouteBetweenCoordinates(
           apiKey,
+          travelMode: TravelMode.driving,
           PointLatLng(driPinModel.lat!, driPinModel.lng!),
           PointLatLng(pickPinModel.lat!, pickPinModel.lng!));
       if (result.status == "OK") {
@@ -147,7 +153,6 @@ class DriverInRideBloc extends Bloc<DriverInRideEvent, DriverInRideState> {
                   : emit((MarkerSetState(
                       driPinMap: driPinMap,
                       pickLocMap: pickLocMap,
-                      //color: color,
                       apiKey: apiKey)));
               //emit.isDone == true ? emit(SetPoly()) : emit(SetPoly());
             } else {
@@ -156,12 +161,10 @@ class DriverInRideBloc extends Bloc<DriverInRideEvent, DriverInRideState> {
                   ? (MarkerSetState(
                       driPinMap: driPinMap,
                       pickLocMap: pickLocMap,
-                      //color: color,
                       apiKey: apiKey))
                   : emit(MarkerSetState(
                       driPinMap: driPinMap,
                       pickLocMap: pickLocMap,
-                      //color: color,
                       apiKey: apiKey));
             }
           });
@@ -213,4 +216,18 @@ class DriverInRideBloc extends Bloc<DriverInRideEvent, DriverInRideState> {
       throw 'No maps app installed.';
     }
   }
+
+  centerButton(Map pickLocMap) {
+    tapZoom = !tapZoom;
+    LocationModel pickModel = LocationModel.fromMap(pickLocMap);
+      mapController?.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: LatLng(pickModel.lat!, pickModel.lng!),
+            zoom: tapZoom == true ? 19.0 : 16,
+          ),
+        ),
+      );
+  }
+
 }

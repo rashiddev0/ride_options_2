@@ -7,10 +7,8 @@ import 'package:sheet/sheet.dart';
 import '../../../../../common/const/export.dart';
 import '../../../home_feature/data/models/location.dart';
 import '../../../home_feature/presentation/bloc/homeBloc/home_bloc.dart';
-import '../../../home_feature/presentation/bloc/homeBloc/home_state.dart';
 import '../../../home_feature/presentation/view/location_map_screen.dart';
 import '../bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
-import '../bloc/in_ride_map_bloc/in_ride_map_event.dart';
 import 'components/driver_deatail_sheet.dart';
 
 class InRideMap extends StatefulWidget {
@@ -29,7 +27,7 @@ class _InRideMapState extends State<InRideMap> {
     final inRideMapBloc = BlocProvider.of<InRideMapBloc>(context);
     LocationModel pickLocation =
     LocationModel.fromMap(homeBloc.pickLocationMap);
-    Size size = MediaQuery.of(context).size;
+    //Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: pickLocation.lat != null
           ? BlocConsumer<InRideMapBloc, InRideMapState>(

@@ -154,7 +154,6 @@ class DriverRideDetailSheet extends StatelessWidget {
                   }else{
                     return Theme.of(context).primaryColor;
                   }
-                  return Theme.of(context).primaryColor.withOpacity(0.10); // Default color
                 },
               ),
             ),

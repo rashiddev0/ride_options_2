@@ -22,7 +22,6 @@ class DriverInRideScreen extends StatelessWidget {
           driPinMap: homeBloc.pickLocationMap,
           pickLocMap: dInRideBloc.pickLocation,
           apiKey: homeBloc.apiKey,
-          //color: Theme.of(context).primaryColor
         )),
       child: Builder(builder: (context) => _buildPage(context)),
     );
@@ -76,8 +75,16 @@ class DriverInRideScreen extends StatelessWidget {
                 child: Directionality(
                   textDirection: TextDirection.ltr,
                   child: Container(
-                    color: Theme.of(context).scaffoldBackgroundColor,
                     height: 150.h,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(16.r),
+                          topRight: Radius.circular(16.r)),
+                      // border: Border.all(
+                      //     width: 3.w,
+                      //     color: Theme.of(context).primaryColor)
+                    ),
                     child: Column(
                       children: [
                         addHeight(6.h),
@@ -210,17 +217,27 @@ class DriverInRideScreen extends StatelessWidget {
                 bottom: 160.h,
                 child: InkWell(
                   onTap: () {
-                    //centerButton();
+                    dInRideBloc.centerButton(homeBloc.pickLocationMap);
                   },
                   child: Row(
                     children: [
+
+                      addWidth(100.w),
+                      InkWell(
+                          onTap: () {
+                            dInRideBloc.openMap(
+                                LatLng(pickModel.lat!, pickModel.lng!),
+                                LatLng(dropModel.lat!, dropModel.lng!));
+                          },
+                          child: SvgPicture.asset(AppAssets.googleMapButton)),
+                      addWidth(60.w),
                       Container(
                         height: 40.h,
                         width: 40.w,
                         padding: EdgeInsets.all(8.h),
                         decoration: BoxDecoration(
                           color:
-                              Theme.of(context).colorScheme.onPrimaryContainer,
+                          Theme.of(context).colorScheme.onPrimaryContainer,
                           borderRadius: BorderRadius.circular(100.r),
                         ),
                         child: SvgPicture.asset(
@@ -229,14 +246,7 @@ class DriverInRideScreen extends StatelessWidget {
                           width: 22.5,
                         ),
                       ),
-                      addWidth(60.w),
-                      InkWell(
-                          onTap: () {
-                            dInRideBloc.openMap(
-                                LatLng(pickModel.lat!, pickModel.lng!),
-                                LatLng(dropModel.lat!, dropModel.lng!));
-                          },
-                          child: SvgPicture.asset(AppAssets.googleMapButton)),
+
                     ],
                   ),
                 ),

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:equatable/equatable.dart';
 
 abstract class DriverInRideEvent extends Equatable {
@@ -15,13 +13,11 @@ class InitEvent extends DriverInRideEvent {}
 class MarkerSetEvent extends DriverInRideEvent {
   Map driPinMap, pickLocMap;
   String apiKey;
-  //Color color;
 
   MarkerSetEvent(
       {required this.driPinMap,
       required this.pickLocMap,
       required this.apiKey,
-      //required this.color
       });
 }
 
