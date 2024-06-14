@@ -27,8 +27,10 @@ class SplashScreen extends StatelessWidget {
       homeBloc.getCurrentLatLng();
       /*Navigator.pushNamedAndRemoveUntil(
           context, AppRoute.onboardingOne, (route) => false);*/
+      /*Navigator.pushNamedAndRemoveUntil(
+          context, AppRoute.passengerHome, (route) => false);*/
       Navigator.pushNamedAndRemoveUntil(
-          context, AppRoute.passengerHome, (route) => false);
+          context, AppRoute.drivrNavBar, (route) => false);
     });
   }
 }

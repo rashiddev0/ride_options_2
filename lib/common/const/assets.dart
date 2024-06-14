@@ -75,6 +75,6 @@ class AppAssets {
   static const contactUs = 'assets/icons/contactUs.svg';
   static const termsOfService = 'assets/icons/termsOfService.svg';
   static const centerLocationIcon = 'assets/imgs/centerLocationIcon.svg';
-
-
+  static const driverPin = 'assets/imgs/driverPin.png';
+  static const googleMapButton = 'assets/imgs/google_map_button.svg';
 }

@@ -184,5 +184,7 @@
   "travelTimeApprox": "سفر کا وقت تقریبا",
   "offerYourFare": "اپنا کرایہ پیش کریں",
   "suggestions" : "تجاویز",
-  "autoAcceptDriverWithMyOffer": "میری پیشکش کے ساتھ ڈرائیور کو آٹو قبول کریں"
+  "autoAcceptDriverWithMyOffer": "میری پیشکش کے ساتھ ڈرائیور کو آٹو قبول کریں",
+  "contactPassengerVia" : "مسافر کو تلاش کرنے کے لیے پیغام یا کال کے ذریعے رابطہ کریں.",
+  "notifyPassenger" : "مسافر کو مطلع کریں"
 }

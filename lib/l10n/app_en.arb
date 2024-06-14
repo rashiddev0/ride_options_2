@@ -185,5 +185,7 @@
   "travelTimeApprox": "Travel time approx",
   "offerYourFare": "Offer your fare",
   "suggestions" : "Suggestions",
-  "autoAcceptDriverWithMyOffer": "Auto accept driver with my offer"
+  "autoAcceptDriverWithMyOffer": "Auto accept driver with my offer",
+  "contactPassengerVia" : "Contact passenger via message or call to find him/her.",
+  "notifyPassenger" : "Notify passenger"
 }

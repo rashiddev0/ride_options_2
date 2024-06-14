@@ -95,34 +95,40 @@ class RideRequestScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.labelMedium,
                         ),
                         const Spacer(),
-                        Container(
-                          alignment: Alignment.center,
-                          width: 150.w,
-                          height: 42.h,
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.primary,
-                            borderRadius: BorderRadius.circular(24.r),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Accepts",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium!
-                                    .copyWith(
-                                        color: AppColors.white,
-                                        fontSize: 22.sp,
-                                        fontWeight: FontWeight.w700),
-                              ),
-                              addWidth(12.w),
-                              Icon(
-                                Icons.check,
-                                color: AppColors.white,
-                                size: 26.sp,
-                              )
-                            ],
+                        InkWell(
+                          onTap: () {
+                            Navigator.pushNamedAndRemoveUntil(context,
+                                AppRoute.driverInRideScreen, (route) => false);
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 150.w,
+                            height: 42.h,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.primary,
+                              borderRadius: BorderRadius.circular(24.r),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Accepts",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineMedium!
+                                      .copyWith(
+                                          color: AppColors.white,
+                                          fontSize: 22.sp,
+                                          fontWeight: FontWeight.w700),
+                                ),
+                                addWidth(12.w),
+                                Icon(
+                                  Icons.check,
+                                  color: AppColors.white,
+                                  size: 26.sp,
+                                )
+                              ],
+                            ),
                           ),
                         )
                       ]),

@@ -2,6 +2,7 @@ import 'package:ride_options_2/common/const/export.dart';
 import 'package:ride_options_2/common/localization/cubit/localization_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_cubit.dart';
 import 'package:ride_options_2/common/theme/cubits/theme_state.dart';
+import 'package:ride_options_2/driver_features/in_ride/presentation/bloc/driver_inride_bloc.dart';
 import 'package:ride_options_2/passenger_features/bloc_test/test_map/test_map_bloc.dart';
 import 'package:ride_options_2/passenger_features/home_feature/presentation/bloc/homeBloc/home_bloc.dart';
 import 'package:ride_options_2/passenger_features/ride_feature/presentation/bloc/in_ride_map_bloc/in_ride_map_bloc.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
             BlocProvider(create: (_) => InRideMapBloc()),
             BlocProvider(create: (_) => InternetCubit()),
             BlocProvider(create: (_) => DriverAuthCubit()),
+            BlocProvider(create: (_) => DriverInRideBloc()),
             BlocProvider(create: (_) => TestMapBloc()),
           ],
           child: BlocBuilder<ThemeCubit, ThemeState>(
@@ -59,6 +61,7 @@ class MyApp extends StatelessWidget {
                     title: 'Ride Options',
                     onGenerateRoute: AppRoute.generateRoute,
                     initialRoute: AppRoute.splashScreen,
+                    //initialRoute: AppRoute.drivrNavBar,
                     theme: AppTheme.lightTheme(
                       context,
                       locale.toString() == "ur" ? "jameelUrdu" : "Nunito",

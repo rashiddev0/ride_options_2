@@ -57,6 +57,8 @@ dependencies:
   flutter_datetime_picker_plus: ^2.2.0
   sheet: ^1.0.0
   simple_gesture_detector: ^0.2.1
+  animated_toggle_switch: ^0.8.2
+  map_launcher: ^3.3.1
 
   #bloc: ^8.1.4
   equatable: ^2.0.5

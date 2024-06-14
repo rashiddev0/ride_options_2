@@ -16,6 +16,7 @@ import 'package:ride_options_2/driver_features/home/presentation/view/driver_bot
 import 'package:ride_options_2/driver_features/wallet/presentation/view/referral_wallet_screen.dart';
 
 import '../common_features/auth/presentation/view/number/number_screen.dart';
+import '../driver_features/in_ride/presentation/view/driver_inride_screen.dart';
 import '../passenger_features/home_feature/presentation/view/components/load_map.dart';
 import '../passenger_features/home_feature/presentation/view/courier_screen.dart';
 import '../passenger_features/home_feature/presentation/view/drag_screen.dart';
@@ -77,6 +78,7 @@ class AppRoute {
   static const complainScreen = '/complainScreen';
   static const walletScreen = '/WalletScreen';
   static const referralWalletScreen = '/ReferralWalletScreen';
+  static const driverInRideScreen = "/driver_inride_screen";
 
   static Route<Object>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -258,6 +260,12 @@ class AppRoute {
       case mapLoad:
         return MaterialPageRoute(
           builder: (_) => const LoadMap(),
+          settings: settings,
+        );
+
+      case driverInRideScreen:
+        return MaterialPageRoute(
+          builder: (_) => const DriverInRideScreen(),
           settings: settings,
         );
 
